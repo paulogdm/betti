@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="Login">
 <head>
+
 	<!-- Angular Material requires Angular.js Libraries -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
@@ -9,7 +10,6 @@
 
 	<!-- Angular Material Library -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-	<script src="js/login.js"></script>
 
 	<!-- MDL Library -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,6 +19,8 @@
 	<!--My CSS -->
 	<link rel="stylesheet" href="css/login.css">
 	
+	<!--My JS -->
+	<script src="js/login.js"></script>
 
 	<title>Login</title>
 
@@ -74,21 +76,9 @@
 				</div>
 			</dialog>
 
-			<!-- tirar script daqui -->
-			<script>
-				var dialog = document.querySelector('dialog');
-				var showDialogButton = document.querySelector('#signup');
-				if (! dialog.showModal) {
-					dialogPolyfill.registerDialog(dialog);
-				}
-				showDialogButton.addEventListener('click', function() {
-					dialog.showModal();
-				});
-				dialog.querySelector('.close').addEventListener('click', function() {
-					dialog.close();
-				});
-			</script>
-			<!-- tirar script daqui -->
+			<!-- pq script tem q estar aq? -->
+			<script src="js/login.js"></script>
+			
 
 		</div>
 
