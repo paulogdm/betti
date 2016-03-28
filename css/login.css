@@ -22,8 +22,19 @@ form {
 }
 
 .box_container { 
-	position: relative; 
-	margin-bottom: 15px; 
+	position: relative;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.text_gray_color {
+	color: #9E9E9E;
+}
+
+.signup_container {
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+	text-align: center;
 }
 
 .buttons {
