@@ -10,3 +10,10 @@ dialog.querySelector('.close').addEventListener('click', function() {
 	dialog.close();
 });
 
+$(document).ready(function(){
+		var bg_imgs = ["login1.jpg", "login2.jpg", "login3.jpg", "login4.jpg"];
+		var imgCount = 4;
+		var dir = 'img/';
+		var randomCount = Math.floor(Math.random() * (imgCount - 1))+1;
+		document.body.style.backgroundImage = "url(" + dir + bg_imgs[randomCount] + ")";
+});
