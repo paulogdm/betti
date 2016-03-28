@@ -1,0 +1,50 @@
+body {
+	/*background: #607D8B;*/
+	background: url(../img/login1.jpg) fixed;
+	-webkit-font-smoothing: antialiased;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	overflow: hidden;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+
+form {
+	overflow: visible;
+	width: 310px;
+	margin: 20em auto;
+	padding: 3em 2em 2em 2em;
+	background: #fafafa;
+	border: 1px solid #ebebeb;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.box_container { 
+	position: relative; 
+	margin-bottom: 15px; 
+}
+
+.buttons {
+	position: relative;
+	bottom: -55px;
+	z-index: 1;
+	text-align: center;
+}
+
+.submit_button {
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.add_button {
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.spacer{
+	width:190px;
+	height:auto;
+	display:inline-block;
+}
+
+input:focus { outline: none; }

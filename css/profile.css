@@ -1,0 +1,79 @@
+.container {
+	position: relative;
+}
+
+.profile_photo {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	text-align:center;
+
+	float: left;
+	margin-left: 10px;
+	margin-top: 125px;
+
+	background: url(../img/profile.jpg) no-repeat;
+	background-position: 50% 50%;
+}
+
+.profile_photo img {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.profile_name {
+	color: white;
+	position: absolute;
+	top: 250px;
+	left: 350px;
+	font-size: 400%;
+	text-shadow: 0 0 10px rgba(0, 0, 0, .8);
+}
+
+.upper_container {
+	height: 430px;
+	overflow: hidden;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.cover_photo {
+	background: url('../img/cover.jpg') center/cover;
+	height: 430px;
+	overflow: hidden;
+}
+
+.test {
+	background-color: #E91E63;
+}
+
+.left_menu {
+	font-size: 500px;
+}
+
+.main_posts {
+	margin-top: 10px; 
+	margin-left: 250px;
+	overflow: visible;
+}
+
+.post_container {
+	margin-top: 15px;
+	margin-bottom: 10px;
+	overflow: visible;
+}
+
+.card_container {
+	overflow: visible;
+}
+
+.comment_button {
+	position: absolute;
+	bottom: -20px;
+	left: 10px;
+	z-index: 1;
+}
