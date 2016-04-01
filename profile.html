@@ -17,9 +17,9 @@
 	<link rel="stylesheet" href="css/profile.css">
 	
 	<!--My JS -->
-	<script src="js/login.js"></script>
+	<script src="js/profile.js"></script>
 
-	<title>Login</title>
+	<title>Profile</title>
 
 </head>
 
@@ -29,15 +29,11 @@
 		<div class="cover_photo"></div>
 		<div class="profile_photo"></div>
 		<span class="profile_name">Grumpy Cat</span>
+
+
 		<div class="upper_bar">
 			<div class="upper_bar_content">
-				sample
-			</div>
-			<div class="upper_bar_content">
-				sample
-			</div>
-			<div class="upper_bar_content">
-				sample
+				Im fear. Im angry. Im hungry. Thats me. And you?
 			</div>
 		</div>
 	</header>
@@ -47,9 +43,10 @@
 			<div class="mdl-layout__drawer">
 				<span class="mdl-layout-title">Grumpy's places</span>
 				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="">Friends</a>
-					<a class="mdl-navigation__link" href="">Groups</a>
-					<a class="mdl-navigation__link" href="">More info</a>
+					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i> Home</a>
+					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i> Friends</a>
+					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i> Groups</a>
+					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">info_outline</i> More info</a>
 				</nav>
 			</div>
 		</div>
@@ -57,11 +54,75 @@
 
 	<main class="mdl-layout__content">
 		<div class="main_posts">
+
 			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
-				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
+					<div class="mdl-card__supporting-text">
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+								<input class="mdl-textfield__input" type="text" style="font-size: 150%" id="new_title">
+								<label class="mdl-textfield__label" for="new_title" style="font-size: 150%">Title</label>
+							</div>
+						</form>
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
+								<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" ></textarea>
+								<!-- <input class="mdl-textfield__input" type="text" id="new_text"> -->
+								<label class="mdl-textfield__label" for="new_text">Post</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+
+
+			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
 					<div class="mdl-card__supporting-text">
 						<h4>Meow</h4>
 						Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 80%">
+								<input class="mdl-textfield__input" type="text" id="comment1">
+								<label class="mdl-textfield__label" for="comment1">Comment</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
+					<div class="mdl-card__supporting-text">
+						<h4>Meow</h4>
+						Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 80%">
+								<input class="mdl-textfield__input" type="text" id="comment1">
+								<label class="mdl-textfield__label" for="comment1">Comment</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
+					<div class="mdl-card__supporting-text">
+						<h4>Meow</h4>
+						Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 80%">
+								<input class="mdl-textfield__input" type="text" id="comment1">
+								<label class="mdl-textfield__label" for="comment1">Comment</label>
+							</div>
+						</form>
 					</div>
 				</div>
 			</section>
