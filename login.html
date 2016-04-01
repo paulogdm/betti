@@ -10,6 +10,9 @@
 	<!--JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
+	<!--ANGULAR -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	
 	<!--My CSS -->
 	<link rel="stylesheet" href="css/login.css">
 	
@@ -34,7 +37,7 @@
 			<span class="mdl-textfield__error">Wrong Password!</span>
 		</div>
 		<div class="signup_container">
-			<button id="signup" type= "button" class="text_gray_color mdl-button mdl-js-button mdl-button--raised">SIGNUP</button>
+			<button id="signup" type= "button" class="text_gray_color mdl-button mdl-js-button mdl-button--raised" onclick="showDialog()">SIGNUP</button>
 			<dialog class="mdl-dialog">
 				<h4 class="mdl-dialog__title">Join us!</h4>
 				<div class="mdl-dialog__content">
@@ -66,12 +69,12 @@
 				</div>
 				<div class="mdl-dialog__actions">
 					<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Ready!</button>
-					<button type="button" class="text_gray_color mdl-button close">Close</button>
+					<button type="button" class="text_gray_color mdl-button close" onclick="hideDialog()">Close</button>
 				</div>
 			</dialog>
 
 			<!-- pq script tem q estar aq? -->
-			<script src="js/login.js"></script>
+			<!-- <script src="js/login.js"></script> -->
 
 
 		</div>
