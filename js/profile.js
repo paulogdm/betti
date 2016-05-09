@@ -13,7 +13,6 @@ angApp.controller('ProfileController', ['$scope', function($scope) {
 
 angApp.controller('PostsController', ['$scope', function($scope) { 
 
-
 	$scope.allPosts = [ 
 	{ 
 		title: 'TESTE1',
@@ -24,5 +23,10 @@ angApp.controller('PostsController', ['$scope', function($scope) {
 		text: 'TESTE2'
 	} 
 	]
+
+	if($scope.allPosts)
+	{
+		
+	}
 
 }]);
