@@ -17,13 +17,22 @@ body {
 	top: 120px;
 	left: 10px;
 
-	background: url(../img/profile.jpg) no-repeat;
+	background: no-repeat;
 	background-position: 50% 50%;
 }
 
 .profile_photo img {
 	opacity: 0;
 	filter: alpha(opacity=0);
+}
+
+.cover_photo img{
+	position: relative;
+	top: 0;
+	left: 0;
+	background: center no-repeat;
+	height: 370px;
+	overflow: hidden;
 }
 
 .profile_name {
@@ -43,14 +52,6 @@ body {
 	margin-bottom: 10px;
 }
 
-.cover_photo {
-	position: relative;
-	top: 0;
-	left: 0;
-	background: url('../img/cover.jpg') center no-repeat;
-	height: 370px;
-	overflow: hidden;
-}
 
 .upper_bar{
 	background-color: #0196F3;
@@ -71,9 +72,16 @@ body {
 	max-height: 430px;
 }
 
+.comment_box {
+	margin-left: 250px;
+	margin-right: 10px;
+	width: calc(80vw);
+}
+
 .main_posts {
 	margin-left: 250px;
 	margin-right: 10px;
+	width: calc(80vw);
 }
 
 .post_container {

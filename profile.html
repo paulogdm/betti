@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Profile">
+<html>
 <head>
 
 	<!-- MDL Library -->
@@ -24,37 +24,40 @@
 </head>
 
 
-<body>
-	<header class="upper_container">
-		<div class="cover_photo"></div>
-		<div class="profile_photo"></div>
-		<span class="profile_name">Grumpy Cat</span>
+<body ng-app="betti-profile-app">
+	<div ng-controller="ProfileController">
+		<header class="upper_container">
+
+			<img class="cover_photo" ng-src="{{cover_photo}}">
+			<img class="profile_photo" ng-src="{{profile_photo}}">
+			<span class="profile_name"> {{name}} {{last_name}}</span>
 
 
-		<div class="upper_bar">
-			<div class="upper_bar_content">
-				Im fear. Im angry. Im hungry. Thats me. And you?
+			<div class="upper_bar">
+				<div class="upper_bar_content">
+					Im fear. Im angry. Im hungry. Thats me. And you?
+				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 
-	<aside>
-		<div class="left_menu mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-			<div class="mdl-layout__drawer">
-				<span class="mdl-layout-title">Grumpy's places</span>
-				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i> Home</a>
-					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i> Friends</a>
-					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i> Groups</a>
-					<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">info_outline</i> More info</a>
-				</nav>
+		<aside>
+			<div class="left_menu mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+				<div class="mdl-layout__drawer">
+					<span class="mdl-layout-title">{{name}}'s places</span>
+					<nav class="mdl-navigation">
+						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i> Home</a>
+						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i> Friends</a>
+						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i> Groups</a>
+						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">info_outline</i> More info</a>
+					</nav>
+				</div>
 			</div>
-		</div>
-	</aside>
+		</aside>
+	</div>
+
 
 	<main class="mdl-layout__content">
-		<div class="main_posts">
-
+		<div class="comment_box">
 			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
 				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
 					<div class="mdl-card__supporting-text">
@@ -74,47 +77,14 @@
 					</div>
 				</div>
 			</section>
+		</div>
 
-
-			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+		<div class="main_posts" ng-controller="PostsController">
+			<section ng-repeat="post in allPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
 				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
 					<div class="mdl-card__supporting-text">
-						<h4>Meow</h4>
-						Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor
-					</div>
-					<div class="mdl-card__actions mdl-card--border">
-						<form action="#">
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 80%">
-								<input class="mdl-textfield__input" type="text" id="comment1">
-								<label class="mdl-textfield__label" for="comment1">Comment</label>
-							</div>
-						</form>
-					</div>
-				</div>
-			</section>
-
-			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
-				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
-					<div class="mdl-card__supporting-text">
-						<h4>Meow</h4>
-						Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor
-					</div>
-					<div class="mdl-card__actions mdl-card--border">
-						<form action="#">
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 80%">
-								<input class="mdl-textfield__input" type="text" id="comment1">
-								<label class="mdl-textfield__label" for="comment1">Comment</label>
-							</div>
-						</form>
-					</div>
-				</div>
-			</section>
-
-			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
-				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp" style="width: 100%">
-					<div class="mdl-card__supporting-text">
-						<h4>Meow</h4>
-						Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor
+						<h4>{{post.title}}</h4>
+						{{post.text}}
 					</div>
 					<div class="mdl-card__actions mdl-card--border">
 						<form action="#">
