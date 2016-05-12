@@ -106,15 +106,11 @@ body {
 	max-height: 430px;
 }
 
+
+
 @media (min-width:1025px){
 
-	.comment_box {
-		margin-left: 250px;
-		margin-right: 10px;
-		width: calc(80vw);
-	}
-
-	.main_posts {
+	.main_div {
 		margin-left: 250px;
 		margin-right: 10px;
 		width: calc(80vw);
@@ -123,13 +119,7 @@ body {
 
 @media (max-width:1025px){
 
-	.comment_box {
-		margin-left: 50px;
-		margin-right: 10px;
-		width: calc(80vw);
-	}
-
-	.main_posts {
+	.main_div {
 		margin-left: 50px;
 		margin-right: 10px;
 		width: calc(80vw);
@@ -148,7 +138,5 @@ body {
 }
 
 .mdl-layout__drawer-button {
-  /* This background is dark, so we set text to white. Use 87% black instead if
-  your background is light. */
   color: white;
 }
