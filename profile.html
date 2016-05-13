@@ -23,7 +23,7 @@
 
 <body ng-app="betti-profile-app">
 	<!-- HEADER AND SIDEBAR BEGIN -->
-	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
 		<header class="main-header mdl-layout__header mdl-color--blue-400 mdl-color-text--grey-600">
 			<div class="mdl-layout__header-row">
 				<span class="mdl-layout-title mdl-color-text--white">Home</span>
@@ -44,17 +44,17 @@
 		</header>
 		<div class="sidebar-drawer mdl-layout__drawer mdl-color--blue-grey-400 mdl-color-text--white">
 			<header class="sidebar-drawer-header">
-				<img src="img/profile.jpg" class="sidebar-avatar">
+				<img ng-src="{{user_avatar}}" class="sidebar-avatar">
 				<div class="sidebar-name-container">
-					<span>LOREM LOREM</span>
+					<span>{{user_name}}</span>
 					<div class="mdl-layout-spacer"></div>
 				</div>
 			</header>
 			<nav class="sidebar-navigation mdl-navigation mdl-color--white">
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i>My Profile</a>
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i>Profile</a>
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>Updates</a>
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i>Friends</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">bubble_chart</i>My Groups</a>
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">bubble_chart</i>Groups</a>
 
 				<div class="mdl-layout-spacer"></div>
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">settings</i><span >Settings</span></a>
@@ -65,7 +65,9 @@
 		<main class="mdl-layout__content mdl-color--grey-100">
 			<div ng-controller="ProfileController">
 				<header class="upper_container">
-					<img class="cover_photo" ng-src="{{cover_photo}}">
+					<div class="cover_photo_container">
+						<img class="cover_photo" ng-src="{{cover_photo}}">
+					</div>
 					<img class="profile_photo" ng-src="{{profile_photo}}">
 					<span class="profile_name mdl-color-text--white"> {{name}} {{last_name}}</span>
 					<div class="upper_bar mdl-color--blue">
@@ -104,6 +106,7 @@
 						<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
 							<div class="mdl-card__supporting-text">
 								<h3 style="display: inline">{{post.title}}</h3>
+								
 								<a style="float: right">{{post.date | date: "H:mm dd-MMM"}}</a>
 								<h4>
 									{{post.text}}
