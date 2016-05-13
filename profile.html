@@ -22,14 +22,49 @@
 
 
 <body ng-app="betti-profile-app">
+
+	<div class="mdl-layout mdl-js-layout">
+		<header class="mdl-layout__header mdl-layout__header--transparent">
+			<div class="mdl-layout__header-row">
+				<label class="mdl-button mdl-js-button mdl-button--icon">
+					<i class="material-icons">home</i>
+				</label>
+
+				<div class="mdl-layout-spacer"></div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+					<label class="mdl-button mdl-js-button mdl-button--icon" for="main-search">
+						<i class="material-icons" style="font-size: 120%">search</i>
+					</label>
+					<div class="mdl-textfield__expandable-holder">
+						<input class="mdl-textfield__input" type="text" style="font-size: 120%" id="main-search">
+						<label class="mdl-textfield__label mdl-color-text--white" for="main-search" style="font-size: 120%"></label>
+					</div>
+				</div>
+				
+				<div class="mdl-layout-spacer"></div>
+				
+				<nav class="mdl-navigation">
+					<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+						<i class="material-icons">settings</i>
+					</button>
+
+					<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+						<i class="material-icons">exit_to_app</i>
+					</button>
+				</nav>
+			</div>
+		</header>
+	</div>
+
 	<div ng-controller="ProfileController">
 		<header class="upper_container">
 
 			<img class="cover_photo" ng-src="{{cover_photo}}">
 			<img class="profile_photo" ng-src="{{profile_photo}}">
-			<span class="profile_name"> {{name}} {{last_name}}</span>
-			<div class="upper_bar">
-				<div class="upper_bar_content">
+			<span class="profile_name mdl-color-text--white"> {{name}} {{last_name}}</span>
+			<div class="upper_bar mdl-color--blue">
+				<div class="upper_bar_content mdl-color-text--white">
 					{{description}}
 				</div>
 			</div>
@@ -40,10 +75,14 @@
 				<div class="mdl-layout__drawer">
 					<span class="mdl-layout-title">{{name}}'s places</span>
 					<nav class="mdl-navigation">
-						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i> Home</a>
+						
+						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i> Profile</a>
+
 						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i> Friends</a>
+						
 						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i> Groups</a>
-						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">info_outline</i> More info</a>
+						
+						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">add_box</i> More of {{name}}</a>
 					</nav>
 				</div>
 			</div>
