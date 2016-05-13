@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 
 	<!-- MDL Library -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -20,136 +21,118 @@
 
 </head>
 
-
 <body ng-app="betti-profile-app">
-
-	<div class="mdl-layout mdl-js-layout">
-		<header class="mdl-layout__header mdl-layout__header--transparent">
+	<!-- HEADER AND SIDEBAR BEGIN -->
+	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+		<header class="main-header mdl-layout__header mdl-color--blue-400 mdl-color-text--grey-600">
 			<div class="mdl-layout__header-row">
-				<label class="mdl-button mdl-js-button mdl-button--icon">
-					<i class="material-icons">home</i>
-				</label>
-
+				<span class="mdl-layout-title mdl-color-text--white">Home</span>
 				<div class="mdl-layout-spacer"></div>
-
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-					<label class="mdl-button mdl-js-button mdl-button--icon" for="main-search">
-						<i class="material-icons" style="font-size: 120%">search</i>
+					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+						<i class="material-icons mdl-color-text--white">search</i>
 					</label>
 					<div class="mdl-textfield__expandable-holder">
-						<input class="mdl-textfield__input" type="text" style="font-size: 120%" id="main-search">
-						<label class="mdl-textfield__label mdl-color-text--white" for="main-search" style="font-size: 120%"></label>
+						<input class="mdl-textfield__input mdl-color-text--white" style="font-size: 150%" type="text" id="search">
 					</div>
 				</div>
-				
 				<div class="mdl-layout-spacer"></div>
-				
-				<nav class="mdl-navigation">
-					<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-						<i class="material-icons">settings</i>
-					</button>
-
-					<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-						<i class="material-icons">exit_to_app</i>
-					</button>
-				</nav>
+				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+					<i class="material-icons mdl-color-text--white">exit_to_app</i>
+				</button>
 			</div>
 		</header>
-	</div>
+		<div class="sidebar-drawer mdl-layout__drawer mdl-color--blue-grey-400 mdl-color-text--white">
+			<header class="sidebar-drawer-header">
+				<img src="img/profile.jpg" class="sidebar-avatar">
+				<div class="sidebar-name-container">
+					<span>LOREM LOREM</span>
+					<div class="mdl-layout-spacer"></div>
+				</div>
+			</header>
+			<nav class="sidebar-navigation mdl-navigation mdl-color--white">
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i>My Profile</a>
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>Updates</a>
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i>Friends</a>
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">bubble_chart</i>My Groups</a>
 
-	<div ng-controller="ProfileController">
-		<header class="upper_container">
+				<div class="mdl-layout-spacer"></div>
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">settings</i><span >Settings</span></a>
+			</nav>
+		</div>
+	<!-- HEADER AND SIDEBAR END -->
 
-			<img class="cover_photo" ng-src="{{cover_photo}}">
-			<img class="profile_photo" ng-src="{{profile_photo}}">
-			<span class="profile_name mdl-color-text--white"> {{name}} {{last_name}}</span>
-			<div class="upper_bar mdl-color--blue">
-				<div class="upper_bar_content mdl-color-text--white">
-					{{description}}
+		<main class="mdl-layout__content mdl-color--grey-100">
+			<div ng-controller="ProfileController">
+				<header class="upper_container">
+					<img class="cover_photo" ng-src="{{cover_photo}}">
+					<img class="profile_photo" ng-src="{{profile_photo}}">
+					<span class="profile_name mdl-color-text--white"> {{name}} {{last_name}}</span>
+					<div class="upper_bar mdl-color--blue">
+						<div class="upper_bar_content mdl-color-text--white">
+							{{description}}
+						</div>
+					</div>
+				</header>
+			</div>
+
+			<div class="main_div mdl-layout__content">
+				<div class="comment_box">
+					<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+						<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+							<div class="mdl-card__supporting-text">
+								<form action="#">
+									<div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+										<input class="mdl-textfield__input" type="text" style="font-size: 150%" id="new_title">
+										<label class="mdl-textfield__label" for="new_title" style="font-size: 150%">Title</label>
+									</div>
+								</form>
+								<form action="#">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
+										<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" ></textarea>
+										<!-- <input class="mdl-textfield__input" type="text" id="new_text"> -->
+										<label class="mdl-textfield__label" for="new_text">Post</label>
+									</div>
+								</form>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="main_posts" ng-controller="PostsController">
+					<section ng-repeat="post in allPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
+						<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+							<div class="mdl-card__supporting-text">
+								<h3 style="display: inline">{{post.title}}</h3>
+								<a style="float: right">{{post.date | date: "H:mm dd-MMM"}}</a>
+								<h4>
+									{{post.text}}
+								</h4>
+							</div>
+
+							<div class="mdl-card__actions mdl-card--border">
+								<button class="mdl-button mdl-js-button mdl-button--icon">
+									<i class="mdl-color-text--blue-grey-400 material-icons">thumb_up</i>
+								</button>
+								<a >{{post.likes | limitTo:2}}</a>
+								&nbsp;&nbsp;&nbsp;
+								<button class="mdl-button mdl-js-button mdl-button--icon" style="margin-left: 15px">
+									<i class="mdl-color-text--blue-grey-400 material-icons">grade</i>
+								</button>
+								<a >{{post.favorites | limitTo:2}}</a>
+								&nbsp;&nbsp;&nbsp;
+								<button class="mdl-button mdl-js-button mdl-button--icon" style="margin-left: 15px">
+									<i class="mdl-color-text--blue-grey-400 material-icons">repeat</i>
+								</button>
+								<a>{{post.forward | limitTo:2}}</a>
+							</div>
+						</div>
+					</section>
 				</div>
 			</div>
-		</header>
 
-		<aside>
-			<div class="left_menu mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-				<div class="mdl-layout__drawer">
-					<span class="mdl-layout-title">{{name}}'s places</span>
-					<nav class="mdl-navigation">
-						
-						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i> Profile</a>
-
-						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i> Friends</a>
-						
-						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i> Groups</a>
-						
-						<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">add_box</i> More of {{name}}</a>
-					</nav>
-				</div>
-			</div>
-		</aside>
+		</main>
 	</div>
 
-
-	<main class="mdl-layout__content main_div">
-		<div class="comment_box">
-			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
-				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
-					<div class="mdl-card__supporting-text">
-						<form action="#">
-							<div class="mdl-textfield mdl-js-textfield" style="width: 100%">
-								<input class="mdl-textfield__input" type="text" style="font-size: 150%" id="new_title">
-								<label class="mdl-textfield__label" for="new_title" style="font-size: 150%">Title</label>
-							</div>
-						</form>
-						<form action="#">
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-								<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" ></textarea>
-								<!-- <input class="mdl-textfield__input" type="text" id="new_text"> -->
-								<label class="mdl-textfield__label" for="new_text">Post</label>
-							</div>
-						</form>
-					</div>
-				</div>
-			</section>
-		</div>
-
-		<div class="main_posts" ng-controller="PostsController">
-			<section ng-repeat="post in allPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
-				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
-					<div class="mdl-card__supporting-text">
-						<h3 style="display: inline">{{post.title}}</h3>
-						<a style="float: right">{{post.date | date: "H:mm dd-MMM"}}</a>
-						<h4>
-							{{post.text}}
-						</h4>
-					</div>
-					
-					<div class="mdl-card__actions mdl-card--border">
-						<button class="mdl-button mdl-js-button mdl-button--icon">
-							<i class="mdl-color-text--blue-grey-400 material-icons">thumb_up</i>
-						</button>
-						<a >{{post.likes | limitTo:2}}</a>
-						&nbsp;&nbsp;&nbsp;
-						<button class="mdl-button mdl-js-button mdl-button--icon" style="margin-left: 15px">
-							<i class="mdl-color-text--blue-grey-400 material-icons">grade</i>
-						</button>
-						<a >{{post.favorites | limitTo:2}}</a>
-						&nbsp;&nbsp;&nbsp;
-						<button class="mdl-button mdl-js-button mdl-button--icon" style="margin-left: 15px">
-							<i class="mdl-color-text--blue-grey-400 material-icons">repeat</i>
-						</button>
-						<a>{{post.forward | limitTo:2}}</a>
-					</div>
-					
-					<!-- ICON OLD SECTION 
-					<div class="mdl-card__actions mdl-card--border">
-						<i class="mdl-color-text--blue-grey-400 material-icons">thumb_up</i>
-						<i class="mdl-color-text--blue-grey-400 material-icons">grade</i>
-						<i class="mdl-color-text--blue-grey-400 material-icons">repeat</i>
-					</div> -->
-				</div>
-			</section>
-		</div>
-	</main>
 </body>
 </html>

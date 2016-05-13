@@ -1,1 +1,960 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"a",
+				"a	<a>"
+			],
+			[
+				"html",
+				"html	html"
+			],
+			[
+				"for",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "profile.html",
+			"settings":
+			{
+				"buffer_size": 5802,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/profile.css",
+			"settings":
+			{
+				"buffer_size": 2000,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/profile.js",
+			"settings":
+			{
+				"buffer_size": 986,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "login.html",
+			"settings":
+			{
+				"buffer_size": 3353,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 347.0,
+		"last_filter": "rei",
+		"selected_items":
+		[
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"colorsubl",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"subliem",
+				"Colorsublime: Browse Themes"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"control ins",
+				"Package Control: Install Package"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"ejs",
+				"Set Syntax: EJS (<% and %>)"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"iden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"git",
+				"GitGutter: Compare Against HEAD"
+			],
+			[
+				"reid",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"r",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"REI",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"TABS",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"bui",
+				"Build With: C++ Single File"
+			],
+			[
+				"sni",
+				"Snippet: img"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"brack",
+				"Bracketeer: Indent Text"
+			],
+			[
+				"align",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"termina",
+				"Preferences: Terminal Settings – User"
+			],
+			[
+				"terminal se",
+				"Preferences: Terminal Settings – Default"
+			],
+			[
+				"setti",
+				"Preferences: Terminal Settings – User"
+			],
+			[
+				"snippe lo",
+				"Snippet: for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"build",
+				"Build With: C++ Single File"
+			],
+			[
+				"c",
+				"Set Syntax: C"
+			],
+			[
+				"set c++",
+				"Set Syntax: C++11"
+			],
+			[
+				"c++1",
+				"Build With: C++11"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"setting",
+				"Preferences: Settings - User"
+			]
+		],
+		"width": 445.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/pgdm/codes/github/betti/css/profile.css",
+		"/home/pgdm/codes/github/SpaceSample2/T5/src/include/mesh.cpp",
+		"/home/pgdm/codes/github/SpaceSample2/T5/src/include/mesh.h",
+		"/home/pgdm/codes/github/SpaceSample2/T5/src/st/main.cpp",
+		"/home/pgdm/codes/github/SpaceSample2/src/st/Makefile",
+		"/home/pgdm/Glitter/Build/Glitter/Vendor/assimp/revision.h",
+		"/home/pgdm/codes/github/SpaceSample2/T5/src/include/glitter.h",
+		"/home/pgdm/Glitter/Glitter/Headers/glitter.hpp",
+		"/home/pgdm/Glitter/Samples/mesh.hpp",
+		"/home/pgdm/Glitter/Samples/mesh.cpp",
+		"/home/pgdm/Glitter/Samples/readme.md",
+		"/home/pgdm/codes/random/PDI/T6/run.sh",
+		"/home/pgdm/codes/random/PDI/T5/out/mediana_dilma.pgm",
+		"/home/pgdm/Desktop/assets/js/angular/modules/task.js",
+		"/home/pgdm/codes/todo_sails/todo/views/todo.html",
+		"/home/pgdm/codes/todo_sails/todo/api/models/Modeltest.js",
+		"/home/pgdm/codes/todo_sails/todo/config/models.js",
+		"/home/pgdm/codes/todo_sails/todo/todolist.html",
+		"/home/pgdm/codes/todo_sails/todo/todolist.css",
+		"/home/pgdm/codes/todo_sails/todo/api/controllers/HomepageController.js",
+		"/home/pgdm/codes/todo_sails/todo/.tmp/localDiskDb.db",
+		"/home/pgdm/Desktop/test/CMakeLists.txt",
+		"/home/pgdm/Desktop/test/testgl.cpp",
+		"/home/pgdm/codes/todo_sails/todo/assets/bower.json",
+		"/home/pgdm/Desktop/test/CMakeCache.txt",
+		"/home/pgdm/codes/github/betti/login.html",
+		"/home/pgdm/codes/github/test/config/routes.js",
+		"/home/pgdm/codes/github/test/api/controllers/UserController.js",
+		"/home/pgdm/codes/github/test/config/connections.js",
+		"/home/pgdm/codes/github/test/app.js",
+		"/home/pgdm/codes/github/test/views/homepage.ejs",
+		"/home/pgdm/codes/github/test/views/layout.ejs",
+		"/home/pgdm/codes/github/test/config/local.js",
+		"/home/pgdm/codes/github/test/config/views.js",
+		"/home/pgdm/codes/github/betti/config/routes.js",
+		"/home/pgdm/codes/github/betti/views/login.html",
+		"/home/pgdm/codes/github/betti/views/profile.html",
+		"/home/pgdm/codes/github/betti/views/css/profile.css",
+		"/home/pgdm/codes/github/betti/README.md",
+		"/home/pgdm/codes/github/betti/views/test.ejs",
+		"/home/pgdm/codes/github/test/config/blueprints.js",
+		"/home/pgdm/codes/github/betti/views/layout.ejs",
+		"/home/pgdm/codes/github/betti/package.json",
+		"/home/pgdm/codes/github/betti/app.js",
+		"/home/pgdm/codes/github/betti/config/views.js",
+		"/home/pgdm/codes/github/betti/Gruntfile.js",
+		"/home/pgdm/codes/github/betti/betti/README.md",
+		"/home/pgdm/codes/random/JB/aula7/bicolor.py",
+		"/home/pgdm/codes/random/JB/aula7/bicolor.in",
+		"/home/pgdm/codes/random/PDI/T4/src/include/image.cpp",
+		"/home/pgdm/codes/random/PDI/T5/out.log",
+		"/home/pgdm/codes/random/PDI/T4/src/st/main.cpp",
+		"/home/pgdm/codes/random/PDI/T5/in/tartaruga.pgm",
+		"/home/pgdm/codes/random/PDI/T5/in/dilma.pgm",
+		"/home/pgdm/codes/random/JB/aula6/2.in",
+		"/home/pgdm/codes/random/JB/aula6/1.in",
+		"/home/pgdm/codes/random/JB/aula6/2.cpp",
+		"/home/pgdm/codes/random/JB/Aula5/2.in",
+		"/home/pgdm/codes/random/JB/aula6/1.cpp",
+		"/home/pgdm/codes/random/JB/Aula5/2.cpp",
+		"/home/pgdm/codes/random/JB/Aula5/1.cpp",
+		"/home/pgdm/codes/random/JB/Aula5/out",
+		"/home/pgdm/codes/random/JB/Aula5/1.in",
+		"/home/pgdm/Desktop/test.cpp",
+		"/home/pgdm/codes/github/betti/js/login.js",
+		"/home/pgdm/codes/github/betti/css/login.css",
+		"/home/pgdm/codes/random/PDI/T4/run.sh",
+		"/home/pgdm/codes/random/PDI/T4/README.md",
+		"/home/pgdm/codes/random/PDI/T4/in/tartaruga.pgm",
+		"/opt/sublime_text/Packages/C++.sublime-package",
+		"/home/pgdm/codes/random/PDI/T4/out/main_st_test.pgm",
+		"/home/pgdm/codes/random/PDI/T4/out/main_st_tartaruga.pgm",
+		"/home/pgdm/codes/random/PDI/T4/out/main_st_dilmae.pgm",
+		"/home/pgdm/codes/random/PDI/T3/src/st/main.cpp",
+		"/home/pgdm/codes/github/bethanti/login.html",
+		"/home/pgdm/codes/github/bethanti/css/profile.css",
+		"/home/pgdm/codes/github/bethanti/profile.html",
+		"/home/pgdm/codes/github/bethanti/css/login.css",
+		"/home/pgdm/codes/random/JB/Aula3/Vladimir.cpp",
+		"/home/pgdm/codes/random/JB/aula4/prime.cpp",
+		"/home/pgdm/codes/web/noname2.0/README.md",
+		"/home/pgdm/codes/web/noname2.0/profile.html",
+		"/home/pgdm/codes/web/profile/etc/css/profile.css",
+		"/home/pgdm/codes/web/profile/login.html",
+		"/home/pgdm/codes/web/profile/profile.html",
+		"/var/lib/greeter/users.ini",
+		"/home/pgdm/codes/web/profile/test.html",
+		"/home/pgdm/Downloads/temp.html",
+		"/home/pgdm/codes/random/PDI/T2/src/st/main.cpp",
+		"/home/pgdm/codes/random/JB/aula4/boggle.in",
+		"/home/pgdm/codes/random/JB/aula4/boggle.cpp",
+		"/tmp/xa-yWByEV/1.in",
+		"/home/pgdm/codes/random/JB/aula4/prime.in",
+		"/home/pgdm/codes/web/profile/example.html",
+		"/home/pgdm/codes/web/profile/test.css",
+		"/home/pgdm/.config/sublime-text-3/Packages/Alignment/Default (Linux).sublime-keymap",
+		"/home/pgdm/.config/sublime-text-3/Packages/Terminal/Base File.sublime-settings",
+		"/home/pgdm/codes/random/JB/Aula3/exp.in",
+		"/home/pgdm/codes/random/JB/Aula3/exp.cpp",
+		"/home/pgdm/codes/random/JB/2.cpp",
+		"/home/pgdm/codes/random/JB/3.cpp",
+		"/home/pgdm/codes/random/JB/5.cpp",
+		"/home/pgdm/codes/random/JB/Aula3/2.cpp",
+		"/home/pgdm/codes/random/JB/5.in",
+		"/home/pgdm/codes/random/JB/3.in",
+		"/home/pgdm/codes/random/JB/2.in",
+		"/home/pgdm/codes/random/JB/Aula3/vlad.in",
+		"/home/pgdm/codes/random/JB/Aula3/bag.cpp",
+		"/tmp/xa-z6UuHi/main.cpp",
+		"/home/pgdm/.config/sublime-text-3/Packages/User/Terminal.sublime-settings",
+		"/home/pgdm/.config/sublime-text-3/Packages/Terminal/Terminal.sublime-settings",
+		"/home/pgdm/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/pgdm/.cache/.fr-M03kZj/030-for-int-loop-(fori).sublime-snippet",
+		"/home/pgdm/codes/random/JB/Aula2/ExpTree.h",
+		"/home/pgdm/codes/random/JB/Aula2/ExpTree.cpp",
+		"/home/pgdm/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/pgdm/codes/random/PDI/T1/in/dilma estranha.pgm",
+		"/home/pgdm/codes/random/PDI/T1/src/st/Makefile",
+		"/home/pgdm/codes/random/PDI/T1/src/include/smooth.cpp",
+		"/home/pgdm/codes/random/PDI/T1/src/include/smooth.h",
+		"/home/pgdm/codes/2.in",
+		"/home/pgdm/codes/3.in",
+		"/home/pgdm/codes/2.cpp",
+		"/home/pgdm/codes/3.cpp",
+		"/home/pgdm/.cache/.fr-BHukrb/debian-binary"
+	],
+	"find":
+	{
+		"height": 73.0
+	},
+	"find_in_files":
+	{
+		"height": 115.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"120",
+			"150",
+			"upper",
+			"User",
+			"h4",
+			"h1",
+			"main_",
+			"spacer",
+			"TESTE",
+			"nullptr",
+			"mWindow",
+			"(int)theta",
+			"2",
+			"=",
+			"src",
+			"OUT",
+			"BEYONCE",
+			"out",
+			"cout",
+			"dst",
+			"src",
+			"\"",
+			"pixe",
+			"in",
+			"pixel",
+			",",
+			"vecB",
+			"\nunsigned char getMedian(Image* img, int row, int col, int grid){\n\n	vector<unsigned char> vec;\n\n	for(int i = row - grid; i <= row + grid; i++){\n		for(int j = col - grid; j <= col + grid; j++){\n\n			if(i < 0 || i >= img->getRows() || j < 0 || j >= img->getCols()){\n				vec.push_back(0);\n			} else {\n				vec.push_back(img[0](i, j)[0]);\n			}\n		}\n	}\n	\n	sort(vec.begin(), vec.end());\n\n	return vec[grid];\n}\n\nvoid mediana(Image *in, Image *out, int grid){\n	\n	grid = grid >> 1;\n	\n	for(int i = 0; i < in->getRows(); i++){\n		for(int j = 0; j < in->getCols(); j++){\n			out[0](i, j)[0] = getMedian(in, i, j, grid);\n		}\n	}\n}",
+			"control",
+			"bod",
+			"ng-",
+			"col",
+			"row",
+			"wrong1",
+			"col",
+			"clone",
+			"partial",
+			"y",
+			"x",
+			"buffer",
+			"clone",
+			"part",
+			"color",
+			"j",
+			"counter",
+			"grid",
+			";\n",
+			"n",
+			"pressCnt",
+			"visited",
+			"q",
+			"child",
+			"resultFound",
+			"i",
+			"free",
+			"\"",
+			"reado",
+			"submin",
+			"button",
+			"=<",
+			"_x",
+			"in",
+			"min_x",
+			"max_x",
+			"i",
+			"offset",
+			"1",
+			"class",
+			"button",
+			"article",
+			"main",
+			"pop",
+			"push",
+			"show",
+			"inline",
+			"block",
+			"						\n",
+			"A",
+			"getCols",
+			"AAA",
+			"x",
+			"y",
+			"AAA",
+			"x",
+			"y",
+			"AAA",
+			"x",
+			"y",
+			"getCols",
+			"	\n",
+			"in",
+			"inde",
+			"getInd",
+			"1",
+			"5",
+			">>",
+			"matrix",
+			"pushback",
+			"push",
+			"i",
+			"words",
+			"boogle",
+			"Boogle",
+			"table",
+			"mdl-layout-title",
+			"demo-layout-transparent",
+			"butto",
+			"utf",
+			"utf0",
+			"stack",
+			"queue",
+			"p_queue",
+			"priority_queue",
+			"even",
+			"odds",
+			"target",
+			"flag",
+			"true",
+			"x2",
+			"x1",
+			"argv[2]",
+			"Image()",
+			"name",
+			"pgm",
+			"pgdm",
+			"readFi",
+			"readF",
+			"index"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "profile.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5802,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3099,
+								3099
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1828.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "css/profile.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								909,
+								909
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1325.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/profile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 986,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								979,
+								979
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "login.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3353,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								424,
+								424
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 73.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "profile.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 38.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Ima",
+				"image"
+			]
+		],
+		"width": 401.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
