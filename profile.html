@@ -16,15 +16,16 @@
 	
 	<!--My JS -->
 	<script src="js/profile.js"></script>
+	<script src="js/style.js"></script>
 
 	<title>Profile</title>
 
 </head>
 
-<body ng-app="betti-profile-app">
+<body ng-app="betti-profile-app" ng-controller="StyleController">
 	<!-- HEADER AND SIDEBAR BEGIN -->
 	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
-		<header class="main-header mdl-layout__header mdl-color--blue-400 mdl-color-text--grey-600">
+		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_class_page">
 			<div class="mdl-layout__header-row">
 				<span class="mdl-layout-title mdl-color-text--white">Home</span>
 				<div class="mdl-layout-spacer"></div>
@@ -60,7 +61,7 @@
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">settings</i><span >Settings</span></a>
 			</nav>
 		</div>
-	<!-- HEADER AND SIDEBAR END -->
+		<!-- HEADER AND SIDEBAR END -->
 
 		<main class="mdl-layout__content mdl-color--grey-100">
 			<div ng-controller="ProfileController">
@@ -70,7 +71,7 @@
 					</div>
 					<img class="profile_photo" ng-src="{{profile_photo}}">
 					<span class="profile_name mdl-color-text--white"> {{name}} {{last_name}}</span>
-					<div class="upper_bar mdl-color--blue">
+					<div ng-class="color_mdl_class_profile" class="upper_bar">
 						<div class="upper_bar_content mdl-color-text--white">
 							{{description}}
 						</div>
@@ -97,6 +98,9 @@
 									</div>
 								</form>
 							</div>
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_page">
+								Send
+							</button>
 						</div>
 					</section>
 				</div>
@@ -107,7 +111,7 @@
 							<div class="mdl-card__supporting-text">
 								<h3 style="display: inline">{{post.title}}</h3>
 								
-								<a style="float: right">{{post.date | date: "H:mm dd-MMM"}}</a>
+								<span style="float: right">{{post.date | date: "H:mm dd-MMM"}}</span>
 								<h4>
 									{{post.text}}
 								</h4>

@@ -15,7 +15,17 @@ angApp.controller('ProfileController', ['$scope', function($scope) {
 	$scope.name = 'Steve';
 	$scope.last_name = 'Woggi';
 	$scope.description = 'User description go here, user description go here.';
-	
+
+	var num = 0; //GET
+	$scope.color_mdl_class_profile = styleSwitch(num); //SYLE.JS
+
+}]);
+
+angApp.controller('StyleController', ['$scope', function($scope) { 
+
+	var num = 0; // GET
+	$scope.color_mdl_class_page = styleSwitch(num); //STYLE.JS
+
 }]);
 
 
