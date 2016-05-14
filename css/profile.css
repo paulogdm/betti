@@ -148,8 +148,8 @@ html, body {
 }
 
 .sidebar-avatar{
-	width: 48px;
-	height: 48px;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
 }
 
@@ -158,12 +158,8 @@ html, body {
 	margin-top: 41px;
 }
 
-.main-layout .demo-header .mdl-textfield .mdl-textfield__expandable-holder {
+.main-layout .main-header .mdl-textfield .mdl-textfield__expandable-holder {
 	bottom: 19px;
-}
-
-.main-layout .mdl-layout__header .mdl-layout__drawer-button {
-	color: rgba(0, 0, 0, 0.54);
 }
 
 .mdl-layout__drawer .sidebar-avatar {
