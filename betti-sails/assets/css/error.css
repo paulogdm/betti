@@ -1,0 +1,70 @@
+body { 
+	background-color: #111112;
+}
+
+.error-container {
+	padding: 40px;
+	font-size: 75px;
+	font-family: 'Monoton', cursive;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 80px #1A237E,0 0 30px #1A237E,0 0 6px #0000ff;
+}
+
+.error-text:hover { 
+	text-shadow: 0 0 200px #ffffff,0 0 80px #008000,0 0 6px;
+}
+
+.error-code:hover { 
+	text-shadow: 0 0 200px red,0 0 60px FireBrick,0 0 8px DarkRed;
+}
+
+.error-code{
+	font-family: 'Monoton', cursive;
+	color: red;
+	font-size: 10vw;   
+	text-shadow: 0 0 100px red,0 0 40px FireBrick,0 0 8px DarkRed;
+}
+
+.error-text {
+	font-family: 'Monoton', cursive;
+	color: #fff;
+	text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+	font-size: 15vw;
+}
+
+.error-text span:nth-of-type(1) {
+	animation: upper 11s linear infinite;
+}
+
+
+.error-text span:nth-of-type(2) {
+	animation: upper 11s linear infinite;
+}
+
+.error-code span:nth-of-type(1) {
+	animation: lower 10s linear infinite;
+}
+
+
+@keyframes upper {
+  
+  0%,19.999%,22%,62.999%,64%, 64.999%,70%,100% {
+    opacity:.99; text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+  }
+
+  20%,21.999%,63%,63.999%,65%,69.999% {
+    opacity:0.4; text-shadow: none; 
+  }
+}
+
+@keyframes lower {
+  
+  0%,10%,30%,50%,65%,70%,100% {
+    opacity:0.99; text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  }
+
+  20%,40%,50%,60%,65%,75%,95% { 
+    opacity:0.4; text-shadow: none; 
+  }
+}

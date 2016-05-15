@@ -1,0 +1,234 @@
+html, body {
+	font-family: 'Roboto', 'Helvetica';
+	background-color: #9E9E9E; !important
+}
+
+.profile_photo {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	float: left;
+	text-align:center;
+	overflow: hidden;
+
+	position: absolute;
+	top: 120px;
+	left: 10px;
+
+	background: no-repeat;
+	background-position: 50% 50%;
+}
+
+@media (max-width:1025px){
+	.profile_photo {
+		display: none; !important;
+	}
+}
+
+.cover_photo_container {
+	height: 370px;
+	overflow: hidden;
+}
+
+.cover_photo {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	background: center center no-repeat;
+}
+
+.profile_name {
+	color: white;
+	position: absolute;
+	top: 340px;
+	left: 300px;
+	font-size: 400%;
+	text-shadow: 0 0 10px rgba(0, 0, 0, .8);
+	white-space: nowrap;
+}
+
+.upper_container {
+	height: 430px;
+	overflow: hidden;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	margin-bottom: 10px;
+}
+
+@media (max-width:1025px){
+
+
+	.cover_photo {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		background: center no-repeat;
+		vertical-align: middle;
+	}
+
+	.upper_container {
+		height: 200px;
+		overflow: hidden;
+		box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+		margin-bottom: 10px;
+	}
+
+	.upper_bar{
+		display: none; !important;
+	}
+
+	.profile_name {
+		text-align: center;
+		position: absolute;
+		top: 100px;
+		font-size: 400%;
+		text-shadow: 0 0 10px rgba(0, 0, 0, .8);
+		white-space: nowrap;
+	}
+
+}
+
+.upper_bar{
+	height: 60px;
+	padding-top: 20px;
+	padding-left: 300px;
+}
+
+.upper_bar_content {
+	font-size: 200%;
+	white-space: nowrap;
+	display: inline;
+	margin-right: 20px;
+}
+
+.left_menu {
+	max-height: 430px;
+}
+
+
+@media (min-width:1025px){
+
+	.main_div {
+		margin-left: 250px;
+		margin-right: 10px;
+		width: calc(80vw);
+	}
+}
+
+@media (max-width:1025px){
+
+	.main_div {
+		margin-left: 50px;
+		margin-right: 10px;
+		width: calc(80vw);
+	}
+}
+
+.post_container {
+	position: relative;
+	margin-bottom: 10px;
+	overflow: visible;
+}
+
+.card_container {
+	overflow: visible;
+	width: 100%;
+}
+
+.mdl-layout__drawer-button {
+	color: white;
+}
+
+.sidebar-avatar{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+
+.main-layout .main-header .mdl-textfield {
+	padding: 0px;
+	margin-top: 41px;
+}
+
+.main-layout .main-header .mdl-textfield .mdl-textfield__expandable-holder {
+	bottom: 19px;
+}
+
+.mdl-layout__drawer .sidebar-avatar {
+	margin-bottom: 16px;
+}
+
+.sidebar-drawer {
+	border: none;
+}
+
+.sidebar-drawer .mdl-menu .mdl-menu__item {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.sidebar-drawer-header {
+	box-sizing: border-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	padding: 16px;
+	height: 151px;
+}
+
+.sidebar-name-container {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+}
+
+.sidebar-navigation {
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+}
+
+.main-layout .sidebar-navigation .mdl-navigation__link {
+	display: -webkit-flex !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font-weight: 500;
+}
+
+.main-layout .sidebar-navigation .mdl-navigation__link:hover {
+	/*background-color: #00FFFF;*/
+	color: #37474F;
+}
+
+.sidebar-navigation .mdl-navigation__link .material-icons {
+	font-size: 24px;
+	margin-right: 32px;
+}
