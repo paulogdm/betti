@@ -18,7 +18,10 @@
 	<script src="js/profile.js"></script>
 	<script src="js/style.js"></script>
 
+
 	<title>Profile</title>
+	<link rel="icon" href="http://example.com/favicon.png">
+	
 
 </head>
 
@@ -63,7 +66,7 @@
 		</div>
 		<!-- HEADER AND SIDEBAR END -->
 
-		<main class="mdl-layout__content mdl-color--grey-100">
+		<main class="mdl-layout__content">
 			<div ng-controller="ProfileController">
 				<header class="upper_container">
 					<div class="cover_photo_container">
@@ -98,9 +101,11 @@
 									</div>
 								</form>
 							</div>
-							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_page">
-								Send
-							</button>
+							<div class="mdl-textfield mdl-js-textfield" style="margin-left: 18px">
+								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_page">
+									Send
+								</button>
+							</div>
 						</div>
 					</section>
 				</div>
