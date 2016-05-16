@@ -8,6 +8,6 @@
 module.exports = {
 	profile: function (req, res) {
 		res.view('users/profile', {layout: 'users/layout'})
-	}	
+	}
 };
 

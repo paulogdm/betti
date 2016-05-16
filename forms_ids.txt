@@ -1,0 +1,14 @@
+LOGIN:
+#Esta localizado em assets para nao precisar portar para EJS. Alem disso serve de homepage.
+
+id no html			|tipo			|descricao
+====================================================================
+login 				|texto 			|eh uma string com o login usado
+password 			|texto oculto 	|senha utilizada no login
+					|				|
+signup_login		|texto			|utilizado para o form de signup
+signup_password		|texto oculto	|senha para o form de signup
+signup_name			|texto			|nome completo do usuario
+signup_date			|data			|data de aniversario inserida pelo usuário
+
+
