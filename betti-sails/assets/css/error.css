@@ -3,12 +3,11 @@ body {
 }
 
 .error-container {
-	padding: 40px;
+	padding: 50px;
 	font-size: 75px;
 	font-family: 'Monoton', cursive;
 	text-align: center;
 	text-transform: uppercase;
-	text-shadow: 0 0 80px #1A237E,0 0 30px #1A237E,0 0 6px #0000ff;
 }
 
 .error-text:hover { 
@@ -19,7 +18,7 @@ body {
 	text-shadow: 0 0 200px red,0 0 60px FireBrick,0 0 8px DarkRed;
 }
 
-.error-code{
+.error-code {
 	font-family: 'Monoton', cursive;
 	color: red;
 	font-size: 10vw;   
@@ -31,6 +30,16 @@ body {
 	color: #fff;
 	text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
 	font-size: 15vw;
+}
+
+.error-description  {
+	margin-top: 70px;
+	font-family: cursive;
+	color: white;
+}
+
+.error-description p{
+	font-size: 1.8vw;
 }
 
 .error-text span:nth-of-type(1) {
