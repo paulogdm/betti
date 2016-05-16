@@ -1,6 +1,4 @@
-<snippet>
-  <content><![CDATA[
-# ${1:Project Name}
+# BETTI (Better than Tidia)
 Small social website with AngularJS + Sails.
 
 ## Download + Installation
@@ -24,9 +22,4 @@ open CHROME (important) and type:
 Eduardo Brunaldi
 
 Paulo G. De Mitri		paulo.mitri@usp.br
-
-
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
 
