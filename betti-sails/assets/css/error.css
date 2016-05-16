@@ -1,5 +1,6 @@
-body { 
-	background-color: #111112;
+body {
+	background-image: url("../images/views/error_bg.png");; 
+	overflow: hidden;
 }
 
 .error-container {
@@ -29,7 +30,7 @@ body {
 	font-family: 'Monoton', cursive;
 	color: #fff;
 	text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
-	font-size: 15vw;
+	font-size: 12vw;
 }
 
 .error-description  {
@@ -39,7 +40,7 @@ body {
 }
 
 .error-description p{
-	font-size: 1.8vw;
+	font-size: 1.6vw;
 }
 
 .error-text span:nth-of-type(1) {

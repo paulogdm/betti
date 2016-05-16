@@ -48,8 +48,9 @@ module.exports.routes = {
 
   'get /profile': {
     view: 'users/profile',
-    locals: {
-      layout: 'users'
+    local:
+    {
+      layout: 'users/layout'
     }
   }
 };

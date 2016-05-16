@@ -5,13 +5,13 @@ var angApp = angular.module("betti-profile-app", []);
 angApp.controller('SideBarController', ['$scope', function($scope) { 
 
 	$scope.user_name = 'Steve Woggi'; //substituir por uma funcao get
-	$scope.user_avatar = './img/profile.jpg'; //substituir por uma funcao get
+	$scope.user_avatar = '/images/views/profile_default.png'; //substituir por uma funcao get
 }]);
 
 angApp.controller('ProfileController', ['$scope', function($scope) { 
 
-	$scope.profile_photo = './img/profile.jpg'; //substituir por uma funcao get
-	$scope.cover_photo = './img/cover.jpg';  
+	$scope.profile_photo = '/images/views/profile_default.png'; //substituir por uma funcao get
+	$scope.cover_photo = '/images/views/cover_default.png';  
 	$scope.name = 'Steve';
 	$scope.last_name = 'Woggi';
 	$scope.description = 'User description go here, user description go here.';

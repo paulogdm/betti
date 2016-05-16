@@ -22,7 +22,7 @@ var angApp = angular.module("betti-login-app", []);
 angApp.controller('LoginController', ['$scope', function($scope) { 
 	var imgCount = 5; //number of images
 
-	var dir = 'img/';
+	var dir = 'images/views/';
 	var basename = 'login'
 	var filetype = '.jpg'
 
@@ -31,8 +31,3 @@ angApp.controller('LoginController', ['$scope', function($scope) {
 	$scope.backgroundImage = "url(" + dir + basename + randomCount.toString() + filetype + ")";
 
 }]);
-		
-
-		
-// document.body.style.backgroundImage = "url(" + dir + basename + randomCount.toString() + filetype + ")";
-
