@@ -72,21 +72,29 @@
 							</h4>
 						</div>
 
-						<div class="mdl-card__actions mdl-card--border">
-							<button class="mdl-button mdl-js-button mdl-button--icon">
-								<i class="mdl-color-text--blue-grey-400 material-icons">thumb_up</i>
-							</button>
-							<a >{{post.likes | limitTo:2}}</a>
+						<div class="actions_container mdl-card__actions mdl-card--border">
+
+							<div class="button_container">
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_page"> <b>{{post.likes | limitTo:2}}</b>
+								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-500">
+									<i class="material-icons">plus_one</i>
+								</button>
+							</div>
 							&nbsp;&nbsp;&nbsp;
-							<button class="mdl-button mdl-js-button mdl-button--icon" style="margin-left: 15px">
-								<i class="mdl-color-text--blue-grey-400 material-icons">grade</i>
-							</button>
-							<a >{{post.favorites | limitTo:2}}</a>
+							<div class="button_container">
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_page"> <b>{{post.favorites | limitTo:2}}</b>
+								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-500">
+									<i class="material-icons">star_border</i>
+								</button>
+							</div>
+
 							&nbsp;&nbsp;&nbsp;
-							<button class="mdl-button mdl-js-button mdl-button--icon" style="margin-left: 15px">
-								<i class="mdl-color-text--blue-grey-400 material-icons">repeat</i>
-							</button>
-							<a>{{post.forward | limitTo:2}}</a>
+							<div class="button_container">
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_page"> <b>{{post.forward | limitTo:2}}</b>
+								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-500">
+									<i class="material-icons">share</i>
+								</button>
+							</div>
 						</div>
 					</div>
 				</section>
