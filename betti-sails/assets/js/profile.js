@@ -1,5 +1,5 @@
 
-var angApp = angular.module("betti-profile-app", []);
+var angApp = angular.module("betti-app", []);
 
 
 angApp.controller('SideBarController', ['$scope', function($scope) { 

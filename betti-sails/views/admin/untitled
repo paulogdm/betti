@@ -8,23 +8,22 @@
 
 	<!--ANGULAR -->
 	<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	
+
 	<!-- MDL Library -->
-	<link rel="stylesheet" href="/3rd/mdl/material.min.css">
-	<script src="/3rd/mdl/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script defer src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-blue.min.css" /> 
 
 	<!--My CSS -->
 	<link rel="stylesheet" href="/css/layout.css">
 
 	<!--STYLES-->
-	
-	<!--STYLES END-->	
-
+	<link rel="stylesheet" href="/styles/importer.css">
+	<!--STYLES END-->
 </head>
 
 
-<body ng-app="betti-app" ng-controller="StyleController">
+<body ng-app="betti-profile-app" ng-controller="StyleController">
 	<!-- HEADER AND SIDEBAR BEGIN -->
 	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
 		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_class_page">
@@ -69,6 +68,8 @@
 <!--SCRIPTS-->
 <script src="/js/dependencies/sails.io.js"></script>
 <script src="/js/layout.js"></script>
+<script src="/js/login.js"></script>
+<script src="/js/profile.js"></script>
 <script src="/js/style.js"></script>
 <!--SCRIPTS END-->
 </html>
