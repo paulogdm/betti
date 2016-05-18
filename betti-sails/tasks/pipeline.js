@@ -18,6 +18,10 @@
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
   // 'styles/**/*.css'
+  'bower_components/mdi/css/materialdesignicons.min.css',
+  'bower_components/angular/angular.min.css',
+  'bower_components/material-design-icons/css/material-icons.min.css',
+  'bower_components/material-design-lite/material.min.css',
 ];
 
 
@@ -26,10 +30,12 @@ var cssFilesToInject = [
 var jsFilesToInject = [
 
   // Load sails.io before everything else
+  'bower_components/material-design-lite/material.min.js',
+  'bower_components/angular/angular.min.js',
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  // 'js/dependencies/**/*.js',
+  'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

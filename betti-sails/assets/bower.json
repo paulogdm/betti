@@ -1,0 +1,23 @@
+{
+  "name": "bower",
+  "homepage": "https://github.com/paulogdm/bethanti",
+  "authors": [
+    "Paulo Mitri <paulogdemitri@gmail.com>"
+  ],
+  "description": "bower auto install",
+  "main": "bower",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-route": "*",
+    "material-design-lite": "^1.1.3",
+    "mdi": "*"
+  }
+}
