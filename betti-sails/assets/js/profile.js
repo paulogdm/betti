@@ -6,12 +6,13 @@ angular.module("betti-app").controller('ProfileController', ['$scope', function(
 	$scope.cover_photo = '/images/views/cover_default.png';  
 	$scope.name = 'Steve';
 	$scope.last_name = 'Woggi';
-	$scope.description = 'User description go here, user description go here.';
+	$scope.description = 'User motto go here.';
+	$scope.birthday = new Date('0', '11', '09');
 }]);
 
 angular.module("betti-app").controller('StyleController', ['$scope', function($scope) { 
 
-	var num = 1; // GET
+	var num = 0; // GET
 	$scope.color_mdl_class_profile = styleSwitch(num); //STYLE.JS
 
 }]);

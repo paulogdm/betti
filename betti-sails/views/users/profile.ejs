@@ -25,6 +25,10 @@
 					<div class="upper_bar_content mdl-color-text--white">
 						{{description}}
 					</div>
+					<div class="upper_bar_content mdl-color-text--white" style="float: right;">
+						{{birthday | date: "dd-MMM"}}
+						<i class="mdi mdi-cake-variant"></i>
+					</div>
 				</div>
 			</header>
 		</div>
@@ -81,7 +85,7 @@
 							<div class="button_container">
 								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-600' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
 								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-600">
-									<i class="material-icons">star_border</i>
+									<i class="material-icons">star</i>
 								</button>
 							</div>
 
