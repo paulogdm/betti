@@ -144,18 +144,26 @@ html, body {
 
 .button_container {
 	display: inline-block;
+	overflow: hidden;
+	height: 37px;
 }
 
 .button_container .button_hidden {
-	display: none;
-	transition: opacity 0.2s;
-	overflow: hidden;
+	display: block;
+	transition: all 0.2s;
+	margin-top: 3px;
+	opacity: 0;
+}
+.button_container .button_show {
+	transition: all 0.2s;
 }
 
 .button_container:hover .button_hidden{
-	display: block;
+	transform: translateY(-39px);
+	opacity: 1;
 }
 
 .button_container:hover .button_show{
-	display : none;
+	transform: translateY(39px);
+	opacity: 0;
 }

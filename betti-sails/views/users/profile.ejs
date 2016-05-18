@@ -69,17 +69,17 @@
 							</h4>
 						</div>
 
-						<div class="actions_container mdl-card__actions mdl-card--border">
+						<div class="actions_container mdl-card__actions mdl-card--border" ng-controller="PostActionController">
 
 							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile"> <b>{{post.likes | limitTo:2}}</b>
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent"   ng-class="post.liked ? 'mdl-color--green-500' : color_mdl_class_profile"> <b>{{post.likes | limitTo:2}}</b>
 								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-500">
-									<i class="material-icons">plus_one</i>
+									<i class="material-icons">arrow_upward</i>
 								</button>
 							</div>
 							&nbsp;&nbsp;&nbsp;
 							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-500' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
 								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-500">
 									<i class="material-icons">star_border</i>
 								</button>
@@ -87,7 +87,7 @@
 
 							&nbsp;&nbsp;&nbsp;
 							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--red-500' : color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
 								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-500">
 									<i class="material-icons">share</i>
 								</button>
