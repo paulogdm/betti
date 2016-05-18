@@ -3,7 +3,7 @@ function styleSwitch(number){
 
 	var array = [
 	'mdl-color--blue-500',
-	'mdl-color--orange-500', 
+	'mdl-color--orange-700',
 	'mdl-color--blue-grey-500',
 	'mdl-color--brown-500',
 	'mdl-color--teal-500',
@@ -11,9 +11,15 @@ function styleSwitch(number){
 	'mdl-color--cyan-600'
 	];
 
-	if (number >= array.lenght){
-		return 'mdl-color--blue-500';
-	} else {
+	var size = Object.keys(array).length;
+
+	//WTF is wrong with array.lenght?????
+	// console.log(number);
+	// console.log(array.lenght);
+	// console.log(size);
+
+	if (number < size) 
 		return array[number];
-	}
+	else return 'mdl-color--blue-500';
+	
 }

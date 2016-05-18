@@ -11,7 +11,7 @@ angular.module("betti-app").controller('ProfileController', ['$scope', function(
 
 angular.module("betti-app").controller('StyleController', ['$scope', function($scope) { 
 
-	var num = 0; // GET
+	var num = 1; // GET
 	$scope.color_mdl_class_profile = styleSwitch(num); //STYLE.JS
 
 }]);
