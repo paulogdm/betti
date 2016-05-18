@@ -16,10 +16,6 @@ module.exports = {
 
 	search: function (req, res) {
 		res.view('users/search', {layout: 'admin/layout'})
-	},
-
-	404: function (req, res) {
-		res.view('404', {layout: 'admin/layout'})
-	}
+	}	
 };
 

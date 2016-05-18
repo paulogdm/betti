@@ -17,9 +17,6 @@
 	<!--My CSS -->
 	<link rel="stylesheet" href="/css/layout.css">
 
-	<!-- My JS -->
-	<script src="/js/layout_admin.js"></script>
-
 	<!--STYLES-->
 	
 	<!--STYLES END-->	
@@ -27,9 +24,9 @@
 </head>
 
 
-<body ng-app="betti-app" ng-controller="SideBarController">
+<body ng-app="betti-app" ng-controller="StyleController">
 	<!-- HEADER AND SIDEBAR BEGIN -->
-	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
 		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_class_page">
 			<div class="mdl-layout__header-row">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">

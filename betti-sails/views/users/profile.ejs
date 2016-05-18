@@ -12,8 +12,9 @@
 
 </head>
 
-<body>
-	<main class="mdl-layout__content" ng-controller="StyleController">
+<body ng-controller="StyleController">
+	
+	<main class="mdl-layout__content">
 		<div ng-controller="ProfileController">
 			<header class="upper_container">
 				<div class="cover_photo_container">
@@ -49,7 +50,7 @@
 							</form>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield" style="margin-left: 18px">
-							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_profile">
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_page">
 								Send
 							</button>
 						</div>
@@ -72,14 +73,14 @@
 						<div class="actions_container mdl-card__actions mdl-card--border">
 
 							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile"> <b>{{post.likes | limitTo:2}}</b>
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_page"> <b>{{post.likes | limitTo:2}}</b>
 								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-500">
 									<i class="material-icons">plus_one</i>
 								</button>
 							</div>
 							&nbsp;&nbsp;&nbsp;
 							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_page"> <b>{{post.favorites | limitTo:2}}</b>
 								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-500">
 									<i class="material-icons">star_border</i>
 								</button>
@@ -87,7 +88,7 @@
 
 							&nbsp;&nbsp;&nbsp;
 							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_page"> <b>{{post.forward | limitTo:2}}</b>
 								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-500">
 									<i class="material-icons">share</i>
 								</button>
@@ -99,4 +100,6 @@
 		</div>
 
 	</main>
+
 </body>
+
