@@ -49,7 +49,7 @@
 			</div>
 
 
-			<div class="mdl-tabs__panel is-active" id="user-all-posts">
+			<div class="mdl-tabs__panel" id="user-all-posts">
 				<div class="main_div mdl-layout__content">
 					<div class="comment_box">
 						<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
@@ -69,10 +69,15 @@
 										</div>
 									</form>
 								</div>
-								<div class="mdl-textfield mdl-js-textfield" style="margin-left: 18px">
-									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_profile">
-										Send
-									</button>
+								<div class="mdl-card__actions">
+									<div class="button_container">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile">
+											<i class="material-icons">done</i>
+										</button>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-600">
+											<i class="material-icons">done_all</i>
+										</button>
+									</div>
 								</div>
 							</div>
 						</section>
@@ -111,8 +116,16 @@
 									<div class="button_container">
 										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--red-600' : color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
 										</button>
-										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-600">
 											<i class="material-icons">share</i>
+										</button>
+									</div>
+									<div class="button_container" style="float: right;">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-color--grey-200 mdl-color-text--grey-600">
+											<i class="material-icons">delete</i>
+										</button>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
+											<i class="material-icons">delete_forever</i>
 										</button>
 									</div>
 								</div>
@@ -124,7 +137,7 @@
 			
 			<div class="mdl-tabs__panel" id="user-all-friends" ng-controller="AllFriendsController">
 				<div class="mdl-grid">
-					<div ng-repeat="friend in allFriends" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp">
+					<div ng-repeat="friend in allFriends" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
 						<div class="mdl-card__supporting-text">
 							<img class="card_photo" ng-src="{{friend.profile_photo}}">
 						</div>
@@ -139,7 +152,6 @@
 
 						<div class="mdl-card__actions mdl-card--border">
 							<div class="button_container">
-
 								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="friend.following ? color_mdl_class_profile : 'mdl-color--red-600'"
 								> <i class="material-icons">{{friend.following ? 'done' : 'close'}}</i>
 								</button>
@@ -154,7 +166,7 @@
 			
 			<div class="mdl-tabs__panel" id="user-all-groups" ng-controller="AllGroupsController">
 				<div class="mdl-grid">
-					<div ng-repeat="group in allGroups" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp">
+					<div ng-repeat="group in allGroups" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
 						<div class="mdl-card__supporting-text">
 							<img class="card_photo" ng-src="{{group.profile_photo}}">
 						</div>
