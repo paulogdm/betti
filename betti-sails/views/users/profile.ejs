@@ -33,74 +33,106 @@
 			</header>
 		</div>
 
-		<div class="main_div mdl-layout__content">
-			<div class="comment_box">
-				<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
-					<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
-						<div class="mdl-card__supporting-text">
-							<form action="#">
-								<div class="mdl-textfield mdl-js-textfield" style="width: 100%">
-									<input class="mdl-textfield__input" type="text" style="font-size: 150%" id="new_title">
-									<label class="mdl-textfield__label" for="new_title" style="font-size: 150%">Title</label>
-								</div>
-							</form>
-							<form action="#">
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-									<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" ></textarea>
-									<!-- <input class="mdl-textfield__input" type="text" id="new_text"> -->
-									<label class="mdl-textfield__label" for="new_text">Post</label>
-								</div>
-							</form>
-						</div>
-						<div class="mdl-textfield mdl-js-textfield" style="margin-left: 18px">
-							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_profile">
-								Send
-							</button>
-						</div>
-					</div>
-				</section>
+		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			
+			<div class="tab_bar_container">	
+				<div class="tab_bar mdl-tabs__tab-bar" ng-class="color_mdl_class_profile_contrast">
+					<a href="#user-all-posts" class="mdl-color-text--white mdl-tabs__tab is-active">
+						<i class="mdi mdi-message-text-outline"></i>
+					</a>
+					<a href="#user-all-friends" class="mdl-color-text--white mdl-tabs__tab">
+						<i class="mdi mdi-account-multiple-outline"></i>
+					</a>
+					<a href="#user-all-groups" class="mdl-color-text--white mdl-tabs__tab">
+						<i class="mdi mdi-chart-bubble"></i>
+					</a>
+				</div>
 			</div>
 
-			<div class="main_posts" ng-controller="PostsController">
-				<section ng-repeat="post in allPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
-					<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
-						<div class="mdl-card__supporting-text">
-							<h3 style="display: inline">{{post.title}}</h3>
 
-							<span style="float: right">{{post.date | date: "H:mm dd-MMM"}}</span>
-							<h4>
-								{{post.text}}
-							</h4>
-						</div>
-
-						<div class="actions_container mdl-card__actions mdl-card--border" ng-controller="PostActionController">
-
-							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent"   ng-class="post.liked ? 'mdl-color--green-600' : color_mdl_class_profile"> <b>{{post.likes | limitTo:2}}</b>
-								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-600">
-									<i class="material-icons">arrow_upward</i>
-								</button>
+			<div class="mdl-tabs__panel is-active" id="user-all-posts">
+				<div class="main_div mdl-layout__content">
+					<div class="comment_box">
+						<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+							<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+								<div class="mdl-card__supporting-text">
+									<form action="#">
+										<div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+											<input class="mdl-textfield__input" type="text" style="font-size: 150%" id="new_title">
+											<label class="mdl-textfield__label" for="new_title" style="font-size: 150%">Title</label>
+										</div>
+									</form>
+									<form action="#">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
+											<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" ></textarea>
+											<!-- <input class="mdl-textfield__input" type="text" id="new_text"> -->
+											<label class="mdl-textfield__label" for="new_text">Post</label>
+										</div>
+									</form>
+								</div>
+								<div class="mdl-textfield mdl-js-textfield" style="margin-left: 18px">
+									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-class="color_mdl_class_profile">
+										Send
+									</button>
+								</div>
 							</div>
-							&nbsp;&nbsp;&nbsp;
-							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-600' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
-								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-600">
-									<i class="material-icons">star</i>
-								</button>
-							</div>
-
-							&nbsp;&nbsp;&nbsp;
-							<div class="button_container">
-								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--red-600' : color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
-								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
-									<i class="material-icons">share</i>
-								</button>
-							</div>
-						</div>
+						</section>
 					</div>
-				</section>
+
+					<div class="main_posts" ng-controller="PostsController">
+						<section ng-repeat="post in allPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
+							<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+								<div class="mdl-card__supporting-text">
+									<h3 style="display: inline">{{post.title}}</h3>
+
+									<span style="float: right">{{post.date | date: "H:mm dd-MMM"}}</span>
+									<h4>
+										{{post.text}}
+									</h4>
+								</div>
+
+								<div class="actions_container mdl-card__actions mdl-card--border" ng-controller="PostActionController">
+
+									<div class="button_container">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent"   ng-class="post.liked ? 'mdl-color--green-600' : color_mdl_class_profile"> <b>{{post.likes | limitTo:2}}</b>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-600">
+											<i class="material-icons">arrow_upward</i>
+										</button>
+									</div>
+									&nbsp;&nbsp;&nbsp;
+									<div class="button_container">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-600' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-600">
+											<i class="material-icons">star</i>
+										</button>
+									</div>
+
+									&nbsp;&nbsp;&nbsp;
+									<div class="button_container">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--red-600' : color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
+											<i class="material-icons">share</i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mdl-tabs__panel" id="user-all-friends">
+				<div class="mdl-grid">
+					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
+					<div class="friend_container mdl-cell mdl-cell--3-col"></div>
+					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
+					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
+					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
+				</div>
+			</div>
+			
+			<div class="mdl-tabs__panel" id="user-all-groups">
 			</div>
 		</div>
-
 	</main>
 </body>

@@ -6,7 +6,10 @@
 	<!-- Viewport mobile tag for sensible mobile support -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!--INJECTED START-->
+	<!-- Chrome on Android color set -->
+	<meta name="theme-color" content="‪#311B92">
+
+	<!--INJECTED START
 	<!--STYLES-->
 	<link rel="stylesheet" href="/bower_components/mdi/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
@@ -32,9 +35,9 @@
 </head>
 
 
-<body ng-app="betti-app" ng-controller="SideBarController">
+<body ng-app="betti-app" ng-controller="LayoutStyleController">
 	<!-- HEADER AND SIDEBAR BEGIN -->
-	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
 		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_class_page">
 			<div class="mdl-layout__header-row">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
