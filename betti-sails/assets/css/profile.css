@@ -33,6 +33,20 @@ html, body {
 	font-size: 200%;
 }
 
+.tab_bar .mdl-tabs__tab{
+	transition: border-widht 0.2s ease-in;
+}
+
+.tab_bar .mdl-tabs__tab.is-active{
+	border-style: solid none none none;
+	border-color: white;
+	border-width: 6px;
+}
+
+.comment_box .mdl-textfield::after{
+	background-color: #2196F3;
+}
+
 @media (max-width:1025px){
 	.profile_photo {
 		display: none; !important;
@@ -184,10 +198,6 @@ html, body {
 
 .mini_card_bar{
 	height: 40px;
-}
-
-.mini_card_bar_content {
-
 }
 
 .mini_card > .mdl-card__title {

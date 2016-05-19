@@ -62,13 +62,13 @@
 										</div>
 									</form>
 									<form action="#">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
-											<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" ></textarea>
-											<!-- <input class="mdl-textfield__input" type="text" id="new_text"> -->
+										<div class="mdl-textfield mdl-js-textfield" style="width: 100%; font-size: 150%">
+											<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" style="width: 100%; font-size: 140%"></textarea>
 											<label class="mdl-textfield__label" for="new_text">Post</label>
 										</div>
 									</form>
 								</div>
+
 								<div class="mdl-card__actions">
 									<div class="button_container">
 										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile">
@@ -135,7 +135,7 @@
 				</div>
 			</div>
 			
-			<div class="mdl-tabs__panel" id="user-all-friends" ng-controller="AllFriendsController">
+			<div class="mdl-tabs__panel is-active" id="user-all-friends" ng-controller="AllFriendsController">
 				<div class="mdl-grid">
 					<div ng-repeat="friend in allFriends" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
 						<div class="mdl-card__supporting-text">
