@@ -161,6 +161,7 @@ html, body {
 	margin-top: 3px;
 	opacity: 0;
 }
+
 .button_container .button_show {
 	transition: all 0.2s;
 }
@@ -173,4 +174,32 @@ html, body {
 .button_container:hover .button_show{
 	transform: translateY(39px);
 	opacity: 0;
+}
+
+.mini_card.mdl-card {
+	text-align: center;
+	min-width: 220px;
+	max-width: 300px;
+}
+
+.mini_card_bar{
+	height: 40px;
+}
+
+.mini_card_bar_content {
+
+}
+
+.mini_card > .mdl-card__title {
+	display: inline;
+	text-align: center;
+	text-shadow: 0 0 1px rgba(0, 0, 0, .5);
+	padding-top: 10px;
+	font-size: 150%;
+}
+
+.card_photo{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
 }

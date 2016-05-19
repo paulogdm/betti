@@ -1,4 +1,3 @@
-
 <head>
 	<meta charset="utf-8">
 
@@ -102,6 +101,7 @@
 									&nbsp;&nbsp;&nbsp;
 									<div class="button_container">
 										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-600' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
+										</button>
 										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-600">
 											<i class="material-icons">star</i>
 										</button>
@@ -110,6 +110,7 @@
 									&nbsp;&nbsp;&nbsp;
 									<div class="button_container">
 										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--red-600' : color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
+										</button>
 										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
 											<i class="material-icons">share</i>
 										</button>
@@ -121,17 +122,65 @@
 				</div>
 			</div>
 			
-			<div class="mdl-tabs__panel" id="user-all-friends">
+			<div class="mdl-tabs__panel" id="user-all-friends" ng-controller="AllFriendsController">
 				<div class="mdl-grid">
-					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
-					<div class="friend_container mdl-cell mdl-cell--3-col"></div>
-					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
-					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
-					<div class="friend_container mdl-cell mdl-cell--3-col">4</div>
-				</div>
+					<div ng-repeat="friend in allFriends" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp">
+						<div class="mdl-card__supporting-text">
+							<img class="card_photo" ng-src="{{friend.profile_photo}}">
+						</div>
+
+						<div ng-class="color_mdl_class_profile" class=" mini_card_bar mdl-card__title mdl-card--expand">
+							<div class="mini_bar_content mdl-color-text--white">
+								<a class="mdl-color-text--white">
+									{{friend.name}} {{friend.last_name}}
+								</a>
+							</div>
+						</div>
+
+						<div class="mdl-card__actions mdl-card--border">
+							<div class="button_container">
+
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="friend.following ? color_mdl_class_profile : 'mdl-color--red-600'"
+								> <i class="material-icons">{{friend.following ? 'done' : 'close'}}</i>
+								</button>
+								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="friend.following ? 'mdl-color--red-600' : color_mdl_class_profile">
+									<i class="material-icons">{{friend.following ? 'close' : 'done'}}</i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>					
 			</div>
 			
-			<div class="mdl-tabs__panel" id="user-all-groups">
+			<div class="mdl-tabs__panel" id="user-all-groups" ng-controller="AllGroupsController">
+				<div class="mdl-grid">
+					<div ng-repeat="group in allGroups" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--2dp">
+						<div class="mdl-card__supporting-text">
+							<img class="card_photo" ng-src="{{group.profile_photo}}">
+						</div>
+
+						<div ng-class="color_mdl_class_profile" class=" mini_card_bar mdl-card__title mdl-card--expand">
+							<div class="mini_bar_content mdl-color-text--white">
+								<a class="mdl-color-text--white">
+									{{group.name}}
+								</a>
+							</div>
+						</div>
+
+						<div class="mdl-card__actions mdl-card--border">
+							<div class="button_container">
+								<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="group.following ? color_mdl_class_profile : 'mdl-color--red-600'"
+								> <i class="material-icons">{{group.following ? 'done' : 'close'}}</i>
+								</button>
+								<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="group.following ? 'mdl-color--red-600' : color_mdl_class_profile">
+									<i class="material-icons">{{group.following ? 'close' : 'done'}}</i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+			</div>
+
 			</div>
 		</div>
 	</main>

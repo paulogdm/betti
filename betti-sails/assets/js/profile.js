@@ -10,7 +10,7 @@ angular.module("betti-app").controller('ProfileController', ['$scope', function(
 	$scope.birthday = new Date('0', '11', '09');
 }]);
 
-angular.module("betti-app").controller('StyleController', ['$scope', function($scope) { 
+angular.module("betti-app").controller('StyleController', ['$scope', function($scope){
 
 	var num = 6; // GET
 	$scope.color_mdl_class_profile = styleSwitch(num); //STYLE.JS
@@ -19,7 +19,7 @@ angular.module("betti-app").controller('StyleController', ['$scope', function($s
 }]);
 
 
-angular.module("betti-app").controller('PostsController', ['$scope', function($scope) { 
+angular.module("betti-app").controller('PostsController', ['$scope', function($scope){ 
 
 	$scope.allPosts = [ 
 	{ 
@@ -48,6 +48,95 @@ angular.module("betti-app").controller('PostsController', ['$scope', function($s
 
 }]);
 
-angular.module("betti-app").controller('PostActionController', ['$scope', function($scope) { 
+angular.module("betti-app").controller('PostActionController', ['$scope', function($scope){ 
 
+}]);
+
+angular.module("betti-app").controller('AllFriendsController', ['$scope', function($scope){ 
+	$scope.allFriends = [
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+		{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi1',
+		following: true
+	},
+
+	{
+		profile_photo: '/images/views/profile_default.png', //substituir por uma funcao get
+		name: 'Steve1',
+		last_name: 'Woggi2',
+		following: false
+	}
+	]
+
+}]);
+
+angular.module("betti-app").controller('AllGroupsController', ['$scope', function($scope){ 
+	$scope.allGroups = [
+	{
+		profile_photo: '/images/views/cover_default.png', //substituir por uma funcao get
+		name: 'Group1',
+		following: true
+	}
+	]
 }]);
