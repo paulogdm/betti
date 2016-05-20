@@ -10,16 +10,23 @@ Small social website with AngularJS + Sails.
 
 ## Usage
 
-Under betti/ you can:
+Under betti/betti-sails you can:
 
 `$sails lift`
 
-open CHROME (important) and type:
+open CHROME or CHROMIUM and type:
 
 `localhost:1337`
 
+available links for now:
+
+`localhost:1337/userspace/profile` 
+
+
 ## Contact us!
-Eduardo Brunaldi
+Decio					deciolauro@gmail.com
+
+Eduardo Brunaldi		
 
 Paulo G. De Mitri		paulo.mitri@usp.br
 
