@@ -34,7 +34,7 @@ html, body {
 }
 
 .tab_bar .mdl-tabs__tab{
-	transition: border-widht 0.2s ease-in;
+	transition: border-width 0.15s ease-in;
 }
 
 .tab_bar .mdl-tabs__tab.is-active{

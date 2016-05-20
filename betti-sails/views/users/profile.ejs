@@ -39,6 +39,9 @@
 					<a href="#user-all-posts" class="mdl-color-text--white mdl-tabs__tab is-active">
 						<i class="mdi mdi-message-text-outline"></i>
 					</a>
+					<a href="#user-all-favorites" class="mdl-color-text--white mdl-tabs__tab">
+						<i class="mdi mdi-star"></i>
+					</a>
 					<a href="#user-all-friends" class="mdl-color-text--white mdl-tabs__tab">
 						<i class="mdi mdi-account-multiple-outline"></i>
 					</a>
@@ -48,8 +51,8 @@
 				</div>
 			</div>
 
-
-			<div class="mdl-tabs__panel" id="user-all-posts">
+			<!-- #SUBL TAGS POSTS HOME -->
+			<div class="mdl-tabs__panel is-active" id="user-all-posts">
 				<div class="main_div mdl-layout__content">
 					<div class="comment_box">
 						<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
@@ -105,9 +108,9 @@
 									</div>
 									&nbsp;&nbsp;&nbsp;
 									<div class="button_container">
-										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-600' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-500' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
 										</button>
-										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-600">
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-500">
 											<i class="material-icons">star</i>
 										</button>
 									</div>
@@ -134,8 +137,64 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="mdl-tabs__panel is-active" id="user-all-friends" ng-controller="AllFriendsController">
+
+			<!-- #SUBL TAGS FAVORITES -->
+			<div class="mdl-tabs__panel" id="user-all-favorites">
+				<div class="main_div mdl-layout__content">
+					<div class="main_posts" ng-controller="AllFavoritesController">
+						<section ng-repeat="favorite in allFavorites" class="post_container section--center mdl-grid mdl-grid--no-spacing">
+							<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+								<div class="mdl-card__supporting-text">
+									<h3 style="display: inline">{{favorite.title}}</h3>
+									<h3 style="display: inline"><i class="mdi mdl-color-text--amber-500 mdi-star"></i></h3>
+									<span style="float: right">{{favorite.date | date: "H:mm dd-MMM"}}</span>
+									<h4>
+										{{favorite.text}}
+									</h4>
+								</div>
+
+								<div class="actions_container mdl-card__actions mdl-card--border">
+
+									<div class="button_container">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent"   ng-class="favorite.liked ? 'mdl-color--green-600' : color_mdl_class_profile"> <b>{{favorite.likes | limitTo:2}}</b>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-600">
+											<i class="material-icons">arrow_upward</i>
+										</button>
+									</div>
+									&nbsp;&nbsp;&nbsp;
+									<div class="button_container">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="favorite.favorited ? 'mdl-color--amber-500' : color_mdl_class_profile"> <b>{{favorite.favorites | limitTo:2}}</b>
+										</button>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-500">
+											<i class="material-icons">star</i>
+										</button>
+									</div>
+
+									&nbsp;&nbsp;&nbsp;
+									<div class="button_container">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="favorite.shared ? 'mdl-color--red-600' : color_mdl_class_profile"> <b>{{favorite.forward | limitTo:2}}</b>
+										</button>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-600">
+											<i class="material-icons">share</i>
+										</button>
+									</div>
+									<div class="button_container" style="float: right;">
+										<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-color--grey-200 mdl-color-text--grey-600">
+											<i class="material-icons">delete</i>
+										</button>
+										<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
+											<i class="material-icons">delete_forever</i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+
+			<!-- #SUBL TAGS FRIENDS -->
+			<div class="mdl-tabs__panel" id="user-all-friends" ng-controller="AllFriendsController">
 				<div class="mdl-grid">
 					<div ng-repeat="friend in allFriends" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
 						<div class="mdl-card__supporting-text">
@@ -164,6 +223,7 @@
 				</div>					
 			</div>
 			
+			<!-- #SUBL TAGS GROUPS -->
 			<div class="mdl-tabs__panel" id="user-all-groups" ng-controller="AllGroupsController">
 				<div class="mdl-grid">
 					<div ng-repeat="group in allGroups" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
