@@ -1,0 +1,84 @@
+
+	<div class="main_div mdl-layout__content">
+		<div class="comment_box">
+			<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+					<div class="mdl-card__supporting-text">
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+								<input class="mdl-textfield__input" type="text" style="font-size: 150%" id="new_title">
+								<label class="mdl-textfield__label" for="new_title" style="font-size: 150%">Title</label>
+							</div>
+						</form>
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield" style="width: 100%; font-size: 150%">
+								<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" style="width: 100%; font-size: 140%"></textarea>
+								<label class="mdl-textfield__label" for="new_text">Post</label>
+							</div>
+						</form>
+					</div>
+
+					<div class="mdl-card__actions">
+						<div class="button_container">
+							<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="color_mdl_class_profile">
+								<i class="material-icons">done</i>
+							</button>
+							<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-600">
+								<i class="material-icons">done_all</i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="main_posts" ng-controller="PostsController">
+			<section ng-repeat="post in allPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
+				<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+					<div class="mdl-card__supporting-text">
+						<h3 style="display: inline">{{post.title}}</h3>
+
+						<span style="float: right">{{post.date | date: "H:mm dd-MMM"}}</span>
+						<h4>
+							{{post.text}}
+						</h4>
+					</div>
+
+					<div class="actions_container mdl-card__actions mdl-card--border" ng-controller="PostActionController">
+
+						<div class="button_container">
+							<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent"   ng-class="post.liked ? 'mdl-color--green-600' : color_mdl_class_profile"> <b>{{post.likes | limitTo:2}}</b>
+							<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--green-600">
+								<i class="material-icons">arrow_upward</i>
+							</button>
+						</div>
+						&nbsp;&nbsp;&nbsp;
+						<div class="button_container">
+							<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-500' : color_mdl_class_profile"> <b>{{post.favorites | limitTo:2}}</b>
+							</button>
+							<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--amber-500">
+								<i class="material-icons">star</i>
+							</button>
+						</div>
+
+						&nbsp;&nbsp;&nbsp;
+						<div class="button_container">
+							<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--red-600' : color_mdl_class_profile"> <b>{{post.forward | limitTo:2}}</b>
+							</button>
+							<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-600">
+								<i class="material-icons">share</i>
+							</button>
+						</div>
+						<div class="button_container" style="float: right;">
+							<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-color--grey-200 mdl-color-text--grey-600">
+								<i class="material-icons">delete</i>
+							</button>
+							<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
+								<i class="material-icons">delete_forever</i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
