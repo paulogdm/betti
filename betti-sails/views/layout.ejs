@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+	<%-title%>
+
+	<!-- Viewport mobile tag for sensible mobile support -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Chrome on Android color set -->
+	<meta name="theme-color" content="‪#311B92">
+
+	<!--INJECTED START
 	<!--STYLES-->
 	<link rel="stylesheet" href="/bower_components/mdi/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
-	<!--STYLES END-->
+	<!--STYLES END-->	
 
-	<%-title%>
+	<!--SCRIPTS-->
+	<script src="/bower_components/material-design-lite/material.min.js"></script>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/js/dependencies/sails.io.js"></script>
+	<script src="/js/style.js"></script>
+	<!--SCRIPTS END-->
+	<!--INJECTED END-->
+
+	<!--GOOGLE ICONS REF -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
 <%- body %>
 </body>
-
-
-
-<!--SCRIPTS-->
-<script src="/bower_components/material-design-lite/material.min.js"></script>
-<script src="/bower_components/angular/angular.min.js"></script>
-<script src="/js/dependencies/sails.io.js"></script>
-<script src="/js/style.js"></script>
-<!--SCRIPTS END-->
 </html>
