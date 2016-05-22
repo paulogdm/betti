@@ -25,7 +25,7 @@ function showSnackbar(msg){
 }
 
 function trySignup(){
-
+	// create?login=test&password=12345&name=testname&birthday=112
 	var suSuc = "Welcome! Now you can try your brand new login!"; 
 	var suErr = "Sorry! Something is not right...";
 
@@ -55,7 +55,7 @@ function tryLogin(){
 var angApp = angular.module("betti-login-app", []);
 
 
-angApp.controller('BackgroundController', ['$scope', function($scope) { 
+angApp.controller('BGController', ['$scope', function($scope) { 
 	var imgCount = 5; //number of images
 
 	var dir = 'images/views/';
@@ -67,5 +67,11 @@ angApp.controller('BackgroundController', ['$scope', function($scope) {
 	$scope.backgroundImage = "url(" + dir + basename + randomCount.toString() 
 	+ filetype + ") no-repeat center center fixed";
 
+}]);
+
+angApp.controller('LoginController', ['$scope', function($scope) { 
+}]);
+
+angApp.controller('SignupController', ['$scope', function($scope) { 
 }]);
 

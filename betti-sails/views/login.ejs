@@ -11,9 +11,9 @@
 	<title>Betti - Login</title>
 
 </head>
-<body ng-app="betti-login-app" ng-controller="BackgroundController" ng-style="{background: backgroundImage }">
+<body ng-app="betti-login-app" ng-controller="BGController" ng-style="{background: backgroundImage }">
 
-	<form action="#" accept-charset="utf-8">
+	<form action="/user/login" method="post" accept-charset="utf-8">
 		<div ng-controller="LoginController">
 			<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="login">

@@ -28,9 +28,10 @@ angular.module("betti-app").controller('PostsController', ['$scope', function($s
 		date: new Date('2016', '05', '04', '3', '21'),
 		favorites: 99,
 		likes: 01,
-		forward: 02,
+		dislikes: 02,
+		forward: 03,
 		liked: false,
-		favorited: true,
+		favorited: false,
 		shared: false
 	}, 
 	{ 
@@ -39,14 +40,16 @@ angular.module("betti-app").controller('PostsController', ['$scope', function($s
 		date: new Date('2016', '03', '08', '3', '55'),
 		favorites: 99,
 		likes: 01,
+		dislikes: 02,
 		forward: 02,
 		liked: true,
-		favorited: false,
+		favorited: true,
 		shared: true
 	}
 	]
 
 }]);
+
 
 angular.module("betti-app").controller('PostActionController', ['$scope', function($scope){ 
 
