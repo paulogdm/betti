@@ -3,28 +3,32 @@
 	<!--My CSS -->
 	<link rel="stylesheet" href="/css/material.min.css">
 	<link rel="stylesheet" href="/css/login.css">
-	
+
 	<!--My JS -->
 	<script src="/js/login.js"></script>
 
+	
 	<title>Betti - Login</title>
 
 </head>
-<body ng-app="betti-login-app" ng-controller="LoginController" ng-style="{background: backgroundImage }">
+<body ng-app="betti-login-app" ng-controller="BackgroundController" ng-style="{background: backgroundImage }">
 
 	<form action="#" accept-charset="utf-8">
-		<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-			<input class="mdl-textfield__input" type="text" id="login">
-			<label class="mdl-textfield__label" for="login">Login</label>
-			<span class="mdl-textfield__error">Invalid Email!</span>
+		<div ng-controller="LoginController">
+			<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="login">
+				<label class="mdl-textfield__label" for="login">Login</label>
+				<span class="mdl-textfield__error">Invalid Email!</span>
+			</div>
+
+			<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" id="password">
+				<label class="mdl-textfield__label" for="password">Password</label>
+				<span class="mdl-textfield__error">Not a Password!</span>
+			</div>
 		</div>
 
-		<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-			<input class="mdl-textfield__input" type="password" id="password">
-			<label class="mdl-textfield__label" for="password">Password</label>
-			<span class="mdl-textfield__error">Wrong Password!</span>
-		</div>
-		<div class="signup_container">
+		<div ng-controller="SignupController" class="signup_container">
 			<button id="signup" type= "button" class="text_gray_color mdl-button mdl-js-button mdl-button--raised" onclick="showDialog()">SIGNUP</button>
 			<dialog class="dialog_container mdl-dialog">
 				<h1 class="mdl-dialog__title">Join us!</h1>
@@ -56,17 +60,21 @@
 
 				</div>
 				<div class="mdl-dialog__actions">
-					<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Ready!</button>
+					<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="trySignup();">Go!</button>
 					<button type="button" class="text_gray_color mdl-button close" onclick="hideDialog()">Close</button>
 				</div>
 			</dialog>
 		</div>
 
 		<div class="buttons">
-			<button class="submit_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+			<button class="submit_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click=onclick="tryLogin();">
 				<i class="material-icons">done</i>
 			</button>
 		</div>
 	</form>
 
+	<div id="snackbar-show" class="mdl-js-snackbar mdl-snackbar" style="text-align: center;">
+		<div class="mdl-snackbar__text"></div>
+		<button class="mdl-snackbar__action" type="button"></button>
+	</div>
 </body>

@@ -1,6 +1,6 @@
 body {
 	/*background: #607D8B;*/
-	background: url(../img/login1.jpg) fixed;
+	background: url(/images/login1.jpg) no-repeat center center fixed;
 	-webkit-font-smoothing: antialiased;
 	background-size: cover;
 	background-repeat: no-repeat;
