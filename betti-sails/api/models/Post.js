@@ -20,13 +20,13 @@ module.exports = {
   		type: 'integer',
   		unique: true,
   		required: true,
-  		primaryKey: true
-  	},
+      primaryKey: true
+    },
 
-  	owner:{
-  		model: 'user',
-  		unique: true,
-  		required: true
+    owner:{
+      model: 'user',
+      required: true,
+  		primaryKey: true
   	},
 
 	//title of the msg

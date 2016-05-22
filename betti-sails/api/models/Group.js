@@ -11,10 +11,16 @@ module.exports = {
   	//name
   	group_name: {
   		type: 'string',
+      required: true,
+      unique: true,
+      primaryKey: true
+    },
+
+    owner: {
+      model: 'user',
   		required: true,
-  		unique: true,
-  		primaryKey: true
-  	},
+      primaryKey: true
+    },
   	
   	//url to pic
   	cover_photo:{
@@ -24,11 +30,6 @@ module.exports = {
   	total_members:{
   		type: 'integer',
   		defaultsTo: '1'
-  	},
-
-  	//set of users
-  	admins: {
-  		collection: 'user'
   	},
 
   	//set of users

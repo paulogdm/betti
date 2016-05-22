@@ -27,11 +27,12 @@ module.exports = {
 
   	password: {
   		type: 'string',
-  		required: true
-  	},
+      required: true
+    },
 
-  	birthday: {
-  		type: 'string'
+    birthday: {
+      type: 'string',
+  		required: true
   	},
 
 	//////////////////////
