@@ -1,6 +1,6 @@
 
-var GLOBAL_URL_TO_CREATE = "/user/create";
-var GLOBAL_URL_TO_LOGIN = "/user/login";
+var GLOBAL_URL_TO_CREATE = "/user";
+var GLOBAL_URL_TO_LOGIN = "/auth/login";
 
 
 ///////////
