@@ -1,33 +1,3 @@
-function showDialog(){
-
-	var dialog = document.querySelector('dialog');
-	var showDialogButton = document.querySelector('#signup');
-	if (! dialog.showModal){
-		dialogPolyfill.registerDialog(dialog);
-	}
-
-	dialog.showModal();
-}
-
-
-function hideDialog(){
-	var dialog = document.querySelector('dialog');
-	dialog.close();
-}
-
-function showSnackbar(msg){
-	var notification = document.querySelector('#snackbar-show');
-	var data = {
-		message: msg,
-		timeout: 2000
-	};
-	notification.MaterialSnackbar.showSnackbar(data);
-}
-
-
-/////////////
-// ANGULAR //
-/////////////
 
 var angApp = angular.module("betti-login-app", []);
 
