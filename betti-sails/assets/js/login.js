@@ -24,29 +24,6 @@ function showSnackbar(msg){
 	notification.MaterialSnackbar.showSnackbar(data);
 }
 
-function trySignup(){
-	// create?login=test&password=12345&name=testname&birthday=112
-	var suSuc = "Welcome! Now you can try your brand new login!"; 
-	var suErr = "Sorry! Something is not right...";
-
-	showSnackbar("Working...");
-	
-	// if()
-	showSnackbar(suSuc);
-	// else showSnackbar(suErr);
-}
-
-function tryLogin(){
-
-	showSnackbar("Working...");
-
-	var loginErr = "Invalid credentials.";
-	var loginSuc = "Welcome again!";
-
-	// if( )
-	showSnackbar(loginSuc);
-	// else showSnackbar(logiErr);
-}
 
 /////////////
 // ANGULAR //
@@ -54,6 +31,107 @@ function tryLogin(){
 
 var angApp = angular.module("betti-login-app", []);
 
+angApp.factory('UserService', function($http) {
+	return {
+		'create': function(data) {
+			return $http.post('/users/create', data);
+		},
+
+		'read': function(data) {
+			return $http.get('????????', data);
+		},
+	}
+});
+
+angApp.controller('MainController', ['$scope', 'UserService', function($scope, UserService) { 
+
+	angular.isUndefinedOrNull = function(val) {
+		return angular.isUndefined(val) || val === null 
+	}
+
+	$scope.submitLogin = function (){
+
+		var msgSuc = "Welcome again!";
+		var msgErr = "Invalid credentials.";
+		var flag = false;
+
+		showSnackbar("Working...");
+		
+		if (
+			angular.isUndefinedOrNull($scope.user)					|| 
+			angular.isUndefinedOrNull($scope.user.login)			|| 
+			angular.isUndefinedOrNull($scope.user.password)
+			){
+				showSnackbar(msgErr+" Check your information please...");
+			
+		} else {
+			var login = $scope.user.login;
+			var password = $scope.user.password;
+
+			var data = {
+				login: login,
+				password: password
+			}
+
+			UserService.read(data).then(
+				function(response) {
+					showSnackbar(msgSuc);
+					console.info("[Login] Success!!!");
+
+				},
+				function(response) {
+					showSnackbar(msgErr);
+					console.info("[Login] Error received!");
+				}
+			);
+		}
+	}
+
+	$scope.submitNewLogin = function (){
+
+		var msgSuc = "Welcome! Now you can try your brand new login!"; 
+		var msgErr = "Sorry! Something is not right.";
+
+
+		showSnackbar("Working...");
+		
+		if (
+			angular.isUndefinedOrNull($scope.user)					|| 
+			angular.isUndefinedOrNull($scope.user.new_login)		|| 
+			angular.isUndefinedOrNull($scope.user.new_password)		|| 
+			angular.isUndefinedOrNull($scope.user.new_name)			|| 
+			angular.isUndefinedOrNull($scope.user.new_date) 
+			){
+				showSnackbar(msgErr+" Check your information please...");
+			
+		} else {
+			var newLogin = $scope.user.new_login;
+			var newPass = $scope.user.new_password;
+			var newName = $scope.user.new_name;
+			var newBirth = $scope.user.new_date;
+
+			var data = {
+				login: newLogin,
+				password: newPass,
+				name: newName,
+				birthday: newBirth
+			};
+
+			UserService.create(data).then(
+				function(response) {
+					showSnackbar(msgSuc);
+					console.info("[Signup] Success!!!");
+					console.info(response.data);
+					hideDialog();
+				},
+				function(response) {
+					showSnackbar(msgErr);
+					console.info("[Signup] Error received!");
+				}
+			);
+		}
+	}
+}]);
 
 angApp.controller('BGController', ['$scope', function($scope) { 
 	var imgCount = 5; //number of images
@@ -67,11 +145,5 @@ angApp.controller('BGController', ['$scope', function($scope) {
 	$scope.backgroundImage = "url(" + dir + basename + randomCount.toString() 
 	+ filetype + ") no-repeat center center fixed";
 
-}]);
-
-angApp.controller('LoginController', ['$scope', function($scope) { 
-}]);
-
-angApp.controller('SignupController', ['$scope', function($scope) { 
 }]);
 

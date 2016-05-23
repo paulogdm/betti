@@ -13,61 +13,62 @@
 </head>
 <body ng-app="betti-login-app" ng-controller="BGController" ng-style="{background: backgroundImage }">
 
-	<form action="/user/login" method="post" accept-charset="utf-8">
-		<div ng-controller="LoginController">
+	<form accept-charset="utf-8" ng-controller="MainController">
+		<div>
 			<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="text" id="login">
+				<input class="mdl-textfield__input" type="text" id="login" ng-model="user.login">
 				<label class="mdl-textfield__label" for="login">Login</label>
-				<span class="mdl-textfield__error">Invalid Email!</span>
+				<span class="mdl-textfield__error">Invalid Login!</span>
 			</div>
 
 			<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="password" id="password">
+				<input class="mdl-textfield__input" type="password" id="password" ng-model="user.password">
 				<label class="mdl-textfield__label" for="password">Password</label>
 				<span class="mdl-textfield__error">Not a Password!</span>
 			</div>
 		</div>
 
-		<div ng-controller="SignupController" class="signup_container">
+		<div class="signup_container">
 			<button id="signup" type= "button" class="text_gray_color mdl-button mdl-js-button mdl-button--raised" onclick="showDialog()">SIGNUP</button>
 			<dialog class="dialog_container mdl-dialog">
 				<h1 class="mdl-dialog__title">Join us!</h1>
 				<div class="mdl-dialog__content">
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="signup_login">
+						<input class="mdl-textfield__input" type="text" id="signup_login" ng-model="user.new_login">
 						<label class="mdl-textfield__label" for="signup_login">Login/Nick</label>
 						<span class="mdl-textfield__error">Invalid login!</span>
 					</div>
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="password" id="signup_password">
+						<input class="mdl-textfield__input" type="password" id="signup_password" ng-model="user.new_password">
 						<label class="mdl-textfield__label" for="signup_password">Password</label>
 						<span class="mdl-textfield__error">Invalid Password!</span>
 					</div>
 
 					<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="signup_name">
+						<input class="mdl-textfield__input" type="text" id="signup_name"
+						ng-model="user.new_name">
 						<label class="mdl-textfield__label" for="signup_name">Name</label>
 						<span class="mdl-textfield__error">Invalid name!</span>
 					</div>
 
 					<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="signup_date" pattern="\d{1,2}/\d{1,2}/\d{4}">
+						<input class="mdl-textfield__input" type="text" id="signup_date" pattern="\d{1,2}/\d{1,2}/\d{4}" ng-model="user.new_date">
 						<label class="mdl-textfield__label" for="signup_date">Birthday (dd/mm/aaaa)</label>
 						<span class="mdl-textfield__error">Invalid date!</span>
 					</div>
 
 				</div>
 				<div class="mdl-dialog__actions">
-					<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="trySignup();">Go!</button>
+					<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="submitNewLogin()">Go!</button>
 					<button type="button" class="text_gray_color mdl-button close" onclick="hideDialog()">Close</button>
 				</div>
 			</dialog>
 		</div>
 
 		<div class="buttons">
-			<button class="submit_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click=onclick="tryLogin();">
+			<button class="submit_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="submitLogin()">
 				<i class="material-icons">done</i>
 			</button>
 		</div>
@@ -78,3 +79,6 @@
 		<button class="mdl-snackbar__action" type="button"></button>
 	</div>
 </body>
+
+
+
