@@ -1,8 +1,11 @@
 
 
 module.exports.policies = {
-  '*': 'isAuth',
-  'user': {
-    '*': true
-  }
+	'*': 'isAuth',
+	'user': {
+		'*': true
+	},
+	'auth': {
+		'*': true
+	}
 };

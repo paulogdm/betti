@@ -86,6 +86,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 				function(response) {
 					showSnackbar(msgSuc);
 					console.info("[Login] Success!!!");
+					console.info(response.data);
 
 				},
 				function(response) {

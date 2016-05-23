@@ -36,6 +36,9 @@ process.chdir(__dirname);
     console.error('but if it doesn\'t, the app will run with the global sails instead!');
     return;
   }
+  
+  var passport = require('passport');
+  var LocalStrategy = require('passport-local').Strategy;
 
   // Try to get `rc` dependency
   var rc;
