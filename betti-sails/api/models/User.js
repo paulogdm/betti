@@ -3,63 +3,63 @@ var auth = require('../services/auth');
 
 module.exports = {
 
-  attributes: {
+	attributes: {
 	//////////////////////
 	//CRITICAL SECTION //
 	//////////////////////
 	//PK, accepts numbers and letters
-  	login: {
-  		type: 'string',
-  		unique: true,
-  		required: true,
-  		primaryKey: true
-  	},
+		login: {
+			type: 'string',
+			unique: true,
+			required: true,
+			primaryKey: true
+		},
 
-  	//Only letters
-  	name: {
-  		type: 'string',
-  		required: true
-  	},
+		//Only letters
+		name: {
+			type: 'string',
+			required: true
+		},
 
-  	password: {
-  		type: 'string',
-      required: true
-    },
+		password: {
+			type: 'string',
+			required: true
+		},
 
-    birthday: {
-      type: 'string',
-  		required: true
-  	},
+		birthday: {
+			type: 'string',
+			required: true
+		},
 
 	//////////////////////
 	//RELATIONS SECTION //
 	//////////////////////
 	//my posts
-  	user_posts: {
-  		collection: 'post' //'owner' of post
-  	},
+		user_posts: {
+			collection: 'post' //'owner' of post
+		},
 
-  	//who i am following?
-  	user_following: {
-  		// collection: 'user'
-  		collection: 'user' , via: 'receiver', through: 'follow',// 'receiver' of someone
-  	},
+		//who i am following?
+		user_following: {
+			// collection: 'user'
+			collection: 'user' , via: 'receiver', through: 'follow',// 'receiver' of someone
+		},
 
 	//who is following me?
-  	user_followers: {
-  		// collection: 'user'
-  		collection: 'user' , via: 'receiver', through: 'follow'// 'receiver' of someone
-  	},
+		user_followers: {
+			// collection: 'user'
+			collection: 'user' , via: 'receiver', through: 'follow'// 'receiver' of someone
+		},
 
 	//////////////////////
-  	// COSMETIC SECTION //
+		// COSMETIC SECTION //
 	//////////////////////
-  	//url to my avatar
-  	profile_photo:{
-  		type: 'string',
-  	},
+		//url to my avatar
+		profile_photo:{
+			type: 'string',
+		},
 
-  	//url to my cover pic
+		//url to my cover pic
 	cover_photo:{
 		type: 'string',
 	},
@@ -75,28 +75,28 @@ module.exports = {
 	},
 
 	//number from 0 to 10. Don't need to check it.
-  	style_profile: {
-  		type: 'integer',
-  		defaultsTo: '0'
-  	},
+		style_profile: {
+			type: 'integer',
+			defaultsTo: '0'
+		},
 
 	//number from 0 to 10. Don't need to check it.
-  	style_bar: {
-  		type: 'integer',
-  		defaultsTo: '0'
-  	}
-  },
+		style_bar: {
+			type: 'integer',
+			defaultsTo: '0'
+		}
+	}
 
-  beforeCreate: function (user, cb) {
+	// ,beforeCreate: function (user, cb) {
 
-    delete user.password_confirmation;
-    bcrypt.genSalt(4, function (err, salt) {
-    bcrypt.hash(user.password, salt, function () {
-      }, function (err, hash) {
-        user.password = hash;
-        cb(null, user);
-      });
-    });
-  }
+	// 	delete user.password_confirmation;
+	// 	bcrypt.genSalt(4, function (err, salt) {
+	// 	bcrypt.hash(user.password, salt, function () {
+	// 		}, function (err, hash) {
+	// 			user.password = hash;
+	// 			cb(null, user);
+	// 		});
+	// 	});
+	// }
 };
 

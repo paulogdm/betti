@@ -6,8 +6,8 @@ passport.use(new LocalStrategy({
 	usernameField: 'login',
 	passwordField: 'password'
 	},
-	function(username, password, done) {
-		User.find({login:username}).exec(function(err, user) {
+	function(login, password, done) {
+		User.find({login:login}).exec(function(err, user) {
 
 			sails.log.debug("Login requested to passport");
 
@@ -21,15 +21,13 @@ passport.use(new LocalStrategy({
 				});
 			}
 
-			bcrypt.compare(password, user[0].password, function(err, res) {
-				if (err || !res) {
-					return done(null, false, {
-						message: 'Invalid Password'
-					});
-				} else {
-					return done(null,user);
-				}
-			});
+			if(password === user[0].password){
+				return done(null,user);
+			} else {
+				return done(null, false, {
+					message: 'Invalid Password'
+				});
+			}
 		});
 	})
 );
