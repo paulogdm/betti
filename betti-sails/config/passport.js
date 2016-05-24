@@ -2,9 +2,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
-        User.find({login: login}).exec(function(err, user) {
-
-			sails.log.error("WHY THIS IS NOT WORKING????");
+    function(username, password, done) {
+        User.find({username:username}).exec(function(err, user) {
 
             if (err) {
                 return done(null, err);
@@ -15,7 +14,7 @@ passport.use(new LocalStrategy(
                 });
             }
 
-            if ( password === user[0].password, function(err, res) {
+            bcrypt.compare(password, user[0].password, function(err, res) {
                 if (err || !res) {
                     return done(null, false, {
                         message: 'Invalid Password'
@@ -27,6 +26,7 @@ passport.use(new LocalStrategy(
         });
     })
 );
+
 
 module.exports = {
     http: {
