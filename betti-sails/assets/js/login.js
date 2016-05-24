@@ -61,7 +61,8 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 	$scope.submitLogin = function (){
 
 		var msgSuc = "Welcome again!";
-		var msgErr = "Invalid credentials.";
+		var msgErr = "Error received from server. Sorry!";
+		var msgFail = "Invalid credentials.";
 		var flag = false;
 
 		showSnackbar("Working...");
@@ -84,9 +85,14 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 
 			UserService.read(data).then(
 				function(response) {
-					showSnackbar(msgSuc);
-					console.info("[Login] Success!!!");
-					console.info(response.data);
+					if(response.data.success){
+						console.info("[Login] Success!!!");
+						console.info(response.data);
+						showSnackbar(msgSuc);
+					} else {
+						console.info("[Login] Failed!");
+						showSnackbar(msgFail);
+					}
 
 				},
 				function(response) {
