@@ -2,7 +2,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
-    function(login, password, done) {
         User.find({login: login}).exec(function(err, user) {
 
 			sails.log.error("WHY THIS IS NOT WORKING????");
