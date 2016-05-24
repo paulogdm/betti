@@ -1,11 +1,15 @@
 
 
 module.exports.policies = {
-	'*': 'isAuth',
-	'user': {
-		'*': true
+	
+	UserSpaceController: {
+		"*" : "hasToken"
 	},
-	'auth': {
-		'*': true
+
+	UserController: {
+	    "create": true
+	},
+	AuthController: {
+	    '*': true
 	}
 };

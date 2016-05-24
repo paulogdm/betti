@@ -5,7 +5,7 @@ module.exports = {
 	login: function (req, res) {
 		passport.authenticate('local', function (err, user) {
 
-			sails.log.debug("Login requested to auth service");
+			sails.log.debug("[Service][auth.js] Processing request of login...");
 
 			if (!user) {
 				res.send({
@@ -21,7 +21,7 @@ module.exports = {
 						error: err
 					});
 				} else {
-
+					sails.log.debug("[Service][auth.js] Token sent to\t" + user[0].login);
 					var token = jwt.sign(user[0], sails.config.secret, {expiresIn: 60 * 24});
 					// Set persistent cookie
 					req.session.cookie.token = token;
@@ -34,6 +34,7 @@ module.exports = {
 			}
 		})(req, res);
 	},
+	
 	isvalidtoken: function (req, res) {
 		if (req.headers.authorization) {
 			jwt.verify(req.headers.authorization.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
