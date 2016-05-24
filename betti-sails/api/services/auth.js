@@ -4,6 +4,9 @@ var jwt = require('jsonwebtoken');
 module.exports = {
 	login: function (req, res) {
 		passport.authenticate('local', function (err, user) {
+
+			sails.log.debug("Login requested to auth service");
+
 			if (!user) {
 				res.send({
 					success: false,

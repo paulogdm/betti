@@ -1,3 +1,4 @@
+var bcrypt = require('bcrypt-nodejs');
 var auth = require('../services/auth');
 
 module.exports = {
@@ -84,6 +85,18 @@ module.exports = {
   		type: 'integer',
   		defaultsTo: '0'
   	}
+  },
+
+  beforeCreate: function (user, cb) {
+
+    delete user.password_confirmation;
+    bcrypt.genSalt(4, function (err, salt) {
+    bcrypt.hash(user.password, salt, function () {
+      }, function (err, hash) {
+        user.password = hash;
+        cb(null, user);
+      });
+    });
   }
 };
 
