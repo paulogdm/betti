@@ -21,13 +21,13 @@ module.exports = {
 						error: err
 					});
 				} else {
-					sails.log.debug("[Service][auth.js] Token sent to\t" + user[0].login);
-					var token = jwt.sign(user[0], sails.config.secret, {expiresIn: 60 * 24});
+					sails.log.debug("[Service][auth.js] Token sent to\t" + user.login);
+					var token = jwt.sign(user, sails.config.secret, {expiresIn: 60 * 24});
 					// Set persistent cookie
 					req.session.cookie.token = token;
 					res.send({
 						success: true,
-						user: user[0],
+						user: user,
 						token: token
 					});
 				}
