@@ -1,10 +1,7 @@
 
 
 module.exports.policies = {
-	
-	UserSpaceController: {
-		"*" : "hasToken"
-	},
+	'*' : "hasToken",
 
 	UserController: {
 	    "create": true

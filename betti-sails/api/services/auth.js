@@ -23,8 +23,10 @@ module.exports = {
 				} else {
 					sails.log.debug("[Service][auth.js] Token sent to\t" + user.login);
 					var token = jwt.sign(user, sails.config.secret, {expiresIn: 60 * 24});
-					// Set persistent cookie
+					
+					//cookie???
 					req.session.cookie.token = token;
+
 					res.send({
 						success: true,
 						user: user,
