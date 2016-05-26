@@ -31,6 +31,7 @@ angular.module("betti-app").controller('PostsController', ['$scope', function($s
 		dislikes: 02,
 		forward: 03,
 		liked: false,
+		disliked: false,
 		favorited: false,
 		shared: false
 	}, 
@@ -43,6 +44,7 @@ angular.module("betti-app").controller('PostsController', ['$scope', function($s
 		dislikes: 02,
 		forward: 02,
 		liked: true,
+		disliked: true,
 		favorited: true,
 		shared: true
 	}
