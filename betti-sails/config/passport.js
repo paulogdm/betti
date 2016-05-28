@@ -10,8 +10,8 @@ passport.use(new LocalStrategy({
 
 		sails.log.debug("[passport.js] Login request:\t" + login);
 
-		var pgquery = 'select "user".password, "user".login from "user" where' +
-		'"user".login like \''+login+'\'';
+		var pgquery = 'select webuser.password, webuser.login from webuser where' +
+		'webuser.login like \''+login+'\'';
 
 		User.query(pgquery, function(err, result){
 			if (err) {

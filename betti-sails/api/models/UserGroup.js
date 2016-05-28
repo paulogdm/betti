@@ -8,7 +8,9 @@
 module.exports = {
 
 	tableName: 'usergroup',
-
+	autoCreatedAt: false,
+	autoUpdatedAt: false,
+	
 	attributes: {
 
 	}

@@ -129,7 +129,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 			var data = {
 				login: newLogin,
 				password: newPass,
-				name: newName,
+				uname: newName,
 				birthday: newBirth
 			};
 

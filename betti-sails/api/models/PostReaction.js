@@ -8,7 +8,9 @@
 module.exports = {
 
 	tableName: 'post_reaction',
-
+	autoCreatedAt: false,
+	autoUpdatedAt: false,
+	
 	attributes: {
 
 	}

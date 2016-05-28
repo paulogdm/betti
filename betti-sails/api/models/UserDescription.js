@@ -8,9 +8,17 @@
 module.exports = {
 
 	tableName: 'webuserdescription',
-
+	autoCreatedAt: false,
+	autoUpdatedAt: false,
+	
 	attributes: {
-
+		login : {
+			type: 'string',
+			primaryKey: true
+		},
+		description : {
+			type: 'string',
+		}
 	}
 };
 

@@ -8,9 +8,38 @@
 module.exports = {
 
 	tableName: 'post',
-
+	autoCreatedAt: false,
+	autoUpdatedAt: false,
+	
 	attributes: {
-
+		post_id : {
+			primaryKey: true,
+			type: 'integer'
+		},
+		powner : {
+			type: 'string'
+		},
+		title : {
+			type: 'string'
+		},
+		text : {
+			type: 'string'
+		},
+		pdate : {
+			type: 'date'
+		},
+		n_likes : {
+			type: 'integer'
+		},
+		n_dislikes : {
+			type: 'integer'
+		},
+		n_shares : {
+			type: 'integer'
+		},
+		n_favs : {
+			type: 'integer'
+		}
 	}
 };
 

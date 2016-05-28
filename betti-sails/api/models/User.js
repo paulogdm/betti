@@ -8,9 +8,38 @@
 module.exports = {
 
 	tableName: 'webuser',
+	autoCreatedAt: false,
+	autoUpdatedAt: false,
 
 	attributes: {
-
+		login : {
+			type: 'string',
+			primaryKey: true
+		},
+		uname : {
+			type: 'string'
+		},
+		password : {
+			type: 'string'
+		},
+		birthday : {
+			type: 'date'
+		},
+		uphoto : {
+			type: 'string'
+		},
+		ucover : {
+			type: 'string'
+		},
+		motto : {
+			type: 'string'
+		},
+		style_profile : {
+			type: 'integer'
+		},
+		style_bar : {
+			type: 'integer'
+		}
 	}
 };
 
