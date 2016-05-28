@@ -9,15 +9,13 @@ passport.use(new LocalStrategy({
 	function(login, password, done) {
 
 		sails.log.debug("[passport.js] Login request:\t" + login);
-
-		var pgquery = 'select webuser.password, webuser.login from webuser where' +
-		'webuser.login like \''+login+'\'';
+		var pgquery = 'select webuser.password, webuser.login from webuser where ' +
+		'webuser.login = \''+login+'\'';
 
 		User.query(pgquery, function(err, result){
 			if (err) {
 				sails.log.debug("[passport.js] Query error:\t" + login);
 				sails.log.debug(JSON.stringify(result));
-				sails.log.debug("[passport.js] Query error:\t" + login);
 
 				return done(null, err);
 			}
@@ -33,7 +31,8 @@ passport.use(new LocalStrategy({
 			var user_query 	= result.rows[0];
 			var password_query 	= user_query.password;
 
-			if(password === password_query){
+
+			if(password.localeCompare(password_query)){
 				sails.log.debug("[passport.js] Acess granted to:\t" + login);
 				return done(null, user_query);
 			} else {

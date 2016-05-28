@@ -46,7 +46,7 @@ angApp.factory('UserService', function($http) {
 			return $http.post(GLOBAL_URL_TO_CREATE, data);
 		},
 
-		'read': function(data) {
+		'login': function(data) {
 			return $http.post(GLOBAL_URL_TO_LOGIN, data);
 		},
 	}
@@ -83,7 +83,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 				password: password
 			}
 
-			UserService.read(data).then(
+			UserService.login(data).then(
 				function(response) {
 					if(response.data.success){
 						console.info("[Login] Success!!!");
