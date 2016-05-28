@@ -7,21 +7,10 @@
 
 module.exports = {
 
-  attributes: {
-  	
-  	//this is a POSTER = the guy that send the msg
-  	sender: {
-  		model: 'user',
-  		required: true,
-  		primaryKey: true
-  	},
+	tableName: 'follow',
 
-  	//this is a FOLLOWER = the guy that receive the msg
-  	receiver: { 
-  		model: 'user',
-  		required: true,
-  		primaryKey: true
-  	}
-  }
+	attributes: {
+
+	}
 };
 
