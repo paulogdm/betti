@@ -1,7 +1,7 @@
 
 module.exports.routes = {
 
-  '/': {
-    view: 'login'
-  }
+	'/': {
+		view: 'login'
+	}
 };

@@ -1,13 +1,13 @@
 <div class="main_div mdl-layout__content">
 	<div class="main_posts" ng-controller="AllFavoritesController">
-		<section ng-repeat="favorite in allFavorites" class="post_container section--center mdl-grid mdl-grid--no-spacing">
+		<section ng-repeat="post in allFavorites" class="post_container section--center mdl-grid mdl-grid--no-spacing">
 			<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
 				<div class="mdl-card__supporting-text">
-					<h3 style="display: inline">{{favorite.title}}</h3>
+					<h3 style="display: inline">{{post.title}}</h3>
 					<h3 style="display: inline"><i class="mdi mdl-color-text--amber-500 mdi-star"></i></h3>
-					<span style="float: right">{{favorite.date | date: "H:mm dd-MMM"}}</span>
+					<span style="float: right">{{post.date | date: "H:mm dd-MMM"}}</span>
 					<h4>
-						{{favorite.text}}
+						{{post.text}}
 					</h4>
 				</div>
 				<%- include post_actions.ejs %>

@@ -1,7 +1,8 @@
 
 
 module.exports.policies = {
-	'*' : "hasToken",
+	'*' : true,
+	// '*' : "hasToken",
 
 	UserController: {
 	    "create": true

@@ -14,11 +14,11 @@
 
 		<div class="mdl-card__actions mdl-card--border">
 			<div class="button_container">
-				<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="friend.following ? color_mdl_class_profile : 'mdl-color--red-600'"
-				> <i class="material-icons">{{friend.following ? 'done' : 'close'}}</i>
+				<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-class="friend.following ? color_mdl_class_profile : color_mdl_class_profile"
+				> <i class="material-icons">{{friend.following ? 'done' : 'add'}}</i>
 				</button>
-				<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="friend.following ? 'mdl-color--red-600' : color_mdl_class_profile">
-					<i class="material-icons">{{friend.following ? 'close' : 'done'}}</i>
+				<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="friend.following ? 'mdl-color--red-600' : 'mdl-color--green-600'">
+					<i class="material-icons">{{friend.following ? 'close' : 'done_all'}}</i>
 				</button>
 			</div>
 		</div>

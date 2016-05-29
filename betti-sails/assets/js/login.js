@@ -49,6 +49,10 @@ angApp.factory('UserService', function($http) {
 		'login': function(data) {
 			return $http.post(GLOBAL_URL_TO_LOGIN, data);
 		},
+
+		'test': function(data) {
+			return $http.get('/userspace/profile', data);
+		}
 	}
 });
 
@@ -65,7 +69,6 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 		var msgFail = "Invalid credentials.";
 		var flag = false;
 
-		showSnackbar("Working...");
 		
 		if (
 			angular.isUndefinedOrNull($scope.user)					|| 
@@ -87,6 +90,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 				function(response) {
 					if(response.data.success){
 						console.info("[Login] Success!!!");
+						document.cookie = "Token="+response.token;
 						console.info(response.data);
 						showSnackbar(msgSuc);
 					} else {
@@ -108,8 +112,6 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 		var msgSuc = "Welcome! Now you can try your brand new login!"; 
 		var msgErr = "Sorry! Something is not right.";
 
-
-		showSnackbar("Working...");
 		
 		if (
 			angular.isUndefinedOrNull($scope.user)					|| 

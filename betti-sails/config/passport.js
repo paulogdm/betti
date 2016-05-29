@@ -1,6 +1,6 @@
-var passport = require('passport');
+var passport      = require('passport');
 var	LocalStrategy = require('passport-local').Strategy;
-var	bcrypt = require('bcrypt-nodejs');
+var	bcrypt        = require('bcrypt-nodejs');
 
 passport.use(new LocalStrategy({
 	usernameField: 'login',
@@ -32,7 +32,13 @@ passport.use(new LocalStrategy({
 			var password_query 	= user_query.password;
 
 
-			if(password.localeCompare(password_query)){
+			sails.log.debug("'" +password+ "'");
+			sails.log.debug("'" +password_query+ "'");
+			
+			for(var i = 10 - password.length; i >= 1; i--)
+				password += ' ';
+
+			if(password == password_query){
 				sails.log.debug("[passport.js] Acess granted to:\t" + login);
 				return done(null, user_query);
 			} else {
