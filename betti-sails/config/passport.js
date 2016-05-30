@@ -35,10 +35,9 @@ passport.use(new LocalStrategy({
 			sails.log.debug("'" +password+ "'");
 			sails.log.debug("'" +password_query+ "'");
 			
-			for(var i = 10 - password.length; i >= 1; i--)
-				password += ' ';
+			var password_trim = password_query.trim()
 
-			if(password == password_query){
+			if(password == password_trim){
 				sails.log.debug("[passport.js] Acess granted to:\t" + login);
 				return done(null, user_query);
 			} else {

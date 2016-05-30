@@ -4,9 +4,6 @@ angular.module("betti-app").controller('ProfileController', ['$scope', function(
 
 	$scope.profile_photo = '/images/views/profile_default.png'; //substituir por uma funcao get
 	$scope.cover_photo = '/images/views/cover_default.png';  
-	$scope.name = 'Steve';
-	$scope.last_name = 'Woggi';
-	$scope.description = 'User motto go here.';
 	$scope.birthday = new Date('0', '11', '09');
 }]);
 

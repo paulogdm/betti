@@ -19,13 +19,13 @@
 					<img class="cover_photo" ng-src="{{cover_photo}}">
 				</div>
 				<img class="profile_photo" ng-src="{{profile_photo}}">
-				<span class="profile_name mdl-color-text--white"> {{name}} {{last_name}}</span>
+				<span class="profile_name mdl-color-text--white"> <%= uname %> </span>
 				<div ng-class="color_mdl_class_profile" class="upper_bar">
 					<div class="upper_bar_content mdl-color-text--white">
-						{{description}}
+						<%= motto ? motto : '' %>
 					</div>
 					<div class="upper_bar_content mdl-color-text--white" style="float: right;">
-						{{birthday | date: "dd-MMM"}}
+						{{ birthday | date: "dd-MMM"}}
 						<i class="mdi mdi-cake-variant"></i>
 					</div>
 				</div>

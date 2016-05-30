@@ -1,13 +1,28 @@
 /**
  * UserSpaceController
- *
- * @description :: Server-side logic for managing Userspaces
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+
+var profile = require('../services/profile.js');
 
 module.exports = {
 	profile: function (req, res) {
-		res.view('users/profile', {layout: 'users/layout'})
+		var login = req.param('login');
+
+		profile.getProfile(login, function(err, user){
+			if(err){
+				res.serverError();
+			}
+			else if(!user){
+				res.view('404', {layout: 'users/layout'});
+			} else {
+				user.uname.trim();
+				var locals = user;
+				locals.layout = 'users/layout';
+				res.view('users/profile', locals);
+				// res.view('users/profile', {user, layout: 'users/layout'});
+			}
+		});
+
 	},
 	
 	search: function (req, res) {
@@ -15,7 +30,7 @@ module.exports = {
 	},
 
 	404: function (req, res) {
-		res.view('users/404', {layout: 'users/layout'})
+		res.view('404', {layout: 'users/layout'})
 	}
 };
 

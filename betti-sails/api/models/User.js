@@ -8,7 +8,6 @@
 var DEF_USER_PHOTO = '/images/views/profile_default.png';
 var DEF_COVER_PHOTO = '/images/views/cover_default.png';
 
-
 module.exports = {
 
 	tableName: 'webuser',
@@ -58,115 +57,5 @@ module.exports = {
 		}
 
 		return false;
-	},
-
-
-	getProfile: function(login, cb){
-
-		if(this.isReserved(login)){
-			return cb(null, false, {
-				message: 'invalid'
-			});
-		}
-
-		var pgquery = 'select webuser.uname, webuser.birthday, webuser.uphoto,'+
-		' webuser.ucover, webuser.motto, webuser.style_profile from webuser where ' +
-		'webuser.login = \''+login+'\'';
-
-		User.query(pgquery, function(err, result){
-			if (err) {
-				sails.log.debug("[getProfile] Query error:\t" + login);
-				sails.log.debug(JSON.stringify(result));
-
-				return cb(null, err);
-			}
-
-			if (!result || result.rowCount < 1) {
-
-				sails.log.debug("[getProfile] No user found:\t" + login);
-
-				return cb(null, false, {
-					message: 'Incorrect User'
-				});
-			}
-			
-			if(result.rows[0].ucover == null)
-				result.rows[0].ucover = DEF_COVER_PHOTO;
-
-			if(result.rows[0].uphoto == null)
-				result.rows[0].uphoto = DEF_USER_PHOTO;
-
-			return cb(null, result.rows[0]);
-		});
-	},
-
-	getNameAndPhoto: function(login, cb){
-
-		if(this.isReserved(login)){
-			return cb(null, false, {
-				message: 'invalid'
-			});
-		}
-
-		var pgquery = 'select webuser.uname, webuser.uphoto from webuser where ' +
-		'webuser.login = \''+login+'\'';
-
-		User.query(pgquery, function(err, result){
-			if (err) {
-				sails.log.debug("[getNameAndPhoto] Query error:\t" + login);
-				sails.log.debug(JSON.stringify(result));
-
-				return cb(null, err);
-			}
-
-			if (!result || result.rowCount < 1) {
-
-				sails.log.debug("[getNameAndPhoto] No user found:\t" + login);
-
-				return cb(null, false, {
-					message: 'invalid'
-				});
-			}
-				
-			if(result.rows[0].uphoto == null)
-				result.rows[0].uphoto = DEF_USER_PHOTO;
-
-			return cb(null, result.rows[0]);
-		});
-	}/*,
-
-	setPhoto: function(login, cb){
-
-		if(this.isReserved(login)){
-			return cb(null, false, {
-				message: 'invalid'
-			});
-		}
-
-		var pgquery = 'UPDATE webuser SET uphoto = \''+NEW_PHOTO_PATH+'\' WHERE'
-		+ ' login = \''+CURRENT_USER_LOGIN+'\'';
-
-		User.query(pgquery, function(err, result){
-			if (err) {
-				sails.log.debug("[setPhoto] Query error:\t" + login);
-				sails.log.debug(JSON.stringify(result));
-
-				return cb(null, err);
-			}
-
-			if (!result || result.rowCount < 1) {
-
-				sails.log.debug("[setPhoto] No user found:\t" + login);
-
-				return cb(null, false, {
-					message: 'invalid'
-				});
-			}
-			
-			return cb(null, true, {
-				message: 'invalid'
-			});
-		});
-	}*/
+	}
 };
-

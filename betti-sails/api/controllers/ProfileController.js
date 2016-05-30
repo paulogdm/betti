@@ -1,4 +1,4 @@
-var user = require('../models/User.js');
+var profile = require('../services/profile.js');
 
 module.exports = {
 	getProfile: function(req, res){
@@ -6,7 +6,7 @@ module.exports = {
 		sails.log.debug(login);
 		
 		if(login){
-			user.getProfile(login, function (err, result){
+			profile.getProfile(login, function (err, result){
 				if (err)
 					return res.negotiate(err);
 				else return res.json(result);
