@@ -37,7 +37,7 @@ module.exports = {
 		})(req, res);
 	},
 	
-	tokendecode: function (req, res) {
+	isvalidtoken: function (req, res) {
 		if (req.headers.authorization) {
 			jwt.verify(req.headers.authorization.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
 				if (err) return res.send({success: false});
@@ -47,6 +47,19 @@ module.exports = {
 			});
 		} else {
 			return res.send({success: false});
+		}
+	},
+
+	tokendecode: function (token, cb) {
+		if (token) {
+			jwt.verify(token.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
+				if (err) return cb({success: false, user: null});
+				if (decoded) {
+					return cb({success: true, user: decoded[0]});
+				}
+			});
+		} else {
+			return cb({success: false, user: null});
 		}
 	}
 };

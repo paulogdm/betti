@@ -76,7 +76,7 @@ module.exports = {
 		});
 	},
 
-	setPhoto: function(login, cb){
+	setPhoto: function(login, path, cb){
 
 		if(user.isReserved(login)){
 			return cb(null, false, {
@@ -84,8 +84,8 @@ module.exports = {
 			});
 		}
 
-		var pgquery = 'UPDATE webuser SET uphoto = \''+NEW_PHOTO_PATH+'\' WHERE'
-		+ ' login = \''+CURRENT_USER_LOGIN+'\'';
+		var pgquery = 'UPDATE webuser SET uphoto = \''+path+'\' WHERE'
+		+ ' login = \''+login+'\'';
 
 		User.query(pgquery, function(err, result){
 			if (err) {

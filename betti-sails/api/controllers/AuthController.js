@@ -10,7 +10,7 @@ module.exports = {
     AuthService.login(req, res);
   },
   validate_token: function (req, res) {
-    AuthService.tokendecode(req, res);
+    AuthService.isvalidtoken(req, res);
   },
   logout: function(req, res){
     req.logout();
