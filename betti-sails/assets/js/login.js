@@ -48,10 +48,6 @@ angApp.factory('UserService', function($http) {
 
 		'login': function(data) {
 			return $http.post(GLOBAL_URL_TO_LOGIN, data);
-		},
-
-		'test': function(data) {
-			return $http.get('/userspace/profile', data);
 		}
 	}
 });

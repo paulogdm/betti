@@ -37,7 +37,7 @@ module.exports = {
 		})(req, res);
 	},
 	
-	isvalidtoken: function (req, res) {
+	tokendecode: function (req, res) {
 		if (req.headers.authorization) {
 			jwt.verify(req.headers.authorization.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
 				if (err) return res.send({success: false});

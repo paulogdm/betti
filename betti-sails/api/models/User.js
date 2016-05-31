@@ -57,5 +57,12 @@ module.exports = {
 		}
 
 		return false;
-	}
+	},
+
+	beforeCreate: function (values, cb) {
+		if(this.isReserved(values.login))
+			return cb('reserved login')
+		return cb();
+  	}
+
 };

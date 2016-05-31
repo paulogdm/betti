@@ -2,13 +2,11 @@
  * UserSpaceController
  */
 
-var profile = require('../services/profile.js');
-
 module.exports = {
 	profile: function (req, res) {
 		var login = req.param('login');
 
-		profile.getProfile(login, function(err, user){
+		ProfileService.getProfile(login, function(err, user){
 			if(err){
 				res.serverError();
 			}
@@ -19,7 +17,6 @@ module.exports = {
 				var locals = user;
 				locals.layout = 'users/layout';
 				res.view('users/profile', locals);
-				// res.view('users/profile', {user, layout: 'users/layout'});
 			}
 		});
 
