@@ -1,5 +1,8 @@
 var user = require('../models/User.js');
 
+var DEF_USER_PHOTO = '/images/views/profile_default.png';
+var DEF_COVER_PHOTO = '/images/views/cover_default.png';
+
 module.exports = {
 
 	getProfile: function(login, cb){
@@ -32,10 +35,10 @@ module.exports = {
 			}
 			
 			if(result.rows[0].ucover == null)
-				result.rows[0].ucover = user.DEF_COVER_PHOTO;
+				result.rows[0].ucover = DEF_COVER_PHOTO;
 
 			if(result.rows[0].uphoto == null)
-				result.rows[0].uphoto = user.DEF_USER_PHOTO;
+				result.rows[0].uphoto = DEF_USER_PHOTO;
 
 			return cb(null, result.rows[0]);
 		});

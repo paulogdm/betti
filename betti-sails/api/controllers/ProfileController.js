@@ -5,7 +5,7 @@
 module.exports = {
 	getfullprofile: function (req, res) {
 		var login = req.param('login');
-
+	
 		ProfileService.getProfile(login, function(err, user){
 			if(err || !user){
 				res.json({sucess: false});
@@ -25,6 +25,18 @@ module.exports = {
 			} else {
 				user.uname.trim();
 				res.json(user);
+			}
+		});
+	},
+
+	getfollowlist: function (req, res) {
+		var login = req.param('login');
+
+		FollowService.getFollowList(login, function(err, list){
+			if(err || !list){
+				res.json({sucess: false});
+			} else {
+				res.json(list);
 			}
 		});
 	}

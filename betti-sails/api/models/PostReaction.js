@@ -1,8 +1,6 @@
 /**
  * PostReaction.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
@@ -12,7 +10,28 @@ module.exports = {
 	autoUpdatedAt: false,
 	
 	attributes: {
+		post_id : {
+			type: 'string',
+			primaryKey: true
+		},
 
+		preader : {
+			type: 'string',
+			primaryKey: true
+		},
+
+		like_dislike : {
+			type: 'boolean'
+		},
+
+		shared : {
+			type: 'boolean'
+		},
+
+		favorited : {
+			type: 'boolean'
+		}
 	}
 };
+
 

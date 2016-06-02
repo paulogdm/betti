@@ -10,7 +10,7 @@ module.exports = {
 			if(err){
 				res.serverError();
 			}
-			else if(!user){
+			else if(!user || err){
 				res.view('404', {layout: 'users/layout'});
 			} else {
 				user.uname.trim();
