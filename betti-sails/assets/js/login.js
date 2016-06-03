@@ -87,7 +87,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 					if(response.data.success){
 						console.info("[Login] Success!!!");
 
-						document.cookie = "Token="+response.data.token;
+						document.cookie = "token="+response.data.token;
 
 						console.info(response.data);
 						showSnackbar(msgSuc);

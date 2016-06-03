@@ -1,4 +1,4 @@
-var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)Token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
 angular.module("betti-app").factory('JWTInterceptor', [function(){  
 

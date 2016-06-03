@@ -1,7 +1,8 @@
-# Running this project for the first time?
-# Then run this sh to save your time.
-cd betti-sails
-npm install
-npm install -g bower
-cd assets
+cd betti-sails/assets
 bower install
+
+
+# THIS FILE IS VERY IMPORTANT!
+# place it in node_modules/express-jwt/lib/index.js
+cd ../
+mv ./index.js ./node_modules/express-jwt/lib/index.js

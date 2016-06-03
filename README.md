@@ -5,7 +5,12 @@ Small social website with AngularJS + Sails.
 
 `$ cd betti`
 
-`$ npm install`
+`$ chmod +x RUNME_SUDO.sh`
+
+`$ sudo RUNME_SUDO.sh`
+
+`$ chmod +x RUNME.sh`
+`$ RUNME.sh`
 
 
 ## Usage
@@ -26,8 +31,6 @@ available links for now:
 ## How authentication is working?
 
 With JWT + passport. Special thanks to @carlospliego
-
-Each request you need to attach this: 'Authorization: Bearer __JWT_TOKEN__'
 
 
 ## Contact us!
