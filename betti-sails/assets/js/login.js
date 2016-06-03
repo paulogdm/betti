@@ -86,9 +86,14 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 				function(response) {
 					if(response.data.success){
 						console.info("[Login] Success!!!");
-						document.cookie = "Token="+response.token;
+
+						document.cookie = "Token="+response.data.token;
+
 						console.info(response.data);
 						showSnackbar(msgSuc);
+						
+						window.location.href = '/userspace/profile/'+data.login;
+
 					} else {
 						console.info("[Login] Failed!");
 						showSnackbar(msgFail);

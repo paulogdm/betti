@@ -1,5 +1,5 @@
 var passport = require("passport");
-var jwt = require('jsonwebtoken');
+var jwt = require("jsonwebtoken");
 
 module.exports = {
 	login: function (req, res) {
@@ -23,9 +23,6 @@ module.exports = {
 				} else {
 					sails.log.debug("[Service][auth.js] Token sent to\t" + user.login);
 					var token = jwt.sign(user, sails.config.secret, {expiresIn: 60 * 24});
-					
-					//cookie???
-					req.session.cookie.token = token;
 
 					res.send({
 						success: true,
@@ -40,6 +37,13 @@ module.exports = {
 	isvalidtoken: function (req, res) {
 		if (req.headers.authorization) {
 			jwt.verify(req.headers.authorization.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
+				if (err) return res.send({success: false});
+				if (decoded) {
+					return res.send({success: true, user: decoded[0]});
+				}
+			});
+		} else if (req.cookies.authorization){
+				jwt.verify(req.cookies.authorization.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
 				if (err) return res.send({success: false});
 				if (decoded) {
 					return res.send({success: true, user: decoded[0]});
