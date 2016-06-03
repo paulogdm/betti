@@ -13,11 +13,6 @@ function styleSwitch(number){
 
 	var size = Object.keys(array).length;
 
-	//WTF is wrong with array.lenght?????
-	// console.log(number);
-	// console.log(array.lenght);
-	// console.log(size);
-
 	if (number < size) 
 		return array[number];
 	else return 'mdl-color--blue-500';
@@ -38,13 +33,10 @@ function styleSwitchBar(number){
 
 	var size = Object.keys(array).length;
 
-	//WTF is wrong with array.lenght?????
-	// console.log(number);
-	// console.log(array.lenght);
-	// console.log(size);
-
 	if (number < size) 
 		return array[number];
-	else return 'mdl-color--blue-500';
+	else return 'mdl-color--blue-700';
 	
 }
+
+

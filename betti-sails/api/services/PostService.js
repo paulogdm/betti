@@ -1,9 +1,12 @@
+var user = require('../models/User.js');
+
 module.exports = {
 	newPost: function(login, cb){
 
 	},
 
 	getOnePost: function(id, cb){
+		
 		var pgquery = 'select * from post where ' +
 		'post.id = \''+id+'\'';
 
@@ -21,8 +24,9 @@ module.exports = {
 		});
 	},
 
-	getAllPosts: function(login_to_show, login_requester, cb){
-		if(user.isReserved(login)){
+	getAllPosts: function(login_to_show, /*login_requester,*/ cb){
+		
+		if(user.isReserved(login_to_show)){
 			return cb(null, false, {
 				message: 'invalid'
 			});
@@ -33,7 +37,7 @@ module.exports = {
 
 		User.query(pgquery, function(err, result){
 			if(err){
-				sails.log.debug("[PostService.js][getAllPosts] Query error:\t" + login);
+				sails.log.debug("[PostService.js][getAllPosts] Query error:\t" + login_to_show);
 				sails.log.debug(JSON.stringify(result));
 
 				return cb(null, err);

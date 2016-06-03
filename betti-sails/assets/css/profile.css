@@ -136,7 +136,7 @@ html, body {
 	.main_div {
 		margin-left: 250px;
 		margin-right: 10px;
-		width: calc(80vw - 10px);
+		width: calc(80vw - 240px);
 	}
 }
 
@@ -145,7 +145,7 @@ html, body {
 	.main_div {
 		margin-left: 50px;
 		margin-right: 10px;
-		width: calc(80vw - 10px);
+		width: calc(80vw - 20px);
 	}
 }
 
