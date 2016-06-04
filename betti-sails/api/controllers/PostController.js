@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-	newpost: function (req, res) {
+	newpost: function(req, res){
 		
 		var requester = req.cookies.token;
 		var login = req.param('login');
@@ -16,5 +16,12 @@ module.exports = {
 			res.json(result);
 		});
 	},
-};
+	addfavorite: function(req, res){
+		var requester = req.cookies.token;
+		var id = req.param('post_id');
 
+		PostService.addFavorite(requester, id, function(result){
+			res.json(result);
+		});
+	}
+};

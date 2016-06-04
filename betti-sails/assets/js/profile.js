@@ -8,6 +8,7 @@ var GLOBAL_URL_GET_FAV = '/profile/getfavorites/';
 var GLOBAL_URL_GET_GROUPS = '';
 
 var GLOBAL_URL_NEWPOST = '/post/newpost/';
+var GLOBAL_URL_ADDFAV = '/post/addfavorite/';
 
 
 angular.isUndefinedOrNull = function(val) {
@@ -38,6 +39,9 @@ angular.module("betti-app").factory('PostCommService', function($http) {
 	return {
 		'new_post': function(data){
 			return $http.post(GLOBAL_URL_NEWPOST, data);
+		},
+		'add_favorite': function(data){
+			return $http.post(GLOBAL_URL_ADDFAV, data);
 		},
 		'like_post': function(data){
 			return $http.post(GLOBAL_URL_LIKE, data);
