@@ -22,7 +22,7 @@ module.exports = {
 					});
 				} else {
 					sails.log.debug("[Service][auth.js] Token sent to\t" + user.login);
-					var token = jwt.sign(user, sails.config.secret, {expiresIn: 60 * 24});
+					var token = jwt.sign(user, sails.config.secret, {expiresIn: 24*60*60}); //24h
 
 					res.send({
 						success: true,

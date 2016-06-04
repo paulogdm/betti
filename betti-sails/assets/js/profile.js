@@ -7,6 +7,13 @@ var GLOBAL_URL_GET_POSTS = '/profile/getposts/';
 var GLOBAL_URL_GET_FAV = '/profile/getfavorites/';
 var GLOBAL_URL_GET_GROUPS = '';
 
+var GLOBAL_URL_NEWPOST = '/post/newpost/';
+
+
+angular.isUndefinedOrNull = function(val) {
+	return angular.isUndefined(val) || val === null 
+}
+
 angular.module("betti-app").factory('GetService', function($http) {
 	return {
 		'get_profile': function(data){
@@ -29,6 +36,9 @@ angular.module("betti-app").factory('GetService', function($http) {
 
 angular.module("betti-app").factory('PostCommService', function($http) {
 	return {
+		'new_post': function(data){
+			return $http.post(GLOBAL_URL_NEWPOST, data);
+		},
 		'like_post': function(data){
 			return $http.post(GLOBAL_URL_LIKE, data);
 		},
@@ -40,9 +50,6 @@ angular.module("betti-app").factory('PostCommService', function($http) {
 		},
 		'favorite_post': function(data){
 			return $http.post(GLOBAL_URL_FAVORITE, data);
-		},
-		'newpost': function(data){
-			return $http.post(GLOBAL_URL_NEWPOST, data);
 		}
 	}
 });
@@ -52,12 +59,13 @@ angular.module("betti-app").factory('PostService', function() {
 	var PostService = {};
 
 	PostService.processPosts = function(json){
-		var post = {};
-		var posts = [];
 
+		var post;
+		var posts = [];
+		
 		for (var i = json.data.length - 1; i >= 0; i--){
 
-			post.id = json.data[i].post_id;
+			post = {id: json.data[i].post_id};
 			post.owner = json.data[i].powner;
 			post.title = json.data[i].title;
 			post.text = json.data[i].text;
@@ -77,6 +85,7 @@ angular.module("betti-app").factory('PostService', function() {
 
 			posts.push(post);
 		}
+			console.info(posts);
 
 		return posts;
 	};
@@ -126,6 +135,31 @@ angular.module("betti-app").factory('PostService', function() {
 	return PostService;
 });
 
+angular.module("betti-app").factory('AllPosts', function() {
+
+	var AllPosts = {};
+	var all = [];
+
+	AllPosts.set = function(array){
+		this.all = array;
+	}
+
+	AllPosts.push = function(post){
+		this.all.unshift(post);
+	}
+
+	AllPosts.pop = function(index){
+
+	}
+
+	AllPosts.get = function(){
+		return this.all;
+	}
+
+	return AllPosts;
+});
+
+
 angular.module("betti-app").controller('ProfileController', ['$scope', 'GetService', 
 	function($scope, GetService) { 
 	
@@ -151,20 +185,83 @@ angular.module("betti-app").controller('ProfileController', ['$scope', 'GetServi
 }]);
 
 angular.module("betti-app").
-	controller('PostsController', ['$scope', 'GetService', 'PostService', 
-	function($scope, GetService, PostService){ 
+	controller('NewPostController', ['$scope', 'PostCommService', 'AllPosts',
+	function($scope, PostCommService, AllPosts){ 
+		
+		$scope.new_post = function(){
+
+			if (angular.isUndefinedOrNull($scope.new_text.trim())){
+				showSnackbar("Write something on the field text...");
+			} else {
+				var user = window.location.pathname.split('/')[3];
+
+				if($scope.new_title) $scope.new_title = $scope.new_title.trim();
+				else $scope.new_title = "untitled";
+
+				$scope.new_text = $scope.new_text.trim();
+
+				var data = {
+					login: user,
+					title: $scope.new_title,
+					text: $scope.new_text
+				};
+
+				PostCommService.new_post(data).then(
+					function(response){
+						if(response.data.success){
+							console.info("[Profile][NewPost] Success received");
+
+							var new_post = {
+								id: response.data.id,
+								owner: user,
+								title: $scope.new_title,
+								text: $scope.new_text,
+								date: new Date(),
+								favorites: 0,
+								likes: 0,
+								dislikes: 0,
+								shares: 0,
+								editable: true,
+								liked: false,
+								disliked: false,
+								favorited: false,
+								shared: false
+							}
+
+							AllPosts.push(new_post);
+							
+							$scope.new_title = '';
+							$scope.new_text = '';
+
+						} else {
+							showSnackbar("Sorry... Something is wrong");
+							console.info("[Profile][NewPost] Fail");
+						}
+					},
+					function(response) {
+						showSnackbar("Sorry... Something is wrong");
+						console.info("[Profile][NewPost] Error received!");
+					}
+				);
+			}
+		}
+}]);
+
+angular.module("betti-app").
+	controller('PostsController', ['$scope', 'GetService', 'PostService', 'AllPosts', 
+	function($scope, GetService, PostService, AllPosts){ 
 
 	var login = window.location.pathname.split('/')[3];
 
 	var data = {login: login};
 	var post = {};
-	$scope.allPosts = [];
+	$scope.allPosts = {};
 
 	GetService.get_posts(data).then(
 		function(response){
 			if(response.status == 200){
-				console.info(response);
-				$scope.allPosts = PostService.processPosts(response);
+				AllPosts.set( PostService.processPosts(response) );
+				$scope.allPosts = AllPosts.get();
 			}
 		},function(response) {
 			console.info("[Profile][get_posts] Error received!");
