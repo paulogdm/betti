@@ -5,7 +5,7 @@ var DEF_COVER_PHOTO = '/images/views/cover_default.png';
 
 module.exports = {
 
-	getProfile: function(login, cb){
+	getProfile: function(login, requester, cb){
 
 		if(user.isReserved(login)){
 			return cb(null, false, {

@@ -5,8 +5,9 @@
 module.exports = {
 	profile: function (req, res) {
 		var login = req.param('login');
+		var requester = req.cookies.token;
 
-		ProfileService.getProfile(login, function(err, user){
+		ProfileService.getProfile(login, requester, function(err, user){
 			if(err){
 				res.serverError();
 			}

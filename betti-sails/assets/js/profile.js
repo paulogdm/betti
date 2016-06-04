@@ -67,10 +67,13 @@ angular.module("betti-app").factory('PostService', function() {
 			post.dislikes = json.data[i].n_dislikes;
 			post.shares = json.data[i].n_shares;
 
+			post.editable = json.data[i].editable;
+
 			post.liked = false;
 			post.disliked = false;
 			post.favorited = false;
 			post.shared = false;
+
 
 			posts.push(post);
 		}
@@ -184,12 +187,6 @@ angular.module("betti-app").
 	$scope.share = function(index){
 		PostService.share($scope.allPosts[index]);
 	}
-
-}]);
-
-
-angular.module("betti-app").controller('PostActionController', ['$scope', function($scope){ 
-
 
 }]);
 

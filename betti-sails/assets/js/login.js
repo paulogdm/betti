@@ -87,12 +87,21 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 					if(response.data.success){
 						console.info("[Login] Success!!!");
 
-						document.cookie = "token="+response.data.token;
+						var now = new Date();
+						var time = now.getTime();
+						time += 20*60*60*1000; //20h
+						now.setTime(time);
+						document.cookie = "token="+response.data.token+
+						'; expires=' + now.toUTCString();
+
 
 						console.info(response.data);
 						showSnackbar(msgSuc);
-						
-						window.location.href = '/userspace/profile/'+data.login;
+
+						if(data.login == 'admin') 
+							window.location.href = '/adminspace/adminpanel/';
+						else 
+							window.location.href = '/userspace/profile/'+data.login;
 
 					} else {
 						console.info("[Login] Failed!");

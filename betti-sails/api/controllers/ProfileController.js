@@ -6,8 +6,9 @@ module.exports = {
 	getfullprofile: function (req, res) {
 		
 		var login = req.param('login');
-	
-		ProfileService.getProfile(login, function(err, user){
+		var requester = req.cookies.token;
+
+		ProfileService.getProfile(login, requester, function(err, user){
 			if(err || !user){
 				res.json({sucess: false});
 			} else {
@@ -34,8 +35,9 @@ module.exports = {
 	getfollowlist: function (req, res) {
 		
 		var login = req.param('login');
+		var requester = req.cookies.token;
 
-		FollowService.getFollowList(login, function(err, list){
+		FollowService.getFollowList(login, requester, function(err, list){
 			if(err || !list){
 				res.json({sucess: false});
 			} else {
@@ -44,11 +46,12 @@ module.exports = {
 		});
 	},
 
-	getposts: function (req, res) {
+	getposts: function(req, res){
 
 		var login = req.param('login');
+		var requester = req.cookies.token;
 
-		PostService.getAllPosts(login, function(err, list){
+		PostService.getAllPosts(login, requester, function(err, list){
 			if(err || !list){
 				res.json({sucess: false});
 			} else {

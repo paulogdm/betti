@@ -59,6 +59,17 @@ module.exports = {
 		return false;
 	},
 
+	isAdmin: function(login){
+		reserved = ['admin'];
+
+		for (var i = reserved.length - 1; i >= 0; i--) {
+			if(reserved[i] == login)
+				return true;
+		}
+
+		return false;
+	},
+
 	beforeCreate: function (values, cb) {
 		if(this.isReserved(values.login))
 			return cb('reserved login')

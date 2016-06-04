@@ -1,12 +1,38 @@
-var user = require('../models/User.js');
+var usermodel = require('../models/User.js');
 
 module.exports = {
-	newPost: function(login, cb){
+	newPost: function(login, requester,  cb){
+		AuthService.tokendecode(requester, function(data){
 
+			sails.log.debug(data);
+			
+			if(!data.success){
+				return cb(null, false, {message: 'invalid'});
+			} else {
+				requester = data.user.login.trim();
+			}
+		});
+
+		if(requester == login || usermodel.isAdmin(requester)){
+
+		} else {
+			
+		}
 	},
 
-	getOnePost: function(id, cb){
+	getOnePost: function(id, requester, cb){
 		
+		AuthService.tokendecode(requester, function(data){
+
+			sails.log.debug(data);
+			
+			if(!data.success){
+				return cb(null, false, {message: 'invalid'});
+			} else {
+				requester = data.user.login.trim();
+			}
+		});
+
 		var pgquery = 'select * from post where ' +
 		'post.id = \''+id+'\'';
 
@@ -20,17 +46,29 @@ module.exports = {
 			
 			if(result) result = result.rows[0];
 
+			if(requester == result.powner)
+				result.editable = true;
+			else result.editable = false;
+
 			return cb(null, result);
 		});
 	},
 
-	getAllPosts: function(login_to_show, /*login_requester,*/ cb){
+	getAllPosts: function(login_to_show, requester, cb){
 		
-		if(user.isReserved(login_to_show)){
-			return cb(null, false, {
-				message: 'invalid'
-			});
-		}
+
+		if(usermodel.isReserved(login_to_show))
+			return cb(null, false, {message: 'invalid'});
+
+
+		AuthService.tokendecode(requester, function(data){
+			
+			if(!data.success){
+				return cb(null, false, {message: 'invalid'});
+			} else {
+				requester = data.user.login.trim();
+			}
+		});
 
 		var pgquery = 'select * from post where ' +
 		'post.powner = \''+login_to_show+'\'';
@@ -43,8 +81,18 @@ module.exports = {
 				return cb(null, err);
 			}
 
-			if(result) result = result.rows;
-			
+			if(result) {
+				result = result.rows;
+				
+				var isAdmin = usermodel.isAdmin(requester);
+
+				for(var i = result.length - 1; i >= 0; i--){
+					if(isAdmin || requester == result[i].powner)
+						result[i].editable = true;
+					else result[i].editable = false;
+				}
+			}
+
 			return cb(null, result);
 		});
 	}

@@ -39,14 +39,14 @@ module.exports = {
 			jwt.verify(req.headers.authorization.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
 				if (err) return res.send({success: false});
 				if (decoded) {
-					return res.send({success: true, user: decoded[0]});
+					return res.send({success: true, user: decoded});
 				}
 			});
-		} else if (req.cookies.authorization){
-				jwt.verify(req.cookies.authorization.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
+		} else if (req.cookies.token){
+				jwt.verify(req.cookies.token, sails.config.secret, function (err, decoded) {
 				if (err) return res.send({success: false});
 				if (decoded) {
-					return res.send({success: true, user: decoded[0]});
+					return res.send({success: true, user: decoded});
 				}
 			});
 		} else {
@@ -56,10 +56,10 @@ module.exports = {
 
 	tokendecode: function (token, cb) {
 		if (token) {
-			jwt.verify(token.replace('Bearer ', ''), sails.config.secret, function (err, decoded) {
+			jwt.verify(token, sails.config.secret, function (err, decoded) {
 				if (err) return cb({success: false, user: null});
 				if (decoded) {
-					return cb({success: true, user: decoded[0]});
+					return cb({success: true, user: decoded});
 				}
 			});
 		} else {
