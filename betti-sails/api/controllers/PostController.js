@@ -16,6 +16,7 @@ module.exports = {
 			res.json(result);
 		});
 	},
+
 	addfavorite: function(req, res){
 		var requester = req.cookies.token;
 		var id = req.param('post_id');
@@ -23,5 +24,16 @@ module.exports = {
 		PostService.addFavorite(requester, id, function(result){
 			res.json(result);
 		});
+	},
+	rmvfavorite: function(req, res){
+		var requester = req.cookies.token;
+		var id = req.param('post_id');
+
+		PostService.rmvFavorite(requester, id, function(result){
+			res.json(result);
+		});
+	},
+	like: function(req, res){
+		
 	}
 };

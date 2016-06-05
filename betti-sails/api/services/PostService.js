@@ -44,11 +44,37 @@ module.exports = {
 	
 				var pgquery ='INSERT INTO fav_post(post_id, webuser) '+
 				'VALUES (\''+id+'\', \''+requester+'\') '+
-				'ON CONFLICT (post_id, webuser) DO NOTHING;'
+				'ON CONFLICT (post_id, webuser) '+
+				'DO NOTHING;'
 
 				FavPost.query(pgquery, function(err, result){
 					if (err){
-						sails.log.debug("[PostService.js][addFavorite] Query error:\t" + login);
+						sails.log.debug("[PostService.js][addFavorite] Query error:\t" + id + requester);
+						sails.log.debug(JSON.stringify(result));
+						return cb({success: false});
+					} else {
+						return cb({success: true});
+					}
+				});
+			}
+		});
+	},
+
+	rmvFavorite: function(requester, id,  cb){
+
+		AuthService.tokendecode(requester, function(data){
+			
+			if(!data.success){
+				return cb(null, false, {message: 'invalid'});
+			} else {
+				requester = data.user.login.trim();
+	
+				var pgquery ='DELETE FROM fav_post WHERE post_id = \''+id+'\''+
+				' AND webuser = \''+requester+'\'';
+
+				FavPost.query(pgquery, function(err, result){
+					if (err){
+						sails.log.debug("[PostService.js][addFavorite] Query error:\t" + id + requester);
 						sails.log.debug(JSON.stringify(result));
 						return cb({success: false});
 					} else {
