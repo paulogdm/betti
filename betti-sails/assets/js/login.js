@@ -92,7 +92,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 						time += 20*60*60*1000; //20h
 						now.setTime(time);
 						document.cookie = "token="+response.data.token+
-						'; expires=' + now.toUTCString();
+						'; expires=' + now.toUTCString() + '; Path=/;';
 
 
 						console.info(response.data);

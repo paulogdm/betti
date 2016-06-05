@@ -8,6 +8,15 @@ angApp.factory('GetLayoutService', function($http) {
 	}
 });
 
+
+angApp.factory('LogoutService', function($http) {
+	return {
+		'logout': function(data){
+			return $http.delete('/auth/logout', data);
+		}
+	}
+});
+
 angApp.factory('LayoutStyleService', function() {
 	
 	var color_search = 0;
@@ -65,7 +74,8 @@ angApp.factory('LayoutStyleService', function() {
 
 
 angApp.controller('SideBarController', ['$scope', 'LayoutStyleService', 'GetLayoutService',
-	function($scope, LayoutStyleService, GetLayoutService){ 
+	'LogoutService',
+	function($scope, LayoutStyleService, GetLayoutService, LogoutService){ 
 
 	GetLayoutService.get_profile().then(
 		function(response){
@@ -80,6 +90,24 @@ angApp.controller('SideBarController', ['$scope', 'LayoutStyleService', 'GetLayo
 			console.info("[Layout][get_profile] Error received!");
 		}
 	);
+
+	$scope.logout = function(){
+		LogoutService.logout().then(
+		function(response){
+			if(response.status == 200){
+				var now = new Date();
+
+				var now = new Date();
+
+				document.cookie = 'token=; expires=Thu, 01 Jan 1993 00:00:01 GMT; Path=/;';
+				window.location.href = '/';
+			}
+		},function(response) {
+			console.info("[Layout][get_profile] Error received!");
+		}
+	);
+	}
+
 }]);
 
 angApp.controller('LayoutStyleController', ['$scope', 'LayoutStyleService', 
