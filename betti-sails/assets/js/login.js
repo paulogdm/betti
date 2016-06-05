@@ -162,7 +162,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 }]);
 
 angApp.controller('BGController', ['$scope', function($scope) { 
-	var imgCount = 5; //number of images
+	var imgCount = 4; //number of images
 
 	var dir = 'images/views/';
 	var basename = 'login'

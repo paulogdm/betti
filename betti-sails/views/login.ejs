@@ -16,7 +16,7 @@
 	<form accept-charset="utf-8" ng-controller="MainController">
 		<div>
 			<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="text" id="login" maxlenght="10" ng-model="user.login">
+				<input class="mdl-textfield__input" type="text" id="login" maxlenght="10" ng-model="user.login" pattern="[A-Za-z0-9]{3,10}">
 				<label class="mdl-textfield__label" for="login">Login</label>
 				<span class="mdl-textfield__error">Invalid Login!</span>
 			</div>
@@ -31,11 +31,13 @@
 		<div class="signup_container">
 			<button id="signup" type= "button" class="text_gray_color mdl-button mdl-js-button mdl-button--raised" onclick="showDialog()">SIGNUP</button>
 			<dialog class="dialog_container mdl-dialog">
-				<h1 class="mdl-dialog__title">Join us!</h1>
+				<div class="mdl-card__supporting-text">
+					<h1 class="mdl-dialog__title">Join us!</h1>
+				</div>
 				<div class="mdl-dialog__content">
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="signup_login" maxlenght="10" ng-model="user.new_login">
+						<input class="mdl-textfield__input" type="text" id="signup_login" maxlenght="10" ng-model="user.new_login" pattern="[A-Za-z0-9]{3,10}">
 						<label class="mdl-textfield__label" for="signup_login">Login/Nick</label>
 						<span class="mdl-textfield__error">Invalid login!</span>
 					</div>
@@ -48,7 +50,7 @@
 
 					<div class="box_container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						<input class="mdl-textfield__input" type="text" id="signup_name"
-						ng-model="user.new_name" maxlenght="20">
+						ng-model="user.new_name" maxlenght="20" pattern="[A-Za-z]{8,20}">
 						<label class="mdl-textfield__label" for="signup_name">Name</label>
 						<span class="mdl-textfield__error">Invalid name!</span>
 					</div>
