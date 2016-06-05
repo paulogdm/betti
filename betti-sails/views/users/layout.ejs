@@ -12,7 +12,7 @@
 	<!--INJECTED START
 	<!--STYLES-->
 	<link rel="stylesheet" href="/bower_components/mdi/css/materialdesignicons.min.css">
-	<link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
+	<link rel="stylesheet" href="/css/material.min.css">
 	<!--STYLES END-->	
 
 	<!--SCRIPTS-->
@@ -38,7 +38,7 @@
 <body ng-app="betti-app" ng-controller="LayoutStyleController">
 	<!-- HEADER AND SIDEBAR BEGIN -->
 	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
-		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_class_page">
+		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_search">
 			<div class="mdl-layout__header-row">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -49,12 +49,12 @@
 					</div>
 				</div>
 				<div class="mdl-layout-spacer"></div>
-				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="logout">
 					<i class="material-icons mdl-color-text--white">exit_to_app</i>
 				</button>
 			</div>
 		</header>
-		<div class="sidebar-drawer mdl-layout__drawer mdl-color--blue-grey-400 mdl-color-text--white">
+		<div class="sidebar-drawer mdl-layout__drawer mdl-color-text--white" ng-class="color_mdl_profile">
 			<header class="sidebar-drawer-header">
 				<img ng-src="{{user_avatar}}" class="sidebar-avatar">
 				<div class="sidebar-name-container">

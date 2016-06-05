@@ -21,7 +21,7 @@ var cssFilesToInject = [
   'bower_components/mdi/css/materialdesignicons.min.css',
   'bower_components/angular/angular.min.css',
   'bower_components/material-design-icons/css/material-icons.min.css',
-  'bower_components/material-design-lite/material.min.css',
+  'css/material.min.css',
 ];
 
 

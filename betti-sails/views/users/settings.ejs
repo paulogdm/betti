@@ -1,0 +1,91 @@
+<head>
+	<meta charset="utf-8">
+
+	<!--My CSS --> 
+	<link rel="stylesheet" href="/css/settings.css"> 
+	
+	<!--My JS -->	
+	<title>Settings - <%= login %></title>
+
+	<script src="/js/settings.js"></script>
+
+</head>
+
+<body>
+	<main class="mdl-layout__content" ng-controller="SettingsController">
+		<div>
+			<header class="upper_container">
+				<div class="cover_photo_container">
+					<img class="cover_photo" ng-src="{{cover_photo}}">
+				</div>
+				<img class="profile_photo" ng-src="{{profile_photo}}">
+				<span class="profile_name mdl-color-text--white"> <%= uname %> </span>
+				<div ng-class="color_mdl_class_profile" class="upper_bar">
+					<div class="upper_bar_content mdl-color-text--white">
+						<%= motto ? motto : '' %>
+					</div>
+					<div class="upper_bar_content mdl-color-text--white" style="float: right;">
+						{{ birthday | date: "dd-MMM"}}
+						<i class="mdi mdi-cake-variant"></i>
+					</div>
+				</div>
+			</header>
+		</div>
+
+		<div class="tab_bar_container">	
+			<div class="tab_bar mdl-tabs__tab-bar" ng-class="color_mdl_class_profile_contrast">
+				<a class="mdl-color-text--white mdl-tabs__tab is-active">
+					<i class="mdi mdi-message-text-outline"></i>
+				</a>
+				<a class="mdl-color-text--white mdl-tabs__tab">
+					<i class="mdi mdi-star"></i>
+				</a>
+				<a class="mdl-color-text--white mdl-tabs__tab">
+					<i class="mdi mdi-account-multiple-outline"></i>
+				</a>
+				<a class="mdl-color-text--white mdl-tabs__tab">
+					<i class="mdi mdi-chart-bubble"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--1-col"></div>
+
+			<div class="mini_card mdl-card mdl-cell mdl-cell--10-col mdl-shadow--4dp">
+
+				<div class="mdl-card__supporting-text">
+					<h2>Settings</h2>
+				</div>
+
+				<div class="mdl-card__actions mdl-card--border">
+				</div>
+
+				<div class="mdl-card__actions">
+					<div class="mdl-card__supporting-text">
+						<h4 class="noselect">Profile Color</h4>
+					</div>
+					<p>
+						<input class="mdl-slider mdl-js-slider" type="range" id="slider1" min="0" max="6" step="1" ng-model="color_profile" ng-change="changeColorProfile()">
+					</p>
+				</div>
+
+				<div class="mdl-card__actions mdl-card--border">
+				</div>
+
+				<div class="mdl-card__actions">
+					<div class="mdl-card__supporting-text">
+						<h4 class="noselect">Search Bar Color</h4>
+					</div>
+					<p>
+						<input class="mdl-slider mdl-js-slider" type="range" id="slider2" min="0" max="6" step="1" ng-model="color_search" ng-change="changeColorSearch()">
+					</p>
+				</div>
+
+				<div class="mdl-card__title mdl-card--expand">
+				</div>
+			</div>
+			<div class="mdl-cell mdl-cell--1-col"></div>
+		</div>
+	</main>
+</body>

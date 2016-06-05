@@ -23,6 +23,26 @@ module.exports = {
 
 	},
 	
+	settings: function (req, res) {
+
+		var requester = req.cookies.token;
+
+		ProfileService.getProfileRequester(requester, function(err, user){
+			if(err){
+				res.serverError();
+			}
+			else if(!user || err){
+				res.view('404', {layout: 'users/layout'});
+			} else {
+				user.uname.trim();
+				var locals = user;
+				locals.layout = 'users/layout';
+				res.view('users/settings', locals);
+			}
+		});
+
+	},
+
 	search: function (req, res) {
 		res.view('users/search', {layout: 'users/layout'})
 	},
@@ -31,4 +51,3 @@ module.exports = {
 		res.view('404', {layout: 'users/layout'})
 	}
 };
-

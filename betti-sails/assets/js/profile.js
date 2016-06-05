@@ -10,6 +10,10 @@ var GLOBAL_URL_GET_GROUPS = '';
 var GLOBAL_URL_NEWPOST = '/post/newpost/';
 var GLOBAL_URL_ADDFAV = '/post/addfavorite/';
 var GLOBAL_URL_RMVFAV = '/post/rmvfavorite/';
+var GLOBAL_URL_LIKE = '/post/like/';
+var GLOBAL_URL_DISLIKE = '/post/dislike/';
+var GLOBAL_URL_SHARE = '/post/share/';
+var GLOBAL_URL_DELETEPOST = '/post/delete/';
 
 
 angular.isUndefinedOrNull = function(val) {
@@ -58,6 +62,9 @@ angular.module("betti-app").factory('PostCommService', function($http) {
 		},
 		'unfavorite_post': function(data){
 			return $http.post(GLOBAL_URL_RMVFAV, data);
+		},
+		'delete_post': function(data){
+			return $http.post(GLOBAL_URL_DELETEPOST, data);
 		}
 	}
 });

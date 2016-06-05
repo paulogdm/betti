@@ -14,8 +14,9 @@ module.exports = {
 		}
 
 		var pgquery = 'select webuser.uname, webuser.birthday, webuser.uphoto,'+
-		' webuser.ucover, webuser.motto, webuser.style_profile from webuser where ' +
-		'webuser.login = \''+login+'\'';
+		' webuser.ucover, webuser.motto, webuser.login, webuser.style_profile, '+
+		'webuser.style_bar '+
+		'from webuser where webuser.login = \''+login+'\'';
 
 		User.query(pgquery, function(err, result){
 			if (err) {
@@ -41,6 +42,50 @@ module.exports = {
 				result.rows[0].uphoto = DEF_USER_PHOTO;
 
 			return cb(null, result.rows[0]);
+		});
+	},
+
+	getProfileRequester: function(requester, cb){
+
+		AuthService.tokendecode(requester, function(data){
+			
+			if(!data.success){
+				return cb(null, false, {message: 'invalid'});
+			} else {
+				requester = data.user.login.trim();
+
+				var pgquery = 'select webuser.uname, webuser.birthday, webuser.uphoto,'+
+				' webuser.ucover, webuser.motto, webuser.login, webuser.style_profile, '+
+				'webuser.style_bar '+
+				'from webuser where ' +
+				'webuser.login = \''+requester+'\'';
+
+				User.query(pgquery, function(err, result){
+					if (err) {
+						sails.log.debug("[profile.js][getProfile] Query error:\t" + requester);
+						sails.log.debug(JSON.stringify(result));
+
+						return cb(null, err);
+					}
+
+					if (!result || result.rowCount < 1) {
+
+						sails.log.debug("[profile.js][getProfile] No user found:\t" + requester);
+
+						return cb(null, false, {
+							message: 'Incorrect User'
+						});
+					}
+
+					if(result.rows[0].ucover == null)
+						result.rows[0].ucover = DEF_COVER_PHOTO;
+
+					if(result.rows[0].uphoto == null)
+						result.rows[0].uphoto = DEF_USER_PHOTO;
+
+					return cb(null, result.rows[0]);
+				});
+			}
 		});
 	},
 
