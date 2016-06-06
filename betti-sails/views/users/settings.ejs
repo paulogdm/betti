@@ -22,7 +22,7 @@
 				<span class="profile_name mdl-color-text--white"> <%= uname %> </span>
 				<div ng-class="color_mdl_class_profile" class="upper_bar">
 					<div class="upper_bar_content mdl-color-text--white">
-						<%= motto ? motto : '' %>
+						@<%= login %>
 					</div>
 					<div class="upper_bar_content mdl-color-text--white" style="float: right;">
 						{{ birthday | date: "dd-MMM"}}
@@ -34,17 +34,8 @@
 
 		<div class="tab_bar_container">	
 			<div class="tab_bar mdl-tabs__tab-bar" ng-class="color_mdl_class_profile_contrast">
-				<a class="mdl-color-text--white mdl-tabs__tab is-active">
-					<i class="mdi mdi-message-text-outline"></i>
-				</a>
 				<a class="mdl-color-text--white mdl-tabs__tab">
-					<i class="mdi mdi-star"></i>
-				</a>
-				<a class="mdl-color-text--white mdl-tabs__tab">
-					<i class="mdi mdi-account-multiple-outline"></i>
-				</a>
-				<a class="mdl-color-text--white mdl-tabs__tab">
-					<i class="mdi mdi-chart-bubble"></i>
+					<i class="mdi mdi-airballoon"></i>
 				</a>
 			</div>
 		</div>
@@ -59,9 +50,6 @@
 				</div>
 
 				<div class="mdl-card__actions mdl-card--border">
-				</div>
-
-				<div class="mdl-card__actions">
 					<div class="mdl-card__supporting-text">
 						<h4 class="noselect">Profile Color</h4>
 					</div>
@@ -71,9 +59,6 @@
 				</div>
 
 				<div class="mdl-card__actions mdl-card--border">
-				</div>
-
-				<div class="mdl-card__actions">
 					<div class="mdl-card__supporting-text">
 						<h4 class="noselect">Search Bar Color</h4>
 					</div>
@@ -81,8 +66,38 @@
 						<input class="mdl-slider mdl-js-slider" type="range" id="slider2" min="0" max="6" step="1" ng-model="color_search" ng-change="changeColorSearch()">
 					</p>
 				</div>
+				
+				<div class="mdl-card__actions mdl-card--border">
+				</div>
 
-				<div class="mdl-card__title mdl-card--expand">
+				<div class="mdl-card__actions">
+					<p>
+						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upavatar">
+							<b class="mdl-color-text--white">upload avatar</b>
+							<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
+						</label>
+						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upcover">
+							<b class="mdl-color-text--white">upload cover</b>
+							<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
+						</label>
+
+						<div class="mdl-tooltip mdl-tooltip--large" for="upavatar">
+						.jpg only <br> 2MB max
+						</div>
+
+						<div class="mdl-tooltip mdl-tooltip--large" for="upcover">
+						.jpg only <br> 2MB max
+						</div>
+					</p>
+				</div>
+				
+				<div class="mdl-card__actions mdl-card--border">
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="savesettings()">
+						  <b class="mdl-color-text--white">Save</b>
+					</button>
+					<button style="float: right" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--red-700" ng-click="">
+						  <b class="mdl-color-text--white">Delete my profile</b>
+					</button>					
 				</div>
 			</div>
 			<div class="mdl-cell mdl-cell--1-col"></div>

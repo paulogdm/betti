@@ -145,3 +145,27 @@ html, body {
   -ms-user-select: none;
   user-select: none;
 }
+
+
+.upload_photo_container{
+	display: table;
+	opacity: 0.5;
+	border: dashed white;
+	transition: opacity 0.15s ease-in;
+}
+
+.upload_photo_container:hover{
+	opacity: 1;
+}
+
+.upload_photo_up {
+	display: table-cell;
+	font-size: 500%;
+	vertical-align: middle;
+	transition: all 0.1s linear;
+}
+
+.upload_photo_container:hover .upload_photo_up {
+	font-size: 700%;
+}
+
