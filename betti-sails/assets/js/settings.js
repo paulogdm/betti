@@ -56,9 +56,6 @@ angular.module("betti-app").controller('SettingsController',
 		var style_profile = ($scope.color_profile == this.color_profileBKP) ? undefined : $scope.color_profile;
 		var style_bar = ($scope.color_search == this.color_searchBKP) ? undefined : $scope.color_search;
 
-		console.info(style_profile);
-		console.info(style_bar);
-
 		var data = {
 			settings: {
 				style_profile: style_profile,
@@ -69,6 +66,8 @@ angular.module("betti-app").controller('SettingsController',
 				description: $scope.description
 			}
 		};
+
+		showSnackbar("Sending...");
 
 		SettingsComm.save(data).then(
 			function(response) {
