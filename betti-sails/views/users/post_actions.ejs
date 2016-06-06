@@ -1,7 +1,7 @@
 <div class="actions_container mdl-card__actions mdl-card--border">
 
 	<div class="button_container">
-		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent"   ng-class="post.liked ? 'mdl-color--green-600' : color_mdl_class_profile" ng-click="like($index)"> <b>{{post.likes | limitTo:2}}</b>
+		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent"   ng-class="post.liked ? 'mdl-color--green-600' : '<%= styleSwitchEJS(style_profile) %>'" ng-click="like($index)"> <b>{{post.likes | limitTo:2}}</b>
 		</button>
 		<button class="button_hidden mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent mdl-color--green-600" ng-click="like($index)">
 			<i class="material-icons">arrow_upward</i>
@@ -10,7 +10,7 @@
 	
 	&nbsp;&nbsp;&nbsp;
 	<div class="button_container">
-		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" ng-class="post.disliked ? 'mdl-color--red-600' : color_mdl_class_profile" ng-click="dislike($index)"> <b>{{post.dislikes | limitTo:2}}</b>
+		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" ng-class="post.disliked ? 'mdl-color--red-600' : '<%= styleSwitchEJS(style_profile) %>'" ng-click="dislike($index)"> <b>{{post.dislikes | limitTo:2}}</b>
 		</button>
 		<button class="button_hidden mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent mdl-color--red-600" ng-click="dislike($index)">
 			<i class="material-icons">arrow_downward</i>
@@ -19,7 +19,7 @@
 
 	&nbsp;&nbsp;&nbsp;
 	<div class="button_container">
-		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-500' : color_mdl_class_profile" ng-click="favorite($index)"> <b>{{post.favorites | limitTo:2}}</b>
+		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" ng-class="post.favorited ? 'mdl-color--amber-500' : '<%= styleSwitchEJS(style_profile) %>'" ng-click="favorite($index)"> <b>{{post.favorites | limitTo:2}}</b>
 		</button>
 		<button class="button_hidden mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent mdl-color--amber-500" ng-click="favorite($index)">
 			<i class="material-icons">star</i>
@@ -28,7 +28,7 @@
 
 	&nbsp;&nbsp;&nbsp;
 	<div class="button_container">
-		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--blue-600' : color_mdl_class_profile" ng-click="share($index)"> <b>{{post.shares | limitTo:2}}</b>
+		<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" ng-class="post.shared ? 'mdl-color--blue-600' : '<%= styleSwitchEJS(style_profile) %>'" ng-click="share($index)"> <b>{{post.shares | limitTo:2}}</b>
 		</button>
 		<button class="button_hidden mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent mdl-color--blue-600" ng-click="share($index)">
 			<i class="material-icons">share</i>

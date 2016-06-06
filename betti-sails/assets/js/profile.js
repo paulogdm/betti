@@ -203,30 +203,6 @@ angular.module("betti-app").factory('AllPosts', function() {
 });
 
 
-angular.module("betti-app").controller('ProfileController', ['$scope', 'GetService', 
-	function($scope, GetService) { 
-	
-	var login = window.location.pathname.split('/')[3];
-
-	var data = {login: login};
-	
-	GetService.get_profile(data).then(
-		function(response){
-			if(response.status == 200){
-				$scope.profile_photo = response.data.uphoto; //substituir por uma funcao get
-				$scope.cover_photo = response.data.ucover;  
-				$scope.birthday = response.data.birthday;
-
-				var num = response.data.style_profile; // GET
-				$scope.color_mdl_class_profile = styleSwitch(num); //STYLE.JS
-				$scope.color_mdl_class_profile_contrast = styleSwitchBar(num); //STYLE.JS
-			}
-		},function(response) {
-			console.info("[Profile][get_profile] Error received!");
-		}
-	);
-}]);
-
 angular.module("betti-app").
 	controller('NewPostController', ['$scope', 'PostCommService', 'AllPosts',
 	function($scope, PostCommService, AllPosts){ 
@@ -339,7 +315,7 @@ angular.module("betti-app").controller('AllFavoritesController', ['$scope', func
 		favorites: 99,
 		likes: 01,
 		dislikes: 02,
-		forward: 03,
+		shares: 03,
 		liked: false,
 		disliked: false,
 		favorited: false,
@@ -352,7 +328,7 @@ angular.module("betti-app").controller('AllFavoritesController', ['$scope', func
 		favorites: 99,
 		likes: 01,
 		dislikes: 02,
-		forward: 02,
+		shares: 02,
 		liked: true,
 		disliked: true,
 		favorited: true,

@@ -11,8 +11,13 @@
 
 </head>
 
+	
+
 <body>
-	<main class="mdl-layout__content" ng-controller="ProfileController">
+	<main class="mdl-layout__content">
+		
+		<% include style.ejs %>
+
 		<div>
 			<header class="upper_container">
 				<div class="cover_photo_container">
@@ -20,12 +25,13 @@
 				</div>
 				<img class="profile_photo" src="<%= uphoto %>">
 				<span class="profile_name mdl-color-text--white"> <%= uname %> </span>
-				<div ng-class="color_mdl_class_profile" class="upper_bar">
+				<div class="upper_bar <%= styleSwitchEJS(style_profile) %>">
 					<div class="upper_bar_content mdl-color-text--white">
 						@<%= login %>
 					</div>
 					<div class="upper_bar_content mdl-color-text--white" style="float: right;">
-						{{ birthday | date: "dd-MMM"}}
+						<%= birthday.getDate()%>
+						<%= birthday.toLocaleString("en-us", { month: "short" })%>
 						<i class="mdi mdi-cake-variant"></i>
 					</div>
 				</div>
@@ -35,7 +41,7 @@
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 			
 			<div class="tab_bar_container">	
-				<div class="tab_bar mdl-tabs__tab-bar" ng-class="color_mdl_class_profile_contrast">
+				<div class="tab_bar mdl-tabs__tab-bar <%= styleSwitchBarEJS(style_profile) %>">
 					<a href="#user-all-posts" class="mdl-color-text--white mdl-tabs__tab is-active">
 						<i class="mdi mdi-message-text-outline"></i>
 					</a>
