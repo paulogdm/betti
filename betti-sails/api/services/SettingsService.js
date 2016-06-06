@@ -51,7 +51,7 @@ module.exports = {
 
 					var query = "INSERT INTO webuserDescription(login, description) "+
 					"VALUES ('"+requester+"', '"+data.description+ "')"+ 
-					"ON CONFLICT (login) DO UPDATE SET description = 'USER_DESCRIPTION';";
+					"ON CONFLICT (login) DO UPDATE SET description = '"+data.description+"';";
 
 					UserDescription.query(query, function(err, result){
 						if(err) {
