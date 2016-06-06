@@ -2,7 +2,6 @@
 
 
 var GLOBAL_URL_GET_PROFILE = '/profile/getfullprofile/';
-var GLOBAL_URL_GET_MY_PROFILE = '/profile/getmyprofile/';
 var GLOBAL_URL_GET_FOLLOW = '/profile/getfollowlist/';
 var GLOBAL_URL_GET_POSTS = '/profile/getposts/';
 var GLOBAL_URL_GET_FAV = '/profile/getfavorites/';
@@ -24,7 +23,6 @@ angular.isUndefinedOrNull = function(val) {
 angular.module("betti-app").factory('GetService', function($http) {
 	return {
 		'get_profile': function(data){
-			if(! data.login) return $http.post(GLOBAL_URL_GET_MY_PROFILE, data);
 			return $http.post(GLOBAL_URL_GET_PROFILE, data);
 		},
 		'get_follow': function(data) {

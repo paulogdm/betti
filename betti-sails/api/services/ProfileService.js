@@ -45,7 +45,7 @@ module.exports = {
 		});
 	},
 
-	getProfileRequester: function(requester, cb){
+	getProfile: function(login, requester, cb){
 
 		AuthService.tokendecode(requester, function(data){
 			
@@ -54,11 +54,14 @@ module.exports = {
 			} else {
 				requester = data.user.login.trim();
 
+				if(!login)
+					login = requester;
+
 				var pgquery = 'select webuser.uname, webuser.birthday, webuser.uphoto,'+
 				' webuser.ucover, webuser.motto, webuser.login, webuser.style_profile, '+
 				'webuser.style_bar '+
 				'from webuser where ' +
-				'webuser.login = \''+requester+'\'';
+				'webuser.login = \''+login+'\'';
 
 				User.query(pgquery, function(err, result){
 					if (err) {

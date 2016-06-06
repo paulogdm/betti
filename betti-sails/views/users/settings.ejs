@@ -40,64 +40,73 @@
 			</div>
 		</div>
 
-		<div class="mdl-grid">
+		<div class="mdl-grid mdl-shadow--2dp">
+			
 			<div class="mdl-cell mdl-cell--1-col"></div>
 
 			<div class="mini_card mdl-card mdl-cell mdl-cell--10-col mdl-shadow--4dp">
+				<div class="mdl-grid">
 
-				<div class="mdl-card__supporting-text">
-					<h2>Settings</h2>
-				</div>
-
-				<div class="mdl-card__actions mdl-card--border">
 					<div class="mdl-card__supporting-text">
-						<h4 class="noselect">Profile Color</h4>
+						<h2>Settings</h2>
 					</div>
-					<p>
-						<input class="mdl-slider mdl-js-slider" type="range" id="slider1" min="0" max="6" step="1" ng-model="color_profile" ng-change="changeColorProfile()">
-					</p>
-				</div>
-
-				<div class="mdl-card__actions mdl-card--border">
-					<div class="mdl-card__supporting-text">
-						<h4 class="noselect">Search Bar Color</h4>
+					<div class="mdl-cell mdl-cell--6-col">
+						
+						<div class="mdl-card__actions mdl-card--border">
+							<div class="mdl-card__supporting-text">
+								<h4 class="noselect">Profile Color</h4>
+							</div>
+							<p>
+								<input class="mdl-slider mdl-js-slider" type="range" id="slider1" min="0" max="6" step="1" ng-model="color_profile" ng-change="changeColorProfile()">
+							</p>
+						</div>
 					</div>
-					<p>
-						<input class="mdl-slider mdl-js-slider" type="range" id="slider2" min="0" max="6" step="1" ng-model="color_search" ng-change="changeColorSearch()">
-					</p>
-				</div>
-				
-				<div class="mdl-card__actions mdl-card--border">
-				</div>
 
-				<div class="mdl-card__actions">
-					<p>
-						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upavatar">
-							<b class="mdl-color-text--white">upload avatar</b>
-							<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
-						</label>
-						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upcover">
-							<b class="mdl-color-text--white">upload cover</b>
-							<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
-						</label>
-
-						<div class="mdl-tooltip mdl-tooltip--large" for="upavatar">
-						.jpg only <br> 2MB max
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-card__actions mdl-card--border">
+							<div class="mdl-card__supporting-text">
+								<h4 class="noselect">Search Bar Color</h4>
+							</div>
+							<p>
+								<input class="mdl-slider mdl-js-slider" type="range" id="slider2" min="0" max="6" step="1" ng-model="color_search" ng-change="changeColorSearch()">
+							</p>
 						</div>
+					</div>
 
-						<div class="mdl-tooltip mdl-tooltip--large" for="upcover">
-						.jpg only <br> 2MB max
+					<div class="mdl-card__actions mdl-card--border">
+					</div>
+
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-card__actions">
+							<p>
+								<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upavatar">
+									<b class="mdl-color-text--white">upload avatar</b>
+									<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
+								</label>
+								<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upcover">
+									<b class="mdl-color-text--white">upload cover</b>
+									<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
+								</label>
+
+								<div class="mdl-tooltip mdl-tooltip--large" for="upavatar">
+									.jpg only <br> 2MB max
+								</div>
+
+								<div class="mdl-tooltip mdl-tooltip--large" for="upcover">
+									.jpg only <br> 2MB max
+								</div>
+							</p>
 						</div>
-					</p>
-				</div>
-				
-				<div class="mdl-card__actions mdl-card--border">
-					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="savesettings()">
-						  <b class="mdl-color-text--white">Save</b>
-					</button>
-					<button style="float: right" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--red-700" ng-click="">
-						  <b class="mdl-color-text--white">Delete my profile</b>
-					</button>					
+					</div>
+
+					<div class="mdl-card__actions mdl-card--border">
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="savesettings()">
+							<b class="mdl-color-text--white">Save</b>
+						</button>
+						<button style="float: right" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--red-700" ng-click="">
+							<b class="mdl-color-text--white">Delete my profile</b>
+						</button>					
+					</div>
 				</div>
 			</div>
 			<div class="mdl-cell mdl-cell--1-col"></div>

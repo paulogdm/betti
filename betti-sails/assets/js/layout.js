@@ -3,7 +3,7 @@ var angApp = angular.module("betti-app", []);
 angApp.factory('GetLayoutService', function($http) {
 	return {
 		'get_profile': function(data){
-			return $http.post('/profile/getmyprofile/', data);
+			return $http.post('/profile/getfullprofile/', data);
 		}
 	}
 });

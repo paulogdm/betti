@@ -129,8 +129,12 @@ module.exports = {
 			} else {
 				requester = data.user.login.trim();
 				
+				if(!login_to_show)
+					login_to_show = requester;
+				
 				var pgquery = 'select * from post where ' +
 				'post.powner = \''+login_to_show+'\'';
+
 
 				User.query(pgquery, function(err, result){
 					if(err){
