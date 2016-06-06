@@ -18,6 +18,20 @@ module.exports = {
 		});
 	},
 
+	getmyprofile: function (req, res) {
+		
+		var requester = req.cookies.token;
+
+		ProfileService.getProfileRequester(requester, function(err, user){
+			if(err || !user){
+				res.json({sucess: false});
+			} else {
+				user.uname.trim();
+				res.json(user);
+			}
+		});
+	},
+
 	getnameandphoto: function (req, res) {
 		
 		var login = req.param('login');
