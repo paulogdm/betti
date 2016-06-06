@@ -6,14 +6,10 @@ angular.module("betti-app").controller('SettingsController',
 	GetLayoutService.get_profile().then(
 		function(response){
 			if(response.status == 200){
-				$scope.profile_photo = response.data.uphoto; //substituir por uma funcao get
-				$scope.cover_photo = response.data.ucover;  
-				$scope.birthday = response.data.birthday;
 				
 				$scope.color_profile = response.data.style_profile; 
 				slider1.MaterialSlider.change($scope.color_profile);
-				
-				
+								
 				$scope.color_search = response.data.style_bar;
 				slider2.MaterialSlider.change($scope.color_search);
 
@@ -40,7 +36,5 @@ angular.module("betti-app").controller('SettingsController',
 	$scope.save = function(){
 
 	}
-
-
 
 }]);
