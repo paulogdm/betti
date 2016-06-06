@@ -7,6 +7,7 @@
 
  module.exports = {
  	
+ 	//ALPHA FEATURE
  	uploadAvatar: function (req, res){
 
 		var requester = req.cookies.token;
@@ -37,6 +38,16 @@
 				});
 			}
 		});
- 	}
+ 	},
+
+ 	save: function (req, res){
+
+ 		var requester = req.cookies.token;
+ 		var data = req.param('settings');
+
+		SettingsService.save(requester, data, function(msg){
+			res.json(msg);
+		});
+	}
  };
 

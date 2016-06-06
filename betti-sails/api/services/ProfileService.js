@@ -4,7 +4,7 @@ var DEF_USER_PHOTO = '/images/views/profile_default.png';
 var DEF_COVER_PHOTO = '/images/views/cover_default.png';
 
 module.exports = {
-
+/*
 	getProfile: function(login, requester, cb){
 
 		if(user.isReserved(login)){
@@ -43,7 +43,7 @@ module.exports = {
 
 			return cb(null, result.rows[0]);
 		});
-	},
+	},*/
 
 	getProfile: function(login, requester, cb){
 

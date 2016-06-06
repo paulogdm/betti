@@ -56,17 +56,17 @@
 		</header>
 		<div class="sidebar-drawer mdl-layout__drawer mdl-color-text--white" ng-class="color_mdl_profile">
 			<header class="sidebar-drawer-header">
-				<img ng-src="{{user_avatar}}" class="sidebar-avatar">
+				<img src="<%= uphoto %>" class="sidebar-avatar">
 				<div class="sidebar-name-container">
-					<span>{{user_name}}</span>
+					<span style="font-size: 120%">@<%= login %></span>
 					<div class="mdl-layout-spacer"></div>
 				</div>
 			</header>
 			<nav class="sidebar-navigation mdl-navigation mdl-color--white">
-				<a class="mdl-navigation__link" href="/userspace/profile"><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i>Profile</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>Updates</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i>Friends</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">bubble_chart</i>Groups</a>
+				<a class="mdl-navigation__link" href="/userspace/profile/"><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i>Profile</a>
+				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>News Feed</a>
+				<a class="mdl-navigation__link" href="/userspace/profile/#follow"><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i>Following</a>
+				<a class="mdl-navigation__link" href="/userspace/profile/#groups"><i class="mdl-color-text--blue-grey-400 material-icons">bubble_chart</i>Groups</a>
 
 				<div class="mdl-layout-spacer"></div>
 

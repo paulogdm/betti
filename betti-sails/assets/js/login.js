@@ -8,29 +8,29 @@ var GLOBAL_URL_TO_LOGIN = "/auth/login";
 ///////////
 
 function showDialog(){ 
- 
-  var dialog = document.querySelector('dialog'); 
-  var showDialogButton = document.querySelector('#signup'); 
-  if (! dialog.showModal){ 
-    dialogPolyfill.registerDialog(dialog); 
-  } 
- 
-  dialog.showModal(); 
+
+	var dialog = document.querySelector('dialog'); 
+	var showDialogButton = document.querySelector('#signup'); 
+	if (! dialog.showModal){ 
+		dialogPolyfill.registerDialog(dialog); 
+	} 
+
+	dialog.showModal(); 
 } 
- 
- 
+
+
 function hideDialog(){ 
-  var dialog = document.querySelector('dialog'); 
-  dialog.close(); 
+	var dialog = document.querySelector('dialog'); 
+	dialog.close(); 
 } 
- 
+
 function showSnackbar(msg){ 
-  var notification = document.querySelector('#snackbar-show'); 
-  var data = { 
-    message: msg, 
-    timeout: 2000 
-  }; 
-  notification.MaterialSnackbar.showSnackbar(data); 
+	var notification = document.querySelector('#snackbar-show'); 
+	var data = { 
+		message: msg, 
+		timeout: 2000 
+	}; 
+	notification.MaterialSnackbar.showSnackbar(data); 
 } 
 
 
@@ -71,24 +71,24 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 			angular.isUndefinedOrNull($scope.user.login)			|| 
 			angular.isUndefinedOrNull($scope.user.password)
 			){
-				showSnackbar(msgErr+" Check your information please...");
-			
-		} else {
-			var login = $scope.user.login;
-			var password = $scope.user.password;
+			showSnackbar(msgErr+" Check your information please...");
 
-			var data = {
-				login: login,
-				password: password
-			}
+	} else {
+		var login = $scope.user.login;
+		var password = $scope.user.password;
 
-			UserService.login(data).then(
-				function(response) {
-					if(response.data.success){
-						console.info("[Login] Success!!!");
+		var data = {
+			login: login,
+			password: password
+		}
 
-						var now = new Date();
-						var time = now.getTime();
+		UserService.login(data).then(
+			function(response) {
+				if(response.data.success){
+					console.info("[Login] Success!!!");
+
+					var now = new Date();
+					var time = now.getTime();
 						time += 20*60*60*1000; //20h
 						now.setTime(time);
 						document.cookie = "token="+response.data.token+
@@ -103,62 +103,62 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 						else 
 							window.location.href = '/userspace/profile/'+data.login;
 
-					} else {
-						console.info("[Login] Failed!");
-						showSnackbar(msgFail);
-					}
-
-				},
-				function(response) {
-					showSnackbar(msgErr);
-					console.info("[Login] Error received!");
+				} else {
+					console.info("[Login] Failed!");
+					showSnackbar(msgFail);
 				}
-			);
-		}
+
+			},
+			function(response) {
+				showSnackbar(msgErr);
+				console.info("[Login] Error received!");
+			}
+		);
 	}
+}
 
-	$scope.submitNewLogin = function (){
+$scope.submitNewLogin = function (){
 
-		var msgSuc = "Welcome! Now you can try your brand new login!"; 
-		var msgErr = "Sorry! Something is not right.";
+	var msgSuc = "Welcome! Now you can try your brand new login!"; 
+	var msgErr = "Sorry! Something is not right.";
 
-		
-		if (
-			angular.isUndefinedOrNull($scope.user)					|| 
-			angular.isUndefinedOrNull($scope.user.new_login)		|| 
-			angular.isUndefinedOrNull($scope.user.new_password)		|| 
-			angular.isUndefinedOrNull($scope.user.new_name)			|| 
-			angular.isUndefinedOrNull($scope.user.new_date) 
-			){
-				showSnackbar(msgErr+" Check your information please...");
-			
-		} else {
-			var newLogin = $scope.user.new_login;
-			var newPass = $scope.user.new_password;
-			var newName = $scope.user.new_name;
-			var newBirth = $scope.user.new_date;
 
-			var data = {
-				login: newLogin,
-				password: newPass,
-				uname: newName,
-				birthday: newBirth
-			};
+	if (
+		angular.isUndefinedOrNull($scope.user)					|| 
+		angular.isUndefinedOrNull($scope.user.new_login)		|| 
+		angular.isUndefinedOrNull($scope.user.new_password)		|| 
+		angular.isUndefinedOrNull($scope.user.new_name)			|| 
+		angular.isUndefinedOrNull($scope.user.new_date) 
+		){
+		showSnackbar(msgErr+" Check your information please...");
 
-			UserService.create(data).then(
-				function(response) {
-					showSnackbar(msgSuc);
-					console.info("[Signup] Success!!!");
-					console.info(response.data);
-					hideDialog();
-				},
-				function(response) {
-					showSnackbar(msgErr);
-					console.info("[Signup] Error received!");
-				}
-			);
+} else {
+	var newLogin = $scope.user.new_login;
+	var newPass = $scope.user.new_password;
+	var newName = $scope.user.new_name;
+	var newBirth = $scope.user.new_date;
+
+	var data = {
+		login: newLogin,
+		password: newPass,
+		uname: newName,
+		birthday: newBirth
+	};
+
+	UserService.create(data).then(
+		function(response) {
+			showSnackbar(msgSuc);
+			console.info("[Signup] Success!!!");
+			console.info(response.data);
+			hideDialog();
+		},
+		function(response) {
+			showSnackbar(msgErr);
+			console.info("[Signup] Error received!");
 		}
-	}
+		);
+}
+}
 }]);
 
 angApp.controller('BGController', ['$scope', function($scope) { 

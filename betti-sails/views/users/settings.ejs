@@ -51,9 +51,10 @@
 					<div class="mdl-card__supporting-text">
 						<h2>Settings</h2>
 					</div>
-					<div class="mdl-cell mdl-cell--6-col">
-						
-						<div class="mdl-card__actions mdl-card--border">
+					<div class="mdl-card__actions mdl-card--border"></div>
+
+					<div class="mdl-cell mdl-cell--6-col">	
+						<div class="mdl-card__actions">
 							<div class="mdl-card__supporting-text">
 								<h4 class="noselect">Profile Color</h4>
 							</div>
@@ -64,7 +65,7 @@
 					</div>
 
 					<div class="mdl-cell mdl-cell--6-col">
-						<div class="mdl-card__actions mdl-card--border">
+						<div class="mdl-card__actions">
 							<div class="mdl-card__supporting-text">
 								<h4 class="noselect">Search Bar Color</h4>
 							</div>
@@ -78,12 +79,47 @@
 					</div>
 
 					<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-card__supporting-text">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
+								<input class="mdl-textfield__input" type="password" id="new_password" ng-model="new_password" maxlength="20" autocomplete="off">
+								<label class="mdl-textfield__label" for="new_password">New Password</label>
+								<span class="mdl-textfield__error">Invalid Password!</span>
+							</div>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
+								<input class="mdl-textfield__input" type="text" id="new_name"
+								ng-model="new_name" maxlength="20" pattern="[A-Za-z]{8,20}" autocomplete="off">
+								<label class="mdl-textfield__label" for="new_name">Change Your Name</label>
+								<span class="mdl-textfield__error">Invalid name!</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
+								<input class="mdl-textfield__input" type="text" id="new_date" pattern="\d{1,2}/\d{1,2}/\d{4}" ng-model="new_date"autocomplete="off" maxlength="10">
+								<label class="mdl-textfield__label" for="new_date">Change Birthday (dd/mm/aaaa)</label>
+								<span class="mdl-textfield__error">Invalid date!</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-card__supporting-text">
+							<form action="#">
+								<div class="mdl-textfield mdl-js-textfield" style="width: 100%; font-size: 150%">
+									<textarea class="mdl-textfield__input" type="text" rows= "5" style="width: 100%; font-size: 140%" ng-model="description" id="description"></textarea>
+									<label class="mdl-textfield__label" for="description">New User description</label>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="mdl-card__actions mdl-card--border">
 						<div class="mdl-card__actions">
 							<p>
 								<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upavatar">
 									<b class="mdl-color-text--white">upload avatar</b>
 									<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
 								</label>
+								&nbsp;&nbsp;
+								&nbsp;&nbsp;
 								<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upcover">
 									<b class="mdl-color-text--white">upload cover</b>
 									<input id="file_input_file" accept="image/jpg,image/jpeg" style="display: none" type="file"/>
@@ -101,10 +137,10 @@
 					</div>
 
 					<div class="mdl-card__actions mdl-card--border">
-						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="savesettings()">
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="saveSettings()">
 							<b class="mdl-color-text--white">Save</b>
 						</button>
-						<button style="float: right" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--red-700" ng-click="">
+						<button style="float: right" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--red-700" ng-click="deleteProfile()">
 							<b class="mdl-color-text--white">Delete my profile</b>
 						</button>					
 					</div>
