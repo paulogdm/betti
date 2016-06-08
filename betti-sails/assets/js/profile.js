@@ -72,6 +72,7 @@ angular.module("betti-app").factory('PostCommService', function($http) {
 angular.module("betti-app")
 	.factory('PostService', ['PostCommService',
 		function(PostCommService) {
+			
 			var PostService = {};
 
 			PostService.processPosts = function(json){
@@ -93,11 +94,10 @@ angular.module("betti-app")
 
 					post.editable = json.data[i].editable;
 
-					post.liked = false;
-					post.disliked = false;
-					post.favorited = false;
-					post.shared = false;
-
+					post.liked = json.data[i].like_dislike == 1 ? true : false;
+					post.disliked = json.data[i].like_dislike == -1 ? true : false;
+					post.favorited = json.data[i].favorited ? true : false;
+					post.shared = json.data[i].shared ? true : false;
 
 					posts.push(post);
 				}
@@ -107,25 +107,54 @@ angular.module("betti-app")
 			};
 
 			PostService.like = function(post){
-				if(post.disliked){
-					post.disliked = false;
-					post.dislikes --;
-				}
-				if(!post.liked){
-					post.liked = true;
-					post.likes ++;
-				}
+				
+				PostCommService.like_post({post_id: post.id}).then(
+				function(response){
+					if(response.data.success){
+						console.info("[Profile][PostService.dislike] Sucess!");
+						
+						if(post.disliked){
+							post.disliked = false;
+							post.dislikes --;
+						}
+						if(!post.liked){
+							post.liked = true;
+							post.likes ++;
+						}
+
+					} else {
+						showSnackbar("Sorry... Something is wrong");
+						console.info("[Profile][PostService.dislike] Fail!");
+					}
+				},function(response) {
+					console.info("[Profile][PostService.dislike] Error received!");
+				});
 			}
 
 			PostService.dislike = function(post){
-				if(post.liked){
-					post.liked = false;
-					post.likes --;
-				}
-				if(!post.disliked){
-					post.disliked = true;
-					post.dislikes ++;
-				}
+
+				PostCommService.dislike_post({post_id: post.id}).then(
+				function(response){
+					if(response.data.success){
+						console.info("[Profile][PostService.dislike] Sucess!");
+						
+						if(post.liked){
+							post.liked = false;
+							post.likes --;
+						}
+
+						if(!post.disliked){
+							post.disliked = true;
+							post.dislikes ++;
+						}
+
+					} else {
+						showSnackbar("Sorry... Something is wrong");
+						console.info("[Profile][PostService.dislike] Fail!");
+					}
+				},function(response) {
+					console.info("[Profile][PostService.dislike] Error received!");
+				});
 			}
 
 			PostService.favorite = function(post){
@@ -164,13 +193,27 @@ angular.module("betti-app")
 			}
 
 			PostService.share = function(post){
-				if(post.shared){
-					post.shared = false;
-					post.shares --;
-				} else {
-					post.shared = true;
-					post.shares ++;
-				}
+
+				PostCommService.share_post({post_id: post.id}).then(
+				function(response){
+					if(response.data.success){
+						console.info("[Profile][PostService.share] Sucess!");
+						
+						if(post.shared){
+							post.shared = false;
+							post.shares --;
+						} else {
+							post.shared = true;
+							post.shares ++;
+						}
+
+					} else {
+						showSnackbar("Sorry... Something is wrong");
+						console.info("[Profile][PostService.share] Fail!");
+					}
+				},function(response) {
+					console.info("[Profile][PostService.share] Error received!");
+				});
 			}
 
 			return PostService;
@@ -192,7 +235,7 @@ angular.module("betti-app").factory('AllPosts', function() {
 	}
 
 	AllPosts.pop = function(index){
-
+		this.all.splice(index, 1);
 	}
 
 	AllPosts.get = function(){
@@ -200,6 +243,30 @@ angular.module("betti-app").factory('AllPosts', function() {
 	}
 
 	return AllPosts;
+});
+
+angular.module("betti-app").factory('FavPosts', function() {
+
+	var FavPosts = {};
+	var fav = [];
+
+	FavPosts.set = function(array){
+		this.fav = array;
+	}
+
+	FavPosts.push = function(post){
+		this.fav.unshift(post);
+	}
+
+	FavPosts.pop = function(index){
+		this.fav.splice(index, 1);
+	}
+
+	FavPosts.get = function(){
+		return this.fav;
+	}
+
+	return FavPosts;
 });
 
 

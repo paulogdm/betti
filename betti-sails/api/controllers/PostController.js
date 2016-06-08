@@ -33,7 +33,31 @@ module.exports = {
 			res.json(result);
 		});
 	},
+
 	like: function(req, res){
-		
+		var requester = req.cookies.token;
+		var id = req.param('post_id');
+
+		PostService.like(requester, id, function(result){
+			res.json(result);
+		});	
+	},
+
+	dislike: function(req, res){
+		var requester = req.cookies.token;
+		var id = req.param('post_id');
+
+		PostService.dislike(requester, id, function(result){
+			res.json(result);
+		});
+	},
+
+	share: function(req, res){
+		var requester = req.cookies.token;
+		var id = req.param('post_id');
+
+		PostService.share(requester, id, function(result){
+			res.json(result);
+		});
 	}
 };

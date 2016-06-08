@@ -47,6 +47,8 @@ module.exports = {
 				'ON CONFLICT (post_id, webuser) '+
 				'DO NOTHING;'
 
+				//reactions
+
 				FavPost.query(pgquery, function(err, result){
 					if (err){
 						sails.log.debug("[PostService.js][addFavorite] Query error:\t" + id + requester);
@@ -71,6 +73,8 @@ module.exports = {
 	
 				var pgquery ='DELETE FROM fav_post WHERE post_id = \''+id+'\''+
 				' AND webuser = \''+requester+'\'';
+				
+				//reactions
 
 				FavPost.query(pgquery, function(err, result){
 					if (err){
@@ -97,7 +101,7 @@ module.exports = {
 				var pgquery = 'select * from post where ' +
 				'post.id = \''+id+'\'';
 
-				User.query(pgquery, function(err, result){
+				Post.query(pgquery, function(err, result){
 					if (err) {
 						sails.log.debug("[PostService.js][getOnePost] Query error:\t" + login);
 						sails.log.debug(JSON.stringify(result));
@@ -132,11 +136,13 @@ module.exports = {
 				if(!login_to_show)
 					login_to_show = requester;
 				
-				var pgquery = 'select * from post where ' +
-				'post.powner = \''+login_to_show+'\'';
+				var pgquery = "select * from post left outer join post_reaction on "+
+				"post.post_id = post_reaction.post_id and "
+				"preader = '"+ requester +"' and "
+				"powner = '"+login_to_show+"';";
 
 
-				User.query(pgquery, function(err, result){
+				Post.query(pgquery, function(err, result){
 					if(err){
 						sails.log.debug("[PostService.js][getAllPosts] Query error:\t" + login_to_show);
 						sails.log.debug(JSON.stringify(result));
