@@ -72,5 +72,19 @@ module.exports = {
 				res.json(list);
 			}
 		});
+	},
+
+	getfavorites: function(req, res){
+
+		var login = req.param('login');
+		var requester = req.cookies.token;
+
+		PostService.getAllFavorites(login, requester, function(err, list){
+			if(err || !list){
+				res.json({sucess: false});
+			} else {
+				res.json(list);
+			}
+		});
 	} 
 };

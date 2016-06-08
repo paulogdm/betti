@@ -72,7 +72,7 @@ angular.module("betti-app").controller('SettingsController',
 		SettingsComm.save(data).then(
 			function(response) {
 				if(response.data.success){
-					showSnackbar("Success! Please refresh your page.");
+					showSnackbar("Success! Please refresh this page.");
 					$scope.new_password = undefined;
 					$scope.new_name = undefined;
 					$scope.new_date = undefined;

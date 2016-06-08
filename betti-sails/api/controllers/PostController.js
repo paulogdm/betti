@@ -6,7 +6,6 @@ module.exports = {
 	newpost: function(req, res){
 		
 		var requester = req.cookies.token;
-		var login = req.param('login');
 
 		var data = {};
 		data.title = req.param('title');
