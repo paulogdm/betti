@@ -212,11 +212,10 @@ module.exports = {
 				var pgquery = "select post.* from fav_post "+
 				"inner join post on "+
 				"fav_post.post_id = post.post_id and "+
-				"webuser = '"+ login_to_show+"';";
-				// "left join post_reaction on "+
-				// "fav_post.post_id = post_reaction.post_id and "+
-				// "preader = '"+ requester+"' ";
-
+				"webuser = '"+ login_to_show+"' ";
+				"left join post_reaction on "+
+				"fav_post.post_id = post_reaction.post_id "+
+				"where preader = '"+ requester+"' ";
 
 				Post.query(pgquery, function(err, result){
 					if(err){
