@@ -289,8 +289,22 @@ angular.module("betti-app").
 }]);
 
 angular.module("betti-app").
-	controller('NewPostController', ['$scope', 'PostCommService', 'FreshPosts',
-	function($scope, PostCommService, FreshPosts){ 
+	controller('NewPostController', ['$scope', 'PostCommService', 'FreshPosts', 'LayoutStyleService',
+	function($scope, PostCommService, FreshPosts, LayoutStyleService){ 
+		
+		$scope.avatar = LayoutStyleService.getAvatar();
+		$scope.birthday = LayoutStyleService.getBirthday();
+		$scope.name = LayoutStyleService.getName();
+		$scope.login = LayoutStyleService.getLogin();
+
+		$scope.$watch(
+			function(){
+				$scope.avatar = LayoutStyleService.getAvatar();
+				$scope.birthday = LayoutStyleService.getBirthday();
+				$scope.name = LayoutStyleService.getName();
+				$scope.login = LayoutStyleService.getLogin();
+			}
+		)
 
 		$scope.new_post = function(){
 
@@ -350,10 +364,21 @@ angular.module("betti-app").
 }]);
 
 angular.module("betti-app").
-	controller('FreshController', ['$scope', 'GetService', 'PostService', 'FreshPosts', 
-	function($scope, GetService, PostService, FreshPosts){ 
+	controller('FreshController', ['$scope', 'GetService', 'PostService', 'FreshPosts', 'LayoutStyleService',
+	function($scope, GetService, PostService, FreshPosts, LayoutStyleService){ 
 
 	$scope.freshPosts = {};
+
+	$scope.color_mdl_search = LayoutStyleService.getColorMdlSearch();
+	$scope.color_mdl_profile = LayoutStyleService.getColorMdlProfile();
+
+	$scope.$watch(
+		function(){
+			$scope.color_mdl_profile = LayoutStyleService.getColorMdlProfile();
+			$scope.color_mdl_search = LayoutStyleService.getColorMdlSearch();
+		}
+	)
+
 
 	GetService.get_fresh(null).then(
 		function(response){
@@ -384,3 +409,4 @@ angular.module("betti-app").
 	}
 
 }]);
+	
