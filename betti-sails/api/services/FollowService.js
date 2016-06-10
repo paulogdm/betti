@@ -1,7 +1,6 @@
 var usermodel = require('../models/User.js');
 var DEF_USER_PHOTO = '/images/views/profile_default.png';
 
-
 module.exports = {
 	getFollowList: function(login_to_show, requester, cb){
 
@@ -42,7 +41,7 @@ module.exports = {
 								result[i].uphoto = DEF_USER_PHOTO;
 						}
 					}
-					
+
 					return cb(null, result);
 				});
 			}

@@ -5,19 +5,21 @@
 module.exports = {
 	profile: function (req, res) {
 		
-		var login = req.param('login');
-		var requester = req.cookies.token;
-
-		ProfileService.getProfile(login, requester, function(err, user){
+		var data = {};
+		data.login = req.param('login');
+		data.requester = req.cookies.token;
+		
+		ProfileService.getProfile(data, function(err, result){
 			if(err){
 				res.serverError();
 			}
-			else if(!user || err){
+			else if(!result || err){
 				res.view('404', {layout: 'users/layout'});
 			} else {
-				user.uname.trim();
-				var locals = user;
+				
+				var locals = result;
 				locals.layout = 'users/layout';
+				
 				res.view('users/profile', locals);
 			}
 		});
@@ -25,22 +27,16 @@ module.exports = {
 	
 	settings: function (req, res) {
 
-		var requester = req.cookies.token;
+		var locals = {};
+		locals.layout = 'users/layout';
+		res.view('users/settings', locals);
+	},
 
-		ProfileService.getProfile(null, requester, function(err, user){
-			if(err){
-				res.serverError();
-			}
-			else if(!user || err){
-				res.view('404', {layout: 'users/layout'});
-			} else {
-				user.uname.trim();
-				var locals = user;
-				locals.layout = 'users/layout';
-				res.view('users/settings', locals);
-			}
-		});
-
+	news: function (req, res) {
+		
+		var locals = {};
+		locals.layout = 'users/layout';
+		res.view('users/timeline', locals);
 	},
 
 	search: function (req, res) {

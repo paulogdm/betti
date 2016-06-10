@@ -165,11 +165,12 @@ module.exports = {
 				if(!login_to_show)
 					login_to_show = requester;
 
-				var pgquery = "select * from post left outer "+
-				"join post_reaction on "+
+				var pgquery = "select * from post "+
+				"left outer join post_reaction on "+
 				"post.post_id = post_reaction.post_id and "+
 				"preader = '"+ requester +"' and "+
-				"powner = '"+login_to_show+"';";
+				"powner = '"+login_to_show+"' "+
+				"order by pdate asc"
 
 				Post.query(pgquery, function(err, result){
 					if(err){

@@ -35,9 +35,9 @@
 </head>
 
 
-<body ng-app="betti-app" ng-controller="LayoutStyleController">
+<body ng-app="betti-app" ng-controller="SideBarController">
 	<!-- HEADER AND SIDEBAR BEGIN -->
-	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
+	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_search">
 			<div class="mdl-layout__header-row">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
@@ -56,15 +56,16 @@
 		</header>
 		<div class="sidebar-drawer mdl-layout__drawer mdl-color-text--white" ng-class="color_mdl_profile">
 			<header class="sidebar-drawer-header">
-				<img src="<%= uphoto %>" class="sidebar-avatar">
+				<img ng-src="{{avatar}}" class="sidebar-avatar">
 				<div class="sidebar-name-container">
-					<span style="font-size: 120%">@<%= login %></span>
+					<span style="font-size: 120%">{{login}}</span>
 					<div class="mdl-layout-spacer"></div>
 				</div>
 			</header>
 			<nav class="sidebar-navigation mdl-navigation mdl-color--white">
+				<a class="mdl-navigation__link" href="/userspace/news"><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>News Feed</a>
+				<a class="mdl-navigation__link" href="/userspace/statistics"><i class="mdl-color-text--blue-grey-400 material-icons">trending_up</i>Statistics</a>
 				<a class="mdl-navigation__link" href="/userspace/profile/"><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i>Profile</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>News Feed</a>
 				<a class="mdl-navigation__link" href="/userspace/profile/#follow"><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i>Following</a>
 				<a class="mdl-navigation__link" href="/userspace/profile/#groups"><i class="mdl-color-text--blue-grey-400 material-icons">bubble_chart</i>Groups</a>
 

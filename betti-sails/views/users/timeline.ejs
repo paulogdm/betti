@@ -1,0 +1,23 @@
+<head>
+	<meta charset="utf-8">
+
+	<!--My CSS --> 
+	<link rel="stylesheet" href="/css/timeline.css"> 
+	
+	<!--My JS -->	
+	<title>News Feed </title>
+
+	<script src="/js/timeline.js"></script>
+
+</head>
+
+<body>
+	<main class="mdl-layout__content" ng-controller="StyleController">
+		<div style="margin-top: 30px">
+			<div class="main_div mdl-layout__content">
+				<%- include timeline_newpost.ejs %>
+				<%- include timeline_fresh.ejs %>
+			</div>
+		</div>
+	</main>
+</body>

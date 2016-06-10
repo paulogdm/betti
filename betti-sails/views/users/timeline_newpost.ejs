@@ -1,0 +1,32 @@
+
+<div class="comment_box" ng-controller="NewPostController">
+	<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
+		<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
+			<div class="mdl-card__supporting-text">
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+						<input class="mdl-textfield__input" type="text" style="font-size: 150%" id="new_title" ng-model="new_title">
+						<label class="mdl-textfield__label" for="new_title" style="font-size: 150%">Title</label>
+					</div>
+				</form>
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield" style="width: 100%; font-size: 150%">
+						<textarea class="mdl-textfield__input" type="text" rows= "3" id="new_text" style="width: 100%; font-size: 140%" ng-model="new_text"></textarea>
+						<label class="mdl-textfield__label" for="new_text">Post</label>
+					</div>
+				</form>
+			</div>
+
+			<div class="mdl-card__actions">
+				<div class="button_container">
+					<button class="button_show mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" ng-class="color_mdl_profile" ng-click="new_post()">
+						<i class="material-icons">done</i>
+					</button>
+					<button class="button_hidden mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent mdl-color--green-600" ng-click="new_post()">
+						<i class="material-icons">done_all</i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

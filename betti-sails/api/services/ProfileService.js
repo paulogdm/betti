@@ -4,48 +4,13 @@ var DEF_USER_PHOTO = '/images/views/profile_default.png';
 var DEF_COVER_PHOTO = '/images/views/cover_default.png';
 
 module.exports = {
-/*
-	getProfile: function(login, requester, cb){
 
-		if(user.isReserved(login)){
-			return cb(null, false, {
-				message: 'invalid'
-			});
-		}
+	getProfile: function(data, cb){
 
-		var pgquery = 'select webuser.uname, webuser.birthday, webuser.uphoto,'+
-		' webuser.ucover, webuser.motto, webuser.login, webuser.style_profile, '+
-		'webuser.style_bar '+
-		'from webuser where webuser.login = \''+login+'\'';
+		sails.log.debug(data);
 
-		User.query(pgquery, function(err, result){
-			if (err) {
-				sails.log.debug("[profile.js][getProfile] Query error:\t" + login);
-				sails.log.debug(JSON.stringify(result));
-
-				return cb(null, err);
-			}
-
-			if (!result || result.rowCount < 1) {
-
-				sails.log.debug("[profile.js][getProfile] No user found:\t" + login);
-
-				return cb(null, false, {
-					message: 'Incorrect User'
-				});
-			}
-			
-			if(result.rows[0].ucover == null)
-				result.rows[0].ucover = DEF_COVER_PHOTO;
-
-			if(result.rows[0].uphoto == null)
-				result.rows[0].uphoto = DEF_USER_PHOTO;
-
-			return cb(null, result.rows[0]);
-		});
-	},*/
-
-	getProfile: function(login, requester, cb){
+		var requester = data.requester;
+		var login = data.login ? data.login : null;
 
 		AuthService.tokendecode(requester, function(data){
 			
@@ -65,15 +30,15 @@ module.exports = {
 
 				User.query(pgquery, function(err, result){
 					if (err) {
-						sails.log.debug("[profile.js][getProfile] Query error:\t" + requester);
-						sails.log.debug(JSON.stringify(result));
+						sails.log.debug("[profile.js][getProfile] Query error:\t" + login);
+						sails.log.debug(err);
 
 						return cb(null, err);
 					}
 
 					if (!result || result.rowCount < 1) {
 
-						sails.log.debug("[profile.js][getProfile] No user found:\t" + requester);
+						sails.log.debug("[profile.js][getProfile] No user found:\t" + login);
 
 						return cb(null, false, {
 							message: 'Incorrect User'

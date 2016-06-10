@@ -1,5 +1,5 @@
 <div class="main_div mdl-layout__content">
-	<div class="main_posts" ng-controller="AllFavoritesController">
+	<div class="main_posts">
 		<section ng-repeat="post in favPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
 			<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
 				<div class="mdl-card__supporting-text">
@@ -10,7 +10,7 @@
 						{{post.text}}
 					</h4>
 				</div>
-				<%- include post_actions.ejs %>
+				<%- include profile_post_actions.ejs %>
 			</div>
 		</section>
 	</div>

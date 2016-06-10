@@ -3,26 +3,13 @@
  */
 
 module.exports = {
-	getfullprofile: function (req, res) {
+	getprofile: function(req, res){
 		
-		var login = req.param('login');
-		var requester = req.cookies.token;
+		var data = {};
+		data.login = req.param('login');
+		data.requester = req.cookies.token;
 
-		ProfileService.getProfile(login, requester, function(err, user){
-			if(err || !user){
-				res.json({sucess: false});
-			} else {
-				user.uname.trim();
-				res.json(user);
-			}
-		});
-	},
-
-	getmyprofile: function (req, res) {
-		
-		var requester = req.cookies.token;
-
-		ProfileService.getProfileRequester(requester, function(err, user){
+		ProfileService.getProfile(data, function(err, user){
 			if(err || !user){
 				res.json({sucess: false});
 			} else {

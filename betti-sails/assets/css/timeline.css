@@ -1,0 +1,103 @@
+
+.tab_bar_container {
+	height: 40px;
+	overflow: hidden; 
+	margin-bottom: 10px;
+	box-shadow: 0 4px 8px -2px rgba(0, 0, 0, .8);
+}
+
+.tab_bar i{
+	font-size: 200%;
+}
+
+.tab_bar .mdl-tabs__tab{
+	transition: border-width 0.15s ease-in;
+}
+
+.tab_bar .mdl-tabs__tab.is-active{
+	border-style: solid none none none;
+	border-color: white;
+	border-width: 6px;
+}
+
+.comment_box .mdl-textfield__label::after{
+	background-color: #2196F3;
+}
+
+
+.upper_bar{
+	height: 60px;
+	padding-top: 20px;
+	padding-left: 300px;
+}
+
+.upper_bar_content {
+	font-size: 200%;
+	white-space: nowrap;
+	display: inline;
+	margin-right: 20px;
+}
+
+.left_menu {
+	max-height: 430px;
+}
+
+
+.post_container {
+	position: relative;
+	margin-bottom: 10px;
+	overflow: visible;
+}
+
+.card_container {
+	overflow: visible;
+	width: 100%;
+}
+
+.actions_container {
+}
+
+.button_container {
+	display: inline-block;
+	overflow: hidden;
+	height: 37px;
+}
+
+.button_container .button_hidden {
+	display: block;
+	transition: all 0.2s;
+	margin-top: 3px;
+	opacity: 0;
+}
+
+.button_container .button_show {
+	transition: all 0.2s;
+}
+
+.button_container:hover .button_hidden{
+	transform: translateY(-39px);
+	opacity: 1;
+}
+
+.button_container:hover .button_show{
+	transform: translateY(39px);
+	opacity: 0;
+}
+
+@media (min-width:1025px){
+
+	.main_div {
+		margin-left: 250px;
+		margin-right: 10px;
+		width: calc(80vw - 240px);
+	}
+}
+
+@media (max-width:1025px){
+
+	.main_div {
+		margin-left: 50px;
+		margin-right: 10px;
+		width: calc(80vw - 20px);
+	}
+}

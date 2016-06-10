@@ -33,6 +33,12 @@ angular.module("betti-app").controller('SettingsController',
 
 				$scope.color_mdl_class_profile = styleSwitch($scope.color_profile); //STYLE.JS
 				$scope.color_mdl_class_profile_contrast = styleSwitchBar($scope.color_profile); //STYLE.JS
+
+				$scope.login = response.data.login.trim();
+				$scope.name = response.data.uname.trim();
+				$scope.user_photo = response.data.uphoto;
+				$scope.user_cover = response.data.ucover;
+				$scope.birthday = response.data.birthday;
 			}
 		},function(response) {
 			console.info("[Settings][get_profile] Error received!");

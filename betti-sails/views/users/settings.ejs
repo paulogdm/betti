@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="/css/settings.css"> 
 	
 	<!--My JS -->	
-	<title>Settings - <%= login %></title>
+	<title>Settings</title>
 
 	<script src="/js/settings.js"></script>
 
@@ -16,17 +16,16 @@
 		<div>
 			<header class="upper_container">
 				<div class="cover_photo_container">
-					<img class="cover_photo" src="<%= ucover %>">
+					<img class="cover_photo" ng-src="{{user_cover}}">
 				</div>
-				<img class="profile_photo" src="<%= uphoto %>">
-				<span class="profile_name mdl-color-text--white"> <%= uname %> </span>
+				<img class="profile_photo" ng-src="{{user_photo}}">
+				<span class="profile_name mdl-color-text--white"> {{name}} </span>
 				<div class="upper_bar" ng-class="color_mdl_class_profile">
 					<div class="upper_bar_content mdl-color-text--white">
-						@<%= login %>
+						@{{login}}
 					</div>
 					<div class="upper_bar_content mdl-color-text--white" style="float: right;">
-						<%= birthday.getDate()%>
-						<%= birthday.toLocaleString("en-us", { month: "short" })%>
+						{{birthday | date: 'd MMM'}}
 						<i class="mdi mdi-cake-variant"></i>
 					</div>
 				</div>

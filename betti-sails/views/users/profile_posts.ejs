@@ -1,6 +1,6 @@
 
-<div class="main_div mdl-layout__content" ng-controller="NewPostController">
-	<div class="comment_box">
+<div class="main_div mdl-layout__content">
+	<div class="comment_box" ng-controller="NewPostController">
 		<section class="post_container section--center mdl-grid mdl-grid--no-spacing">
 			<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
 				<div class="mdl-card__supporting-text">
@@ -43,7 +43,7 @@
 						{{post.text}}
 					</h4>
 					</div>
-				<%- include post_actions.ejs %>
+				<%- include profile_post_actions.ejs %>
 			</div>
 		</section>
 	</div>
