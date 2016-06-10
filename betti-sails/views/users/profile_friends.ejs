@@ -1,13 +1,13 @@
 <div class="mdl-grid">
-	<div ng-repeat="friend in allFriends" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
-		<div class="mdl-card__supporting-text">
-			<img class="card_photo" ng-src="{{friend.profile_photo}}">
+	<div ng-repeat="following in allFollow" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
+		<div class="mini_card_photo mdl-card__supporting-text">
+			<img class="card_photo" ng-src="{{following.uphoto}}">
 		</div>
 
-		<div class=" mini_card_bar mdl-card__title mdl-card--expand <%= styleSwitchEJS(style_profile) %>">
+		<div class="mini_card_bar mdl-card__title mdl-card--expand <%= styleSwitchEJS(style_profile) %>">
 			<div class="mini_bar_content mdl-color-text--white">
-				<a class="mdl-color-text--white">
-					{{friend.name}} {{friend.last_name}}
+				<a class="mdl-color-text--white" ng-href="{{following.login}}" style="text-decoration: none;">
+					@{{following.login}}
 				</a>
 			</div>
 		</div>
@@ -15,10 +15,10 @@
 		<div class="mdl-card__actions mdl-card--border">
 			<div class="button_container">
 				<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent <%= styleSwitchEJS(style_profile) %>">
-					<i class="material-icons">{{friend.following ? 'done' : 'add'}}</i>
+					<i class="material-icons">{{following.following ? 'done' : 'add'}}</i>
 				</button>
-				<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="friend.following ? 'mdl-color--red-600' : 'mdl-color--green-600'">
-					<i class="material-icons">{{friend.following ? 'close' : 'done_all'}}</i>
+				<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="following.following ? 'mdl-color--red-600' : 'mdl-color--green-600'">
+					<i class="material-icons">{{following.following ? 'close' : 'done_all'}}</i>
 				</button>
 			</div>
 		</div>

@@ -86,5 +86,5 @@ module.exports = {
 				res.json(list);
 			}
 		});
-	} 
+	}
 };

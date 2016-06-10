@@ -16,6 +16,9 @@ var GLOBAL_URL_NOLIKENORDISLIKE = '/post/rmvlikedislike'
 var GLOBAL_URL_SHARE = '/post/share/';
 var GLOBAL_URL_DELETEPOST = '/post/delete/';
 
+var GLOBAL_URL_FOLLOW = '/follow/unfollow'
+var GLOBAL_URL_UNFOLLOW = '/follow/follow'
+
 
 angular.isUndefinedOrNull = function(val) {
 	return angular.isUndefined(val) || val === null 
@@ -413,16 +416,42 @@ angular.module("betti-app").
 }]);
 
 
-angular.module("betti-app").controller('AllFriendsController', ['$scope', function($scope){ 
+angular.module("betti-app").factory('FollowCommService', function($http) {
+	return {
+		'follow': function(data){
+			return $http.post(GLOBAL_URL_FOLLOW, data);
+		},
+		'unfollow': function(data){
+			return $http.post(GLOBAL_URL_UNFOLLOW, data);
+		}
+	}
+});
+
+angular.module("betti-app").controller('AllFollowController', ['$scope', 'GetService', 'FollowCommService',
+ function($scope, GetService, FollowCommService){
 	
+	var login = window.location.pathname.split('/')[3];
+	var data = {login: login};
+
+	GetService.get_follow(data).then(
+		function(response){
+
+			if(response.status == 200){
+				$scope.allFollow = response.data
+			}
+			
+		},function(response) {
+			console.info("[Profile][get_follow] Error received!");
+		}
+	);
+
+	$scope.follow = function(index){
+
+	}
+
 }]);
 
+
 angular.module("betti-app").controller('AllGroupsController', ['$scope', function($scope){ 
-	$scope.allGroups = [
-	{
-		profile_photo: '/images/views/cover_default.png', //substituir por uma funcao get
-		name: 'Group1',
-		following: true
-	}
-	]
+	
 }]);

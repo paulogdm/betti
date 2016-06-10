@@ -192,8 +192,8 @@ html, body {
 
 .mini_card.mdl-card {
 	text-align: center;
-	min-width: 220px;
-	max-width: 300px;
+	min-width: 250px;
+	max-width: 250px;
 }
 
 .mini_card_bar{
@@ -208,11 +208,14 @@ html, body {
 	font-size: 150%;
 }
 
+.mini_card_photo{
+	display: table;
+}
+
 .card_photo{
 	width: 200px;
 	height: 200px;
 	border-radius: 50%;
-	text-align: center;
 	margin: 0 auto;
 }
 

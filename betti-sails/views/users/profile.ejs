@@ -48,7 +48,7 @@
 					<a href="#user-all-favorites" class="mdl-color-text--white mdl-tabs__tab">
 						<i class="mdi mdi-star"></i>
 					</a>
-					<a href="#user-all-friends" class="mdl-color-text--white mdl-tabs__tab">
+					<a href="#user-all-following" class="mdl-color-text--white mdl-tabs__tab">
 						<i class="mdi mdi-account-multiple-outline"></i>
 					</a>
 					<a href="#user-all-groups" class="mdl-color-text--white mdl-tabs__tab">
@@ -65,7 +65,7 @@
 				<%- include profile_favorites.ejs %>
 			</div>
 
-			<div class="mdl-tabs__panel" id="user-all-friends" ng-controller="AllFriendsController">
+			<div class="mdl-tabs__panel" id="user-all-following" ng-controller="AllFollowController">
 				<%- include profile_friends.ejs %>					
 			</div>
 			
