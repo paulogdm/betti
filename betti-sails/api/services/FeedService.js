@@ -16,7 +16,7 @@ module.exports = {
 				"inner join follow on "+
 				"post.powner = follow.usender and "+
 				"follow.ureceiver = '"+requester+"' "+
-				"left join post_reaction on "+
+				"left outer join post_reaction on "+
 				"post.post_id = post_reaction.post_id and "+
 				"preader = '"+ requester +"';";
 

@@ -7,8 +7,6 @@ module.exports = {
 
 	getProfile: function(data, cb){
 
-		sails.log.debug(data);
-
 		var requester = data.requester;
 		var login = data.login ? data.login : null;
 

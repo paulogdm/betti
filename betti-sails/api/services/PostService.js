@@ -168,7 +168,7 @@ module.exports = {
 				var pgquery = "select * from post "+
 				"left outer join post_reaction on "+
 				"post.post_id = post_reaction.post_id and "+
-				"preader = '"+ requester +"' and "+
+				"preader = '"+ requester +"' where "+
 				"powner = '"+login_to_show+"' "+
 				"order by pdate asc"
 

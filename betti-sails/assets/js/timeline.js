@@ -16,6 +16,12 @@ var GLOBAL_URL_FOLLOW = '/follow/unfollow'
 var GLOBAL_URL_UNFOLLOW = '/follow/follow'
 
 
+
+angular.isUndefinedOrNull = function(val) {
+	return angular.isUndefined(val) || val === null 
+}
+
+
 angular.module("betti-app").factory('GetService', function($http) {
 	return {
 		'get_fresh': function(data){
