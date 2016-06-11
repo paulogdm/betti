@@ -93,6 +93,9 @@ angular.module("betti-app")
 						post.favorited = json.data[i].favorited ? true : false;
 						post.shared = json.data[i].shared ? true : false;
 
+						console.info(post.avatar);
+						post.avatar = json.data[i].uphoto;
+
 						posts.push(post);
 					}
 
@@ -295,12 +298,11 @@ angular.module("betti-app").
 }]);
 
 angular.module("betti-app").
-	controller('NewPostController', ['$scope', 'PostCommService', 'FreshPosts', 'LayoutStyleService',
-	function($scope, PostCommService, FreshPosts, LayoutStyleService){ 
+	controller('NewPostController', 
+		['$scope', 'PostCommService', 'FreshPosts', 'LayoutStyleService', 'PostService',
+	function($scope, PostCommService, FreshPosts, LayoutStyleService, PostService){ 
 		
 		$scope.avatar = LayoutStyleService.getAvatar();
-		$scope.birthday = LayoutStyleService.getBirthday();
-		$scope.name = LayoutStyleService.getName();
 		$scope.login = LayoutStyleService.getLogin();
 
 		$scope.$watch(
@@ -347,10 +349,12 @@ angular.module("betti-app").
 								liked: false,
 								disliked: false,
 								favorited: false,
-								shared: false
+								shared: false,
+								avatar: LayoutStyleService.getAvatar()
+
 							}
 
-							FreshPosts.push(PostService.processPosts(new_post));
+							FreshPosts.push(PostService.processUniquePost(new_post));
 							
 							$scope.new_title = '';
 							$scope.new_text = '';
@@ -388,6 +392,7 @@ angular.module("betti-app").
 
 	GetService.get_fresh(null).then(
 		function(response){
+			console.info(response);
 			if(response.status == 200){
 				FreshPosts.set( PostService.processPosts(response) );
 				$scope.freshPosts = FreshPosts.get();

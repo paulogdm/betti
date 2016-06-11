@@ -11,7 +11,7 @@ module.exports = {
 		data.title = req.param('title');
 		data.text = req.param('text');
 
-		PostService.newPost(login, requester, data, function(result){
+		PostService.newPost(requester, data, function(result){
 			res.json(result);
 		});
 	},

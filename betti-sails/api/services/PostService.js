@@ -16,12 +16,12 @@ module.exports = {
 				
 				var pgquery = 'INSERT INTO post (powner, title, text) '+
 				'VALUES (\''+requester+'\', \''+post.title+'\', \''+post.text+'\') '+
-				'returning post_id and powner;';
+				'returning post_id, powner;';
 				
 				Post.query(pgquery, function(err, result){
 					if (err){
 						sails.log.debug("[PostService.js][NewPost] Query error:\t" + requester);
-						sails.log.debug(JSON.stringify(result));
+						sails.log.debug(err);
 						return cb({success: false});
 					} else {
 						return cb({success: true, 

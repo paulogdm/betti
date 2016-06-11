@@ -36,9 +36,13 @@
 		<section ng-repeat="post in allPosts" class="post_container section--center mdl-grid mdl-grid--no-spacing">
 			<div class="card_container mdl-card mdl-cell mdl-cell--10-col mdl-shadow--6dp">
 				<div class="mdl-card__supporting-text">
-					<h3 style="display: inline">{{post.title}}</h3>
+					<h3 class="card_container_title">{{post.title}}</h3>
+					<span class="card_container_date">{{post.date | date: "H:mm dd-MMM"}}</span>
+				</div>
+				
+				<div class="mdl-card__actions mdl-card--border"></div>
 
-					<span style="float: right">{{post.date | date: "H:mm dd-MMM"}}</span>
+				<div class="mdl-card__supporting-text">
 					<h4>
 						{{post.text}}
 					</h4>

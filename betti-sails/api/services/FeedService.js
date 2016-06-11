@@ -12,13 +12,18 @@ module.exports = {
 			} else {
 				requester = data.user.login.trim();
 				
-				var pgquery = "select * from post "+
+				var pgquery = "select post.*, webuser.uphoto "+
+				"from post "+
 				"inner join follow on "+
-				"post.powner = follow.usender and "+
+				"(post.powner = follow.usender or "+
+				"post.powner = '"+requester+"') and "+
 				"follow.ureceiver = '"+requester+"' "+
 				"left outer join post_reaction on "+
 				"post.post_id = post_reaction.post_id and "+
-				"preader = '"+ requester +"';";
+				"preader = '"+ requester +"' "+
+				"left outer join webuser on "+
+				"post.powner = webuser.login "+
+				"order by pdate asc;";
 
 				Follow.query(pgquery, function(err, result){
 					if(err){
@@ -32,6 +37,10 @@ module.exports = {
 						result = result.rows;
 
 						for(var i = result.length - 1; i >= 0; i--){
+							if(!result[i].uphoto){
+								result[i].uphoto = DEF_USER_PHOTO;
+							}
+
 							if(requester == result[i].powner.trim())
 								result[i].editable = true;
 							else result[i].editable = false;

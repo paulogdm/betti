@@ -160,6 +160,19 @@ html, body {
 	width: 100%;
 }
 
+.card_container_title {
+	vertical-align: middle;
+	margin-top: 20px;
+	display: inline;
+}
+
+.card_container_date {
+	vertical-align: middle;
+	font-size: 150%;
+	margin-top: 20px;
+	float: right;
+}
+
 .actions_container {
 }
 
