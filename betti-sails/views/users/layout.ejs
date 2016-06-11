@@ -41,17 +41,23 @@
 		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_search">
 			<div class="mdl-layout__header-row">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+					<label class="mdl-button mdl-js-button mdl-button--icon" for="search" id="searchicon">
 						<i class="material-icons mdl-color-text--white">search</i>
 					</label>
 					<div class="mdl-textfield__expandable-holder">
 						<input class="mdl-textfield__input mdl-color-text--white" style="font-size: 150%" type="text" id="search">
+					</div>
+					<div class="mdl-tooltip" for="searchicon">
+						Search
 					</div>
 				</div>
 				<div class="mdl-layout-spacer"></div>
 				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="logout" ng-click="logout()">
 					<i class="material-icons mdl-color-text--white">exit_to_app</i>
 				</button>
+				<div class="mdl-tooltip" for="logout">
+					Exit
+				</div>
 			</div>
 		</header>
 		<div class="sidebar-drawer mdl-layout__drawer mdl-color-text--white" ng-class="color_mdl_profile">
