@@ -117,6 +117,30 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 	}
 }
 
+function validDate(text) {
+
+	var date = Date.parse(text);
+	var now = new Date();
+
+	if (isNaN(date)) {
+		return false;
+	}
+
+	var comp = text.split('/');
+
+	if (comp.length !== 3) {
+		return false;
+	}
+
+	var m = parseInt(comp[0], 10);
+	var d = parseInt(comp[1], 10);
+	var y = parseInt(comp[2], 10);
+	var date = new Date(y, m - 1, d);
+	return (date.getFullYear() == y && date.getMonth() + 1 == m && 
+		date.getDate() == d && date.getTime() < now.getTime());
+}
+
+
 $scope.submitNewLogin = function (){
 
 	var msgSuc = "Welcome! Now you can try your brand new login!"; 
@@ -132,34 +156,38 @@ $scope.submitNewLogin = function (){
 		){
 		showSnackbar(msgErr+" Check your information please...");
 
-} else {
-	var newLogin = $scope.user.new_login;
-	var newPass = $scope.user.new_password;
-	var newName = $scope.user.new_name;
-	var newBirth = $scope.user.new_date;
+	} else {
+		var newLogin = $scope.user.new_login;
+		var newPass = $scope.user.new_password;
+		var newName = $scope.user.new_name;
+		var newBirth = $scope.user.new_date;
 
-	var data = {
-		login: newLogin,
-		password: newPass,
-		uname: newName,
-		birthday: newBirth
-	};
-
-	UserService.create(data).then(
-		function(response) {
-			showSnackbar(msgSuc);
-			console.info("[Signup] Success!!!");
-			console.info(response.data);
-			hideDialog();
-		},
-		function(response) {
-			showSnackbar(msgErr);
-			console.info("[Signup] Error received!");
+		if(!validDate(newBirth)){
+			showSnackbar("'"+newBirth+"' is not a valid date...");
+			return;
 		}
+
+		var data = {
+			login: newLogin,
+			password: newPass,
+			uname: newName,
+			birthday: newBirth
+		};
+
+		UserService.create(data).then(
+			function(response) {
+				showSnackbar(msgSuc);
+				console.info("[Signup] Success!!!");
+				console.info(response.data);
+				hideDialog();
+			},
+			function(response) {
+				showSnackbar(msgErr);
+				console.info("[Signup] Error received!");
+			}
 		);
-}
-}
-}]);
+	}
+]});
 
 angApp.controller('BGController', ['$scope', function($scope) { 
 	var imgCount = 4; //number of images

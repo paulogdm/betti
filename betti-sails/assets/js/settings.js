@@ -11,6 +11,29 @@ angular.module("betti-app").factory('SettingsComm', function($http){
 	}
 });
 
+function validDate(text) {
+
+	var date = Date.parse(text);
+	var now = new Date();
+
+	if (isNaN(date)) {
+		return false;
+	}
+
+	var comp = text.split('/');
+
+	if (comp.length !== 3) {
+		return false;
+	}
+
+	var m = parseInt(comp[0], 10);
+	var d = parseInt(comp[1], 10);
+	var y = parseInt(comp[2], 10);
+	var date = new Date(y, m - 1, d);
+	return (date.getFullYear() == y && date.getMonth() + 1 == m && 
+		date.getDate() == d && date.getTime() < now.getTime());
+}
+
 
 angular.module("betti-app").controller('SettingsController',
 	['$scope', 'GetLayoutService', 'LayoutStyleService', 'SettingsComm',
@@ -73,12 +96,19 @@ angular.module("betti-app").controller('SettingsController',
 			}
 		};
 
+		if(!validDate($scope.birthday)){
+			showSnackbar("'"$scope.birthday+"' is not a valid date...");
+			return;
+		}
+
 		showSnackbar("Sending...");
 
 		SettingsComm.save(data).then(
 			function(response) {
 				if(response.data.success){
+					
 					showSnackbar("Success! Please refresh this page.");
+					
 					$scope.new_password = undefined;
 					$scope.new_name = undefined;
 					$scope.new_date = undefined;
