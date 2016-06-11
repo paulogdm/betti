@@ -93,7 +93,6 @@ angular.module("betti-app")
 						post.favorited = json.data[i].favorited ? true : false;
 						post.shared = json.data[i].shared ? true : false;
 
-						console.info(post.avatar);
 						post.avatar = json.data[i].uphoto;
 
 						posts.push(post);
@@ -112,7 +111,7 @@ angular.module("betti-app")
 				PostCommService.like_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
-						console.info("[Profile][PostService.dislike] Sucess!");
+						console.info("[Timeline][PostService.like] Sucess!");
 						
 						if(post.disliked){
 							post.disliked = false;
@@ -125,10 +124,10 @@ angular.module("betti-app")
 
 					} else {
 						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][PostService.dislike] Fail!");
+						console.info("[Timeline][PostService.like] Fail!");
 					}
 				},function(response) {
-					console.info("[Profile][PostService.dislike] Error received!");
+					console.info("[Timeline][PostService.like] Error received!");
 				});
 			}
 
@@ -137,7 +136,7 @@ angular.module("betti-app")
 				PostCommService.dislike_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
-						console.info("[Profile][PostService.dislike] Sucess!");
+						console.info("[Timeline][PostService.dislike] Sucess!");
 						
 						if(post.liked){
 							post.liked = false;
@@ -333,7 +332,7 @@ angular.module("betti-app").
 				PostCommService.new_post(data).then(
 					function(response){
 						if(response.data.success){
-							console.info("[Profile][NewPost] Success received");
+							console.info("[Timeline][NewPost] Success received");
 
 							var new_post = {
 								id: response.data.id,
@@ -361,12 +360,12 @@ angular.module("betti-app").
 
 						} else {
 							showSnackbar("Sorry... Something is wrong");
-							console.info("[Profile][NewPost] Fail");
+							console.info("[Timeline][NewPost] Fail");
 						}
 					},
 					function(response) {
 						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][NewPost] Error received!");
+						console.info("[Timeline][NewPost] Error received!");
 					}
 				);
 			}
@@ -398,7 +397,7 @@ angular.module("betti-app").
 				$scope.freshPosts = FreshPosts.get();
 			}
 		},function(response) {
-			console.info("[Profile][get_fresh] Error received!");
+			console.info("[Timeline][get_fresh] Error received!");
 		}
 	);
 
