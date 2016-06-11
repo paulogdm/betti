@@ -5,6 +5,7 @@ var GLOBAL_URL_GET_PROFILE = '/profile/getfullprofile/';
 var GLOBAL_URL_GET_FOLLOW = '/profile/getfollowlist/';
 var GLOBAL_URL_GET_POSTS = '/profile/getposts/';
 var GLOBAL_URL_GET_FAV = '/profile/getfavorites/';
+var GLOBAL_URL_ISMYPROFILE = '/profile/ismyprofile/';
 var GLOBAL_URL_GET_GROUPS = '';
 
 var GLOBAL_URL_NEWPOST = '/post/newpost/';
@@ -69,7 +70,10 @@ angular.module("betti-app").factory('PostCommService', function($http) {
 		},
 		'delete_post': function(data){
 			return $http.post(GLOBAL_URL_DELETEPOST, data);
-		}
+		},
+		'is_my_profile': function(data) {
+			return $http.post(GLOBAL_URL_ISMYPROFILE, data);
+		},
 	}
 });
 
@@ -284,6 +288,24 @@ angular.module("betti-app").
 	controller('NewPostController', ['$scope', 'PostCommService', 'AllPosts',
 	function($scope, PostCommService, AllPosts){ 
 		
+		$scope.is_my_profile = false;
+		
+		var data = {};
+		data.login = window.location.pathname.split('/')[3];
+
+		PostCommService.is_my_profile(data).then(
+			function(response){
+				if(response.status == 200){
+					$scope.is_my_profile = response.data.is;
+				} else {
+					showSnackbar("Sorry... Something is wrong");
+				}
+			},
+			function(response) {
+				console.info("[Profile][ismyprofile] Error received!");
+			}
+		);
+
 		$scope.new_post = function(){
 
 			if (angular.isUndefinedOrNull($scope.new_text.trim())){

@@ -18,6 +18,28 @@ module.exports = {
 			}
 		});
 	},
+	
+	ismyprofile: function(req, res){
+		
+		var login = req.param('login');
+		var requester = req.cookies.token;
+
+		if(!login){
+			res.json({is: true});
+		} else {
+			AuthService.tokendecode(requester, function(data){
+				if(!data.success){
+					return res.json({is: false});
+				} else {
+					if(login == data.user.login.trim()){
+						return res.json({is: true});
+					} else {
+						return res.json({is: false});
+					}
+				}
+			});
+		}
+	},
 
 	getnameandphoto: function (req, res) {
 		
