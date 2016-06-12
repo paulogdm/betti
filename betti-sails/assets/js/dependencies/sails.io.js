@@ -876,9 +876,9 @@ message:4,upgrade:5,noop:6},s=i(r),t={type:"error",data:"parser error"},u=a("blo
             '\n' +
             '\n' +
             '\n' +
-            '\n It’s true that hard work never	'+
+            '\n "It’s true that hard work never	'+
             '\n killed anybody, but I figure, 	'+
-            '\n why take the chance?			'+
+            '\n why take the chance?"			'+
             '\n Ronald Reagan, 40th US President'+
             '\n'
           );

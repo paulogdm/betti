@@ -1,0 +1,51 @@
+<head>
+	<meta charset="utf-8">
+
+	<!--My CSS --> 
+	<link rel="stylesheet" href="/css/panel.css"> 
+	
+	<!--My JS -->	
+	<title>Admin only Panel</title>
+
+	<script src="/js/panel.js"></script>
+
+</head>
+
+<body>
+	<main class="mdl-layout__content" ng-controller="PanelController">
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--1-col"></div>
+			<div class="mini_card mdl-card mdl-cell mdl-cell--10-col mdl-shadow--4dp">
+				<div class="mdl-card__supporting-text">
+					<h2>Reserved Area</h2>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<p>
+						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="downjson">
+							<b class="mdl-color-text--white">download user file</b>
+						</label>
+						&nbsp;&nbsp;
+						&nbsp;&nbsp;
+						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="upjson">
+							<b class="mdl-color-text--white">upload user file</b>
+							<input accept="" style="display: none" type="file" on-read-file="getFile($fileContent)"/>
+						</label>
+					</p>
+				</div>
+
+				<div class="mdl-card__actions mdl-card--border">
+					<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--green" id="save" ng-click="uploadFile()">
+						<b class="mdl-color-text--white">SAVE FILE</b>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="mdl-tooltip mdl-tooltip--large" for="upjson">
+			Upload import file
+		</div>
+
+		<div class="mdl-tooltip mdl-tooltip--large" for="downjson">
+			Download export file
+		</div>
+	</main>
+</body>

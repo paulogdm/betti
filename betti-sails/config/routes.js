@@ -15,5 +15,18 @@ module.exports.routes = {
 		controller: 'AdminSpaceController',
 		action: 'profile',
 		skipAssets: true
+	},
+
+	'post /panel/up': {
+		controller: 'ImportExportController',
+		action: 'upload',
+		skipAssets: true
+	},
+
+
+	'get /panel/down': {
+		controller: 'ImportExportController',
+		action: 'download',
+		skipAssets: true
 	}
 };
