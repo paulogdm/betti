@@ -128,7 +128,7 @@ module.exports = {
 				requester = data.user.login.trim();
 					
 				var pgquery = 'select * from post where ' +
-				'post.id = \''+id+'\'';
+				'post.post_id = \''+id+'\'';
 
 				Post.query(pgquery, function(err, result){
 					if (err) {
@@ -257,7 +257,7 @@ module.exports = {
 
 				requester = data.user.login.trim();
 				
-				var pgquery = "SELECT * FROM POST WHERE post.id = "+id+";";
+				var pgquery = "SELECT * FROM POST WHERE post.post_id = "+id+";";
 				
 				Post.query(pgquery, function(err, result){
 					if (err){
@@ -267,10 +267,11 @@ module.exports = {
 					} else {
 						result = result.rows[0];
 
+						result.text = result.text.replace(/^Shared from @(.{0,20}) :/, "");
 						result.text = "Shared from @"+result.powner+": "+result.text;
 
-						var pgquery = "INSERT INTO post (powner, title, text) "+
-						"VALUES ('"+requester+"', "+result.title+"', '"+result.text+"') "+
+						pgquery = "INSERT INTO post (powner, title, text) "+
+						"VALUES ('"+requester+"', '"+result.title+"', '"+result.text+"') "+
 						"returning post_id, powner;";
 						//UPDATE REACTION
 						
@@ -299,6 +300,34 @@ module.exports = {
 
 	dislike: function(requester, id, cb){
 		return cb({success: false});
-	}
+	},
 
+	delete: function(requester, id,  cb){
+
+		AuthService.tokendecode(requester, function(data){
+			
+			if(!data.success){
+				return cb({success: false});
+			} else {
+
+				requester = data.user.login.trim();
+
+				if(usermodel.isAdmin(requester))
+					var pgquery = "DELETE FROM post WHERE post_id = "+id+";";
+				else
+					var pgquery = "DELETE FROM post WHERE post_id = "+id+
+				" and powner = '"+requester+"';";
+				
+				Post.query(pgquery, function(err, result){
+					if (err){
+						sails.log.debug("[PostService.js][delete] Query error:\t" + requester);
+						sails.log.debug(err);
+						return cb({success: false});
+					} else {
+						return cb({success: true});
+					}
+				});
+			}
+		});
+	},
 }

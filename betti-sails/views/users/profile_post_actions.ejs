@@ -37,10 +37,10 @@
 
 
 	<div class="button_container" style="float: right;" ng-show="post.editable">
-		<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-color--grey-200 mdl-color-text--grey-600">
+		<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-color--grey-200 mdl-color-text--grey-600" ng-click="delete($index)">
 			<i class="material-icons">delete</i>
 		</button>
-		<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600">
+		<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-click="delete($index)">
 			<i class="material-icons">delete_forever</i>
 		</button>
 	</div>

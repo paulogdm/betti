@@ -184,18 +184,20 @@ angular.module("betti-app").
 		PostService.like($scope.freshPosts[index]);
 	}
 	
-
 	$scope.dislike = function(index){
-		PostService.dislike($scope.favPosts[index]);
+		PostService.dislike($scope.freshPosts[index]);
 	}
 	
 	$scope.favorite = function(index){
-		PostService.favorite($scope.favPosts[index]);
+		PostService.favorite($scope.freshPosts[index]);
 	}
 
 	$scope.share = function(index){
-		PostService.share($scope.favPosts[index]);
+		PostService.share($scope.freshPosts[index]);
 	}
 
+	$scope.delete = function(index){
+		PostService.delete($scope.freshPosts[index]);
+		FreshPosts.pop(index);
+	}
 }]);
-	

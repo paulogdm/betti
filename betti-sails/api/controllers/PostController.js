@@ -58,5 +58,14 @@ module.exports = {
 		PostService.share(requester, id, function(result){
 			res.json(result);
 		});
+	},
+
+	delete: function(req, res){
+		var requester = req.cookies.token;
+		var id = req.param('post_id');
+
+		PostService.delete(requester, id, function(result){
+			res.json(result);
+		});
 	}
 };

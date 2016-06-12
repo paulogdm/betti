@@ -96,7 +96,7 @@ angular.module("betti-app")
 				PostCommService.like_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
-						console.info("[Profile][PostService.dislike] Sucess!");
+						console.info("[Post][PostService.dislike] Sucess!");
 						
 						if(post.disliked){
 							post.disliked = false;
@@ -109,10 +109,10 @@ angular.module("betti-app")
 
 					} else {
 						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][PostService.dislike] Fail!");
+						console.info("[Post][PostService.dislike] Fail!");
 					}
 				},function(response) {
-					console.info("[Profile][PostService.dislike] Error received!");
+					console.info("[Post][PostService.dislike] Error received!");
 				});
 			}
 
@@ -121,7 +121,7 @@ angular.module("betti-app")
 				PostCommService.dislike_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
-						console.info("[Profile][PostService.dislike] Sucess!");
+						console.info("[Post][PostService.dislike] Sucess!");
 						
 						if(post.liked){
 							post.liked = false;
@@ -135,10 +135,10 @@ angular.module("betti-app")
 
 					} else {
 						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][PostService.dislike] Fail!");
+						console.info("[Post][PostService.dislike] Fail!");
 					}
 				},function(response) {
-					console.info("[Profile][PostService.dislike] Error received!");
+					console.info("[Post][PostService.dislike] Error received!");
 				});
 			}
 
@@ -149,22 +149,22 @@ angular.module("betti-app")
 					function(response){
 
 						if(response.data.success){
-							console.info("[Profile][PostService.favorite] Sucess!");
+							console.info("[Post][PostService.favorite] Sucess!");
 							post.favorited = false;
 							post.favorites --;
 						} else {
 							showSnackbar("Sorry... Something is wrong");
-							console.info("[Profile][PostService.favorite] Fail!");
+							console.info("[Post][PostService.favorite] Fail!");
 						}
 					},function(response) {
-						console.info("[Profile][PostService.favorite] Error received!");
+						console.info("[Post][PostService.favorite] Error received!");
 					});
 				} else {
 					PostCommService.favorite_post({post_id: post.id}).then(
 					function(response){
 
 						if(response.data.success){
-							console.info("[Profile][PostService.favorite] Sucess!");
+							console.info("[Post][PostService.favorite] Sucess!");
 							post.favorited = true;
 							post.favorites ++;
 							
@@ -172,10 +172,10 @@ angular.module("betti-app")
 
 						} else {
 							showSnackbar("Sorry... Something is wrong");
-							console.info("[Profile][PostService.favorite] Fail!");
+							console.info("[Post][PostService.favorite] Fail!");
 						}
 					},function(response) {
-						console.info("[Profile][PostService.favorite] Error received!");
+						console.info("[Post][PostService.favorite] Error received!");
 					});
 				}
 			}
@@ -185,7 +185,7 @@ angular.module("betti-app")
 				PostCommService.share_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
-						console.info("[Profile][PostService.share] Sucess!");
+						console.info("[Post][PostService.share] Sucess!");
 						
 						post.shared = true;
 						post.shares ++;
@@ -194,10 +194,28 @@ angular.module("betti-app")
 
 					} else {
 						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][PostService.share] Fail!");
+						console.info("[Post][PostService.share] Fail!");
 					}
 				},function(response) {
-					console.info("[Profile][PostService.share] Error received!");
+					console.info("[Post][PostService.share] Error received!");
+				});
+			}
+
+			PostService.delete = function(post){
+
+				PostCommService.delete_post({post_id: post.id}).then(
+				function(response){
+					if(response.data.success){
+						console.info("[Post][PostService.delete] Sucess!");
+						showSnackbar("Post deleted!");
+						return true;
+					} else {
+						showSnackbar("Sorry... Something is wrong");
+						console.info("[Post][PostService.delete] Fail!");
+						return false;
+					}
+				},function(response) {
+					console.info("[Post][PostService.delete] Error received!");
 				});
 			}
 
