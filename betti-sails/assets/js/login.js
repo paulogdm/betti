@@ -123,7 +123,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 							showSnackbar(msgSuc);
 
 							if(data.login == 'admin') 
-								window.location.href = '/adminspace/adminpanel/';
+								window.location.href = '/adminspace/panel/';
 							else 
 								window.location.href = '/userspace/profile/'+data.login;
 

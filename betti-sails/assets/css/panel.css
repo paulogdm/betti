@@ -1,0 +1,59 @@
+html, body {
+	font-family: 'Roboto', 'Helvetica';
+	background-color: #9E9E9E; !important
+}
+
+
+.left_menu {
+	max-height: 430px;
+}
+
+
+.mini_card.mdl-card {
+	min-width: 400px;
+	max-width: auto;
+}
+
+.mini_card_bar{
+	height: 40px;
+}
+
+.mini_card > .mdl-card__title {
+	display: inline;
+	text-shadow: 0 0 1px rgba(0, 0, 0, .5);
+	padding-top: 10px;
+	font-size: 150%;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.upload_photo_container{
+	display: table;
+	opacity: 0.5;
+	border: dashed white;
+	transition: opacity 0.15s ease-in;
+}
+
+.upload_photo_container:hover{
+	opacity: 1;
+}
+
+.upload_photo_up {
+	display: table-cell;
+	font-size: 500%;
+	vertical-align: middle;
+	transition: all 0.1s linear;
+}
+
+.upload_photo_container:hover .upload_photo_up {
+	font-size: 700%;
+}
+

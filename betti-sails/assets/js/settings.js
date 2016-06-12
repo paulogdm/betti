@@ -96,8 +96,8 @@ angular.module("betti-app").controller('SettingsController',
 			}
 		};
 
-		if(!validDate($scope.birthday)){
-			showSnackbar("'"$scope.birthday+"' is not a valid date...");
+		if(!validDate($scope.birthday) ){
+			showSnackbar("'"+$scope.birthday+"' is not a valid date...");
 		} else {			
 			showSnackbar("Sending...");
 
