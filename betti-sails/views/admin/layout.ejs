@@ -6,9 +6,10 @@
 	<!-- Viewport mobile tag for sensible mobile support -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+	<!-- Chrome on Android color set -->
 	<meta name="theme-color" content="‪#311B92">
 
-	<!--INJECTED START-->
+	<!--INJECTED START
 	<!--STYLES-->
 	<link rel="stylesheet" href="/bower_components/mdi/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="/css/material.min.css">
@@ -29,47 +30,55 @@
 	<link rel="stylesheet" href="/css/layout.css">
 
 	<!-- My JS -->
-	<script src="/js/layout_admin.js"></script>
-	<script src="/js/jwt.js"></script>
-
+	<script src="/js/layout.js"></script>
+	
 </head>
 
 
-<body ng-app="betti-app" ng-controller="LayoutStyleController">
+<body ng-app="betti-app" ng-controller="SideBarController">
 	<!-- HEADER AND SIDEBAR BEGIN -->
-	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-controller="SideBarController">
-		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_class_page">
+	<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+		<header class="main-header mdl-layout__header mdl-color-text--grey-600" ng-class="color_mdl_search">
 			<div class="mdl-layout__header-row">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+					<label class="mdl-button mdl-js-button mdl-button--icon" for="search" id="searchicon">
 						<i class="material-icons mdl-color-text--white">search</i>
 					</label>
 					<div class="mdl-textfield__expandable-holder">
 						<input class="mdl-textfield__input mdl-color-text--white" style="font-size: 150%" type="text" id="search">
 					</div>
+					<div class="mdl-tooltip" for="searchicon">
+						Search
+					</div>
 				</div>
 				<div class="mdl-layout-spacer"></div>
-				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="logout" ng-click="logout()">
 					<i class="material-icons mdl-color-text--white">exit_to_app</i>
 				</button>
+				<div class="mdl-tooltip" for="logout">
+					Exit
+				</div>
 			</div>
 		</header>
-		<div class="sidebar-drawer mdl-layout__drawer mdl-color--blue-grey-400 mdl-color-text--white">
+		<div class="sidebar-drawer mdl-layout__drawer mdl-color-text--white" ng-class="color_mdl_profile">
 			<header class="sidebar-drawer-header">
-				<img ng-src="{{user_avatar}}" class="sidebar-avatar">
+				<div>
+					<a href="/userspace/profile/">
+						<img src="/images/views/admin_default.png" class="sidebar-avatar">
+					</a>
+				</div>
 				<div class="sidebar-name-container">
-					<span>{{user_name}}</span>
+					<a class="mdl-color-text--white" style="font-size: 120%; text-decoration: none" href="/userspace/profile/">@{{login}}</a>
 					<div class="mdl-layout-spacer"></div>
 				</div>
 			</header>
 			<nav class="sidebar-navigation mdl-navigation mdl-color--white">
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">sentiment_satisfied</i>Profile</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>Updates</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people_outline</i>Friends</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">bubble_chart</i>Groups</a>
+				<a class="mdl-navigation__link" href="/adminspace/panel/"><i class="mdl-color-text--blue-grey-400 material-icons">developer_board</i>Panel</a>
+				<a class="mdl-navigation__link" href="/adminspace/server/"><i class="mdl-color-text--blue-grey-400 material-icons">dns</i>Server</a>roups</a>
 
 				<div class="mdl-layout-spacer"></div>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">settings</i><span >Settings</span></a>
+
+				<a class="mdl-navigation__link" href="/userspace/settings"><i class="mdl-color-text--blue-grey-400 material-icons">settings</i><span >Settings</span></a>
 			</nav>
 		</div>
 		<!-- HEADER AND SIDEBAR END -->

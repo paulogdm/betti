@@ -62,9 +62,13 @@
 		</header>
 		<div class="sidebar-drawer mdl-layout__drawer mdl-color-text--white" ng-class="color_mdl_profile">
 			<header class="sidebar-drawer-header">
-				<img ng-src="{{avatar}}" class="sidebar-avatar">
+				<div>
+					<a href="/userspace/profile/">
+						<img ng-src="{{avatar}}" class="sidebar-avatar">
+					</a>
+				</div>
 				<div class="sidebar-name-container">
-					<span style="font-size: 120%">{{login}}</span>
+					<a class="mdl-color-text--white" style="font-size: 120%; text-decoration: none" href="/userspace/profile/">@{{login}}</a>
 					<div class="mdl-layout-spacer"></div>
 				</div>
 			</header>
