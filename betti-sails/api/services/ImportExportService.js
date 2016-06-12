@@ -153,19 +153,69 @@ module.exports = {
 					return cb({success: false, msg: "Not admin"});
 
 				var pgquery = "";
-				var result;
+				var response = {};
 
-				User.query(pgquery, function(err, result){
+				/////////////////////////
+				//ASSYNC WAIT FUNCTION //
+				/////////////////////////
+				var finished = _.after(6, call_the_cb);
+
+				///////////////////
+				//ASSYNC TRIGGER //
+				///////////////////	
+				function call_the_cb(){
+				  return cb({success: true, result: response});
+				}
+
+
+				User.query("select * from webuser", function(err, result1){
 					if (err){
-						sails.log.debug("[ExportService] Query error:\t" + requester);
-						sails.log.debug(err);
-						return cb({success: false});
-					} else {
-						return cb({success: true, result: result});
+						sails.log.debug("[ExportService] Q1 ERROR\t");
 					}
+					response.users = result1.rows;
+					finished();
+				});
+
+				User.query("select * from post", function(err, result2){
+					if (err){
+						sails.log.debug("[ExportService] Q2 ERROR");
+					}
+					response.tweets = result2.rows;
+					finished();
+				});
+
+				User.query("select * from follow", function(err, result3){
+					if (err){
+						sails.log.debug("[ExportService] Q3 ERROR");
+					}
+					response.follow = result3.rows;
+					finished();
+				});
+
+				User.query("select * from fav_post", function(err, result4){
+					if (err){
+						sails.log.debug("[ExportService] Q4 ERROR");
+					}
+					response.fav_post = result4.rows;
+					finished();
+				});
+
+				User.query("select * from post_reaction", function(err, result5){
+					if (err){
+						sails.log.debug("[ExportService] Q5 ERROR");
+					}
+					response.post_reaction = result5.rows;
+					finished();
+				});
+
+				User.query("select * from webuserDescription", function(err, result6){
+					if (err){
+						sails.log.debug("[ExportService] Q6 ERROR");
+					}
+					response.bios = result6.rows;
+					finished();
 				});
 			}
 		});
 	}
-
 }

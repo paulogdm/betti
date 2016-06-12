@@ -8,6 +8,7 @@
 	<title>Admin only Panel</title>
 
 	<script src="/js/panel.js"></script>
+	<script src="/js/download.js"></script>
 
 </head>
 
@@ -21,7 +22,7 @@
 				</div>
 				<div class="mdl-card__actions mdl-card--border">
 					<p>
-						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="downjson">
+						<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="downjson" ng-click="downloadFile()">
 							<b class="mdl-color-text--white">download user file</b>
 						</label>
 						&nbsp;&nbsp;
@@ -35,7 +36,7 @@
 
 				<div class="mdl-card__actions mdl-card--border">
 					<label class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--green" id="save" ng-click="uploadFile()">
-						<b class="mdl-color-text--white">SAVE FILE</b>
+						<b class="mdl-color-text--white">SAVE</b>
 					</label>
 				</div>
 			</div>

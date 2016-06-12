@@ -24,7 +24,7 @@ module.exports.routes = {
 	},
 
 
-	'get /panel/down': {
+	'post /panel/down': {
 		controller: 'ImportExportController',
 		action: 'download',
 		skipAssets: true

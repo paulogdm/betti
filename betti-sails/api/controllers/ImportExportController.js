@@ -14,7 +14,7 @@ module.exports = {
 		});
 	},
 
-	download: function (res, res){
+	download: function (req, res){
 		var requester = req.cookies.token;
 
 		ImportExportService.export(requester, function(result){
