@@ -244,6 +244,55 @@ module.exports = {
 		});
 	},
 
+	share: function(requester, id, cb){
+
+		AuthService.tokendecode(requester, function(data){
+			
+			if(!data.success){
+				return cb(null, false, {message: 'invalid'});
+			} else {
+
+				if(usermodel.isReserved(requester))
+					return cb(null, false, {message: 'admin, you can\'t'});
+
+				requester = data.user.login.trim();
+				
+				var pgquery = "SELECT * FROM POST WHERE post.id = "+id+";";
+				
+				Post.query(pgquery, function(err, result){
+					if (err){
+						sails.log.debug("[PostService.js][share] Query error:\t" + requester);
+						sails.log.debug(err);
+						return cb({success: false});
+					} else {
+						result = result.rows[0];
+
+						result.text = "Shared from @"+result.powner+": "+result.text;
+
+						var pgquery = "INSERT INTO post (powner, title, text) "+
+						"VALUES ('"+requester+"', "+result.title+"', '"+result.text+"') "+
+						"returning post_id, powner;";
+						//UPDATE REACTION
+						
+						Post.query(pgquery, function(err, result){
+							if (err){
+								sails.log.debug("[PostService.js][share] Query2 error:\t" + requester);
+								sails.log.debug(err);
+								return cb({success: false});
+							} else {
+								
+								return cb({success: true, 
+									id: result.rows[0].post_id,
+									powner: result.rows[0].powner
+								});
+							}
+						});
+					}
+				});
+			}
+		});
+	},
+
 	like: function(requester, id, cb){
 		return cb({success: false});
 	},

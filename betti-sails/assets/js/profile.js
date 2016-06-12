@@ -1,24 +1,13 @@
 //LEVEL 2;
 
-
 var GLOBAL_URL_GET_PROFILE = '/profile/getfullprofile/';
 var GLOBAL_URL_GET_FOLLOW = '/profile/getfollowlist/';
 var GLOBAL_URL_GET_POSTS = '/profile/getposts/';
 var GLOBAL_URL_GET_FAV = '/profile/getfavorites/';
-var GLOBAL_URL_ISMYPROFILE = '/profile/ismyprofile/';
 var GLOBAL_URL_GET_GROUPS = '';
 
-var GLOBAL_URL_NEWPOST = '/post/newpost/';
-var GLOBAL_URL_ADDFAV = '/post/addfavorite/';
-var GLOBAL_URL_RMVFAV = '/post/rmvfavorite/';
-var GLOBAL_URL_LIKE = '/post/like/';
-var GLOBAL_URL_DISLIKE = '/post/dislike/';
-var GLOBAL_URL_NOLIKENORDISLIKE = '/post/rmvlikedislike'
-var GLOBAL_URL_SHARE = '/post/share/';
-var GLOBAL_URL_DELETEPOST = '/post/delete/';
+var GLOBAL_URL_ISMYPROFILE = '/profile/ismyprofile/';
 
-var GLOBAL_URL_FOLLOW = '/follow/unfollow'
-var GLOBAL_URL_UNFOLLOW = '/follow/follow'
 
 
 angular.isUndefinedOrNull = function(val) {
@@ -44,196 +33,6 @@ angular.module("betti-app").factory('GetService', function($http) {
 		}
 	}
 });
-
-angular.module("betti-app").factory('PostCommService', function($http) {
-	return {
-		'new_post': function(data){
-			return $http.post(GLOBAL_URL_NEWPOST, data);
-		},
-		'toggle_favorite': function(data){
-			return $http.post(GLOBAL_URL_TOGFAV, data);
-		},
-		'like_post': function(data){
-			return $http.post(GLOBAL_URL_LIKE, data);
-		},
-		'dislike_post': function(data){
-			return $http.post(GLOBAL_URL_DISLIKE, data);
-		},
-		'share_post': function(data){
-			return $http.post(GLOBAL_URL_SHARE, data);
-		},
-		'favorite_post': function(data){
-			return $http.post(GLOBAL_URL_ADDFAV, data);
-		},
-		'unfavorite_post': function(data){
-			return $http.post(GLOBAL_URL_RMVFAV, data);
-		},
-		'delete_post': function(data){
-			return $http.post(GLOBAL_URL_DELETEPOST, data);
-		},
-		'is_my_profile': function(data) {
-			return $http.post(GLOBAL_URL_ISMYPROFILE, data);
-		},
-	}
-});
-
-angular.module("betti-app")
-	.factory('PostService', ['PostCommService',
-		function(PostCommService) {
-			
-			var PostService = {};
-
-			PostService.processPosts = function(json){
-
-				var post;
-				var posts = [];
-
-				if(json)
-					for (var i = json.data.length - 1; i >= 0; i--){
-
-						post = {id: json.data[i].post_id};
-						post.owner = json.data[i].powner;
-						post.title = json.data[i].title;
-						post.text = json.data[i].text;
-						post.date = json.data[i].pdate;
-						post.favorites = json.data[i].n_fav;
-						post.likes = json.data[i].n_likes;
-						post.dislikes = json.data[i].n_dislikes;
-						post.shares = json.data[i].n_shares;
-
-						post.editable = json.data[i].editable;
-
-						post.liked = json.data[i].like_dislike == 1 ? true : false;
-						post.disliked = json.data[i].like_dislike == -1 ? true : false;
-						post.favorited = json.data[i].favorited ? true : false;
-						post.shared = json.data[i].shared ? true : false;
-
-						posts.push(post);
-					}
-
-				return posts;
-			};
-
-			
-			PostService.processUniquePost = function(post){
-
-				return post;
-			};
-
-			PostService.like = function(post){
-				
-				PostCommService.like_post({post_id: post.id}).then(
-				function(response){
-					if(response.data.success){
-						console.info("[Profile][PostService.dislike] Sucess!");
-						
-						if(post.disliked){
-							post.disliked = false;
-							post.dislikes --;
-						}
-						if(!post.liked){
-							post.liked = true;
-							post.likes ++;
-						}
-
-					} else {
-						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][PostService.dislike] Fail!");
-					}
-				},function(response) {
-					console.info("[Profile][PostService.dislike] Error received!");
-				});
-			}
-
-			PostService.dislike = function(post){
-
-				PostCommService.dislike_post({post_id: post.id}).then(
-				function(response){
-					if(response.data.success){
-						console.info("[Profile][PostService.dislike] Sucess!");
-						
-						if(post.liked){
-							post.liked = false;
-							post.likes --;
-						}
-
-						if(!post.disliked){
-							post.disliked = true;
-							post.dislikes ++;
-						}
-
-					} else {
-						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][PostService.dislike] Fail!");
-					}
-				},function(response) {
-					console.info("[Profile][PostService.dislike] Error received!");
-				});
-			}
-
-			PostService.favorite = function(post){
-
-				if(post.favorited){
-					PostCommService.unfavorite_post({post_id: post.id}).then(
-					function(response){
-
-						if(response.data.success){
-							console.info("[Profile][PostService.favorite] Sucess!");
-							post.favorited = false;
-							post.favorites --;
-						} else {
-							showSnackbar("Sorry... Something is wrong");
-							console.info("[Profile][PostService.favorite] Fail!");
-						}
-					},function(response) {
-						console.info("[Profile][PostService.favorite] Error received!");
-					});
-				} else {
-					PostCommService.favorite_post({post_id: post.id}).then(
-					function(response){
-
-						if(response.data.success){
-							console.info("[Profile][PostService.favorite] Sucess!");
-							post.favorited = true;
-							post.favorites ++;
-						} else {
-							showSnackbar("Sorry... Something is wrong");
-							console.info("[Profile][PostService.favorite] Fail!");
-						}
-					},function(response) {
-						console.info("[Profile][PostService.favorite] Error received!");
-					});
-				}
-			}
-
-			PostService.share = function(post){
-
-				PostCommService.share_post({post_id: post.id}).then(
-				function(response){
-					if(response.data.success){
-						console.info("[Profile][PostService.share] Sucess!");
-						
-						if(post.shared){
-							post.shared = false;
-							post.shares --;
-						} else {
-							post.shared = true;
-							post.shares ++;
-						}
-
-					} else {
-						showSnackbar("Sorry... Something is wrong");
-						console.info("[Profile][PostService.share] Fail!");
-					}
-				},function(response) {
-					console.info("[Profile][PostService.share] Error received!");
-				});
-			}
-
-			return PostService;
-		}
-	]
-);
 
 angular.module("betti-app").factory('AllPosts', function() {
 
@@ -443,17 +242,6 @@ angular.module("betti-app").
 
 }]);
 
-
-angular.module("betti-app").factory('FollowCommService', function($http) {
-	return {
-		'follow': function(data){
-			return $http.post(GLOBAL_URL_FOLLOW, data);
-		},
-		'unfollow': function(data){
-			return $http.post(GLOBAL_URL_UNFOLLOW, data);
-		}
-	}
-});
 
 angular.module("betti-app").controller('AllFollowController', ['$scope', 'GetService', 'FollowCommService',
  function($scope, GetService, FollowCommService){
