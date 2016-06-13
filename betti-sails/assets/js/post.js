@@ -2,8 +2,7 @@
 
 
 var GLOBAL_URL_NEWPOST = '/post/newpost/';
-var GLOBAL_URL_ADDFAV = '/post/addfavorite/';
-var GLOBAL_URL_RMVFAV = '/post/rmvfavorite/';
+var GLOBAL_URL_FAV = '/post/favorite/';
 var GLOBAL_URL_LIKE = '/post/like/';
 var GLOBAL_URL_DISLIKE = '/post/dislike/';
 var GLOBAL_URL_NOLIKENORDISLIKE = '/post/rmvlikedislike'
@@ -32,10 +31,7 @@ angular.module("betti-app").factory('PostCommService', function($http) {
 			return $http.post(GLOBAL_URL_SHARE, data);
 		},
 		'favorite_post': function(data){
-			return $http.post(GLOBAL_URL_ADDFAV, data);
-		},
-		'unfavorite_post': function(data){
-			return $http.post(GLOBAL_URL_RMVFAV, data);
+			return $http.post(GLOBAL_URL_FAV, data);
 		},
 		'delete_post': function(data){
 			return $http.post(GLOBAL_URL_DELETEPOST, data);
@@ -96,23 +92,27 @@ angular.module("betti-app")
 				PostCommService.like_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
-						console.info("[Post][PostService.dislike] Sucess!");
-						
-						if(post.disliked){
-							post.disliked = false;
-							post.dislikes --;
-						}
-						if(!post.liked){
+						console.info("[Post][PostService.like] Sucess!");
+
+						if(response.data.status == true){
+							if(post.disliked){
+								post.disliked = false;
+								post.dislikes --;
+							}
+							
 							post.liked = true;
 							post.likes ++;
-						}
 
+						} else if(response.data.status == false){
+								post.liked = false;
+								post.likes --;
+						}
 					} else {
-						showSnackbar("Sorry... Something is wrong");
-						console.info("[Post][PostService.dislike] Fail!");
+						showSnackbar("Sorry... Something went wrong");
+						console.info("[Post][PostService.like] Fail!");
 					}
 				},function(response) {
-					console.info("[Post][PostService.dislike] Error received!");
+					console.info("[Post][PostService.like] Error received!");
 				});
 			}
 
@@ -121,20 +121,23 @@ angular.module("betti-app")
 				PostCommService.dislike_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
-						console.info("[Post][PostService.dislike] Sucess!");
-						
-						if(post.liked){
-							post.liked = false;
-							post.likes --;
-						}
+						console.info("[Post][PostService.like] Sucess!");
 
-						if(!post.disliked){
+						if(response.data.status == true){
+							if(post.liked){
+								post.liked = false;
+								post.likes --;
+							}
+							
 							post.disliked = true;
 							post.dislikes ++;
-						}
 
+						} else if(response.data.status == false){
+								post.disliked = false;
+								post.dislikes --;
+						}
 					} else {
-						showSnackbar("Sorry... Something is wrong");
+						showSnackbar("Sorry... Something went wrong");
 						console.info("[Post][PostService.dislike] Fail!");
 					}
 				},function(response) {
@@ -144,40 +147,26 @@ angular.module("betti-app")
 
 			PostService.favorite = function(post){
 
-				if(post.favorited){
-					PostCommService.unfavorite_post({post_id: post.id}).then(
-					function(response){
+				PostCommService.favorite_post({post_id: post.id}).then(
+				function(response){
+					if(response.data.success){
+						console.info("[Post][PostService.favorited] Sucess!");
 
-						if(response.data.success){
-							console.info("[Post][PostService.favorite] Sucess!");
+						if(response.data.status == true){
 							post.favorited = false;
-							post.favorites --;
-						} else {
-							showSnackbar("Sorry... Something is wrong");
-							console.info("[Post][PostService.favorite] Fail!");
-						}
-					},function(response) {
-						console.info("[Post][PostService.favorite] Error received!");
-					});
-				} else {
-					PostCommService.favorite_post({post_id: post.id}).then(
-					function(response){
+							post.favorited++;
 
-						if(response.data.success){
-							console.info("[Post][PostService.favorite] Sucess!");
-							post.favorited = true;
-							post.favorites ++;
-							
-							showSnackbar("Post favorited!");
-
-						} else {
-							showSnackbar("Sorry... Something is wrong");
-							console.info("[Post][PostService.favorite] Fail!");
+						} else if(response.data.status == false){
+							post.favorited = false;
+							post.favorited++;
 						}
-					},function(response) {
-						console.info("[Post][PostService.favorite] Error received!");
-					});
-				}
+					} else {
+						showSnackbar("Sorry... Something went wrong");
+						console.info("[Post][PostService.favorited] Fail!");
+					}
+				},function(response) {
+					console.info("[Post][PostService.favorited] Error received!");
+				});
 			}
 
 			PostService.share = function(post){
@@ -193,7 +182,7 @@ angular.module("betti-app")
 						showSnackbar("Post shared!");
 
 					} else {
-						showSnackbar("Sorry... Something is wrong");
+						showSnackbar("Sorry... Something went wrong");
 						console.info("[Post][PostService.share] Fail!");
 					}
 				},function(response) {
@@ -210,7 +199,7 @@ angular.module("betti-app")
 						showSnackbar("Post deleted!");
 						return true;
 					} else {
-						showSnackbar("Sorry... Something is wrong");
+						showSnackbar("Sorry... Something went wrong");
 						console.info("[Post][PostService.delete] Fail!");
 						return false;
 					}

@@ -16,20 +16,18 @@ module.exports = {
 		});
 	},
 
-	addfavorite: function(req, res){
+	favorite: function(req, res){
 		var requester = req.cookies.token;
 		var id = req.param('post_id');
-
-		PostService.addFavorite(requester, id, function(result){
-			res.json(result);
-		});
-	},
-	rmvfavorite: function(req, res){
-		var requester = req.cookies.token;
-		var id = req.param('post_id');
-
-		PostService.rmvFavorite(requester, id, function(result){
-			res.json(result);
+		
+		PostActionService.insertempty(requester, id, function(status){
+			if(status.success){
+				PostActionService.favorite(requester, id, function(result){
+					res.json(result);
+				});
+			} else {
+				res.json({success: false});
+			}
 		});
 	},
 
@@ -37,8 +35,14 @@ module.exports = {
 		var requester = req.cookies.token;
 		var id = req.param('post_id');
 
-		PostService.like(requester, id, function(result){
-			res.json(result);
+		PostActionService.insertempty(requester, id, function(status){
+			if(status.success){
+				PostActionService.like(requester, id, function(result){
+					res.json(result);
+				});
+			} else {
+				res.json({success: false});
+			}
 		});	
 	},
 
@@ -46,8 +50,14 @@ module.exports = {
 		var requester = req.cookies.token;
 		var id = req.param('post_id');
 
-		PostService.dislike(requester, id, function(result){
-			res.json(result);
+		PostActionService.insertempty(requester, id, function(status){
+			if(status.success){
+				PostActionService.dislike(requester, id, function(result){
+					res.json(result);
+				});
+			} else {
+				res.json({success: false});
+			}
 		});
 	},
 
@@ -55,8 +65,14 @@ module.exports = {
 		var requester = req.cookies.token;
 		var id = req.param('post_id');
 
-		PostService.share(requester, id, function(result){
-			res.json(result);
+		PostActionService.insertempty(requester, id, function(status){
+			if(status.success){
+				PostActionService.share(requester, id, function(result){
+					res.json(result);
+				});
+			} else {
+				res.json({success: false});
+			}
 		});
 	},
 
@@ -64,8 +80,14 @@ module.exports = {
 		var requester = req.cookies.token;
 		var id = req.param('post_id');
 
-		PostService.delete(requester, id, function(result){
-			res.json(result);
+		PostActionService.insertempty(requester, id, function(status){
+			if(status.success){
+				PostActionService.delete(requester, id, function(result){
+					res.json(result);
+				});
+			} else {
+				res.json({success: false});
+			}
 		});
 	}
 };

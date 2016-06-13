@@ -42,6 +42,13 @@ module.exports = {
 		res.view('admin/panel', locals);
 	},
 
+	server: function (req, res) {
+		
+		var locals = {};
+		locals.layout = 'admin/layout';
+		res.view('404', locals);
+	},
+
 	search: function (req, res) {
 		res.view('users/search', {layout: 'admin/layout'})
 	},
