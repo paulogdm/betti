@@ -92,8 +92,6 @@ module.exports = {
 						"where usender = '"+login+"' and ureceiver = '"+requester+"';";
 
 						Follow.query(pgquery, function(err, result){
-							
-							sails.log.debug(result);
 
 							if(err){
 								sails.log.debug("[FollowService.js][follow] Query2 error:\t" + login);
@@ -105,6 +103,40 @@ module.exports = {
 						});
 					} else {
 						return cb({success: true, status: true});
+					}
+				});
+			}
+		});
+	},
+
+	imfollowing: function(login, requester, cb){
+
+		if(usermodel.isReserved(login))
+			return cb({success: false, msg: "Can't do that"});
+
+		AuthService.tokendecode(requester, function(data){
+			
+			if(!data.success){
+				return cb({success: false, message: 'invalid'});
+			} else {
+
+				requester = data.user.login.trim();
+
+				if(!login || login == requester)
+					return cb({status: false, success: true, im: true});
+
+				var pgquery = "SELECT * FROM follow WHERE usender = '"+login+
+				"' AND ureceiver = '"+requester+"';";
+
+				Follow.query(pgquery, function(err, result){
+					if(err){
+						sails.log.debug("[FollowService.js][imfollowing] Query error:\t" + login);
+						sails.log.debug(err);
+						return cb({success: false});
+					} else if(result.rowCount == 1){
+						return cb({success: true, status: true});
+					} else {
+						return cb({success: true, status: false});
 					}
 				});
 			}

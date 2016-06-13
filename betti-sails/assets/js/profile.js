@@ -82,6 +82,52 @@ angular.module("betti-app").factory('FavPosts', function() {
 	return FavPosts;
 });
 
+angular.module("betti-app").controller('SimpleFollow', ['$scope', 'FollowCommService',
+ function($scope, FollowCommService){
+	
+	var login = window.location.pathname.split('/')[3];
+	var data = {login: login};
+
+	FollowCommService.imfollowing(data).then(
+		function(response){
+			if(response.data.success){
+				if(response.data.im){
+					$scope.im_this = true;
+				} else {
+					$scope.im_this = false;
+				}
+				console.info(response);
+				$scope.following_this = response.data.status;
+			}
+
+		},function(response) {
+			console.info("[Profile][SimpleFollow] Error received!");
+		}
+	);	
+
+	$scope.follow_this_profile = function(index){
+		
+		var data = {};
+		data.login = window.location.pathname.split('/')[3];
+
+		FollowCommService.follow(data).then(
+			function(response){
+			if(response.data.success){
+				if(response.data.status){
+					$scope.following_this = true;
+					showSnackbar("Following: "+data.login);
+				} else {
+					$scope.following_this = false;
+					showSnackbar("Unfollowing: "+data.login);
+				}
+			}
+
+		},function(response) {
+			console.info("[Profile][follow] Error received!");
+		});
+	}
+
+}]);
 
 angular.module("betti-app").
 	controller('NewPostController', ['$scope', 'PostCommService', 'AllPosts',
@@ -274,10 +320,12 @@ angular.module("betti-app").controller('AllFollowController', ['$scope', 'GetSer
 			$scope.follow(index);
 	}
 
+
+
 	$scope.follow = function(index){
 		
 		var data = {login: $scope.allFollow[index].login.trim()};
-		console.info(data);
+
 		FollowCommService.follow(data).then(
 			function(response){
 			if(response.data.success){

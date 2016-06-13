@@ -95,5 +95,15 @@ module.exports = {
 				res.json(list);
 			}
 		});
-	}
+	},
+
+	imfollowing: function(req, res){
+
+		var login = req.param('login');
+		var requester = req.cookies.token;
+
+		FollowService.imfollowing(login, requester, function(result){
+			res.json(result);
+		});
+	},
 };

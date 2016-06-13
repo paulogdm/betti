@@ -27,7 +27,10 @@
 				</div>
 				<img class="profile_photo" src="<%= uphoto %>">
 				<span class="profile_name mdl-color-text--white"> <%= uname %> </span>
-				<div class="upper_bar <%= styleSwitchEJS(style_profile) %>">
+				<div class="upper_bar <%= styleSwitchEJS(style_profile) %>" ng-controller="SimpleFollow">
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" ng-show="!im_this" ng-class="following_this ? 'mdl-color--red' : 'mdl-color--green' " ng-click="follow_this_profile()" style="bottom: 8px;">
+						<i class="material-icons mdl-color-text--white">{{following_this ? 'block' : 'add'}}</i>
+					</button>
 					<div class="upper_bar_content mdl-color-text--white">
 						@<%= login %>
 					</div>

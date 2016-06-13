@@ -9,6 +9,10 @@ angular.module("betti-app").factory('FollowCommService', function($http) {
 	return {
 		'follow': function(data){
 			return $http.post(GLOBAL_URL_FOLLOW, data);
+		},
+
+		'imfollowing': function(data){
+			return $http.post(GLOBAL_URL_IM_FOLLOWING, data);
 		}
 	}
 });
