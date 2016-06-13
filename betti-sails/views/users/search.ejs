@@ -1,0 +1,44 @@
+<head>
+	<meta charset="utf-8">
+
+	<!--My CSS --> 
+	<link rel="stylesheet" href="/css/profile.css"> 
+	
+	<!--My JS -->
+	<title>Search</title>
+
+	<script src="/js/search.js"></script>
+	<script src="/js/follow.js"></script>
+
+</head>
+
+<body>
+	<main class="mdl-layout__content" ng-controller="SearchController">
+		<div class="mdl-grid">
+			<div ng-repeat="users in userResult" class="mini_card mdl-card mdl-cell mdl-cell--2-col mdl-shadow--4dp">
+				<div class="mini_card_photo mdl-card__supporting-text">
+					<img class="card_photo" ng-src="{{users.uphoto}}">
+				</div>
+
+				<div class="mini_card_bar mdl-card__title mdl-card--expand mdl-color--accent">
+					<div class="mini_bar_content mdl-color-text--white">
+						<a class="mdl-color-text--white" ng-href="{{users.login}}" style="text-decoration: none;">
+							@{{users.login}}
+						</a>
+					</div>
+				</div>
+
+				<div class="mdl-card__actions mdl-card--border">
+					<div class="button_container">
+						<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="viewFollow($index)">
+							<i class="material-icons">{{users.following ? 'done' : 'add'}}</i>
+						</button>
+						<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="users.following ? 'mdl-color--red-600' : 'mdl-color--green-600'" ng-click="viewFollow($index)">
+							<i class="material-icons">{{users.following ? 'close' : 'done_all'}}</i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>

@@ -55,9 +55,7 @@ module.exports = {
 			}
 		});	
 	},
-
-
-
+	
 	follow: function(login, requester, cb){
 				
 		if(usermodel.isReserved(login))

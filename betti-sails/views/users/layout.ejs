@@ -44,14 +44,26 @@
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search" id="searchicon">
 						<i class="material-icons mdl-color-text--white">search</i>
 					</label>
+					
 					<div class="mdl-textfield__expandable-holder">
-						<input class="mdl-textfield__input mdl-color-text--white" style="font-size: 150%" type="text" id="search">
+						<input class="mdl-textfield__input mdl-color-text--white" style="font-size: 150%" type="text" id="search" ng-model="search_input">
 					</div>
+
+					<label class="mdl-button mdl-js-button mdl-button--icon" for="search" id="searchicon">
+						<i class="material-icons mdl-color-text--white">search</i>
+					</label>
+
 					<div class="mdl-tooltip" for="searchicon">
 						Search
 					</div>
 				</div>
+				<div style="margin-left: 20px">
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-color-text--white" ng-class="color_mdl_search" ng-show="search_input != null" ng-click="search()">
+						<b>Search!</b>
+					</button>
+				</div>
 				<div class="mdl-layout-spacer"></div>
+				
 				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="logout" ng-click="logout()">
 					<i class="material-icons mdl-color-text--white">exit_to_app</i>
 				</button>

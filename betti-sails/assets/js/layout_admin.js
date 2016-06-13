@@ -150,6 +150,16 @@ angApp.controller('SideBarController', ['$scope', 'LayoutStyleService', 'GetLayo
 		}
 	)
 
+	$scope.search = function(){
+		console.info($scope.search_input);
+		if($scope.search_input != null){
+			window.location.href = "../search/"+$scope.search_input; 
+		} else {
+			showSnackbar("Sorry! Failed: "+$scope.search_input);
+		}
+	}
+
+
 	$scope.logout = function(){
 		LogoutService.logout().then(
 		function(response){

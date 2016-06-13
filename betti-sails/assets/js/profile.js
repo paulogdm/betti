@@ -8,8 +8,6 @@ var GLOBAL_URL_GET_GROUPS = '';
 
 var GLOBAL_URL_ISMYPROFILE = '/profile/ismyprofile/';
 
-
-
 angular.isUndefinedOrNull = function(val) {
 	return angular.isUndefined(val) || val === null 
 }

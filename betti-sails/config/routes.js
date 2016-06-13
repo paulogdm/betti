@@ -28,5 +28,11 @@ module.exports.routes = {
 		controller: 'ImportExportController',
 		action: 'download',
 		skipAssets: true
+	},
+
+	'post /search': {
+		controller: 'SearchController',
+		action: 'search',
+		skipAssets: true
 	}
 };
