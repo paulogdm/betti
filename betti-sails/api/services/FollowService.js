@@ -17,12 +17,14 @@ module.exports = {
 				if(!login_to_show)
 					login_to_show = requester;
 				
-				var pgquery = "SELECT uname, login, uphoto "+
-				"FROM follow inner join webuser on "+
-				"usender = login and ureceiver = '"+login_to_show+"' "+
+				var pgquery = "SELECT webuser.uname as uname, webuser.login as login, "+
+				"webuser.uphoto as uphoto, ME.ureceiver "+
+				"FROM follow ORIGINAL inner join webuser on "+
+				"ORIGINAL.usender = login and ORIGINAL.ureceiver = '"+login_to_show+"' "+
+				"left outer join follow ME on ORIGINAL.usender = login and "+
+				"ME.ureceiver = '"+requester+"' "+
 				"ORDER BY uname;";
 
-				//FALTA DIZER SE ESTOU SEGUINDO O CARA OU NAO
 
 				Follow.query(pgquery, function(err, result){
 					if(err){
@@ -39,6 +41,12 @@ module.exports = {
 						for(var i = result.length - 1; i >= 0; i--){
 							if(!result[i].uphoto)
 								result[i].uphoto = DEF_USER_PHOTO;
+
+							if(result[i].ureceiver.trim() == requester){
+								result[i].following = true;
+							} else {
+								result[i].following = false;
+							}
 						}
 					}
 

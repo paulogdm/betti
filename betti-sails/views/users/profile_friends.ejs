@@ -14,10 +14,10 @@
 
 		<div class="mdl-card__actions mdl-card--border">
 			<div class="button_container">
-				<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent <%= styleSwitchEJS(style_profile) %>">
+				<button class="button_show mdl-button mdl-js-button mdl-button--raised mdl-button--accent <%= styleSwitchEJS(style_profile) %>" ng-click="viewFollow($index)">
 					<i class="material-icons">{{following.following ? 'done' : 'add'}}</i>
 				</button>
-				<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="following.following ? 'mdl-color--red-600' : 'mdl-color--green-600'">
+				<button class="button_hidden mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--red-600" ng-class="following.following ? 'mdl-color--red-600' : 'mdl-color--green-600'" ng-click="viewFollow($index)">
 					<i class="material-icons">{{following.following ? 'close' : 'done_all'}}</i>
 				</button>
 			</div>

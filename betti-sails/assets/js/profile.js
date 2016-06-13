@@ -261,9 +261,8 @@ angular.module("betti-app").controller('AllFollowController', ['$scope', 'GetSer
 
 	GetService.get_follow(data).then(
 		function(response){
-
 			if(response.status == 200){
-				$scope.allFollow = response.data
+				$scope.allFollow = response.data;
 			}
 
 		},function(response) {
@@ -271,8 +270,45 @@ angular.module("betti-app").controller('AllFollowController', ['$scope', 'GetSer
 		}
 	);
 
-	$scope.follow = function(index){
+	$scope.viewFollow = function(index){
 
+		if($scope.allFollow[index].following){
+			$scope.unfollow(index);
+		} else {
+			$scope.follow(index);
+		}
+	}
+
+	$scope.follow = function(index){
+		
+		var data = {login: $scope.allFollow[index].login.trim()};
+		$scope.allFollow[index].following = false;
+		
+		FollowCommService.unfollow(data).then(
+			function(response){
+			if(response.status == 200){
+				showSnackbar("Following: "+data.login);
+			}
+
+		},function(response) {
+			console.info("[Profile][follow] Error received!");
+		});
+	}
+
+	$scope.unfollow = function(index){
+		
+		var data = {login: $scope.allFollow[index].login.trim()};
+		$scope.allFollow[index].following = true;
+		
+		FollowCommService.follow(data).then(
+			function(response){
+			if(response.status == 200){
+				showSnackbar("Unfollowing: "+data.login);
+			}
+
+		},function(response) {
+			console.info("[Profile][unfollow] Error received!");
+		});
 	}
 
 }]);
