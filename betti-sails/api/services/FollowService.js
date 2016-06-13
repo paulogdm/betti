@@ -42,7 +42,7 @@ module.exports = {
 							if(!result[i].uphoto)
 								result[i].uphoto = DEF_USER_PHOTO;
 
-							if(result[i].ureceiver.trim() == requester){
+							if(result[i].ureceiver && result[i].ureceiver.trim() == requester){
 								result[i].following = true;
 							} else {
 								result[i].following = false;
@@ -56,15 +56,17 @@ module.exports = {
 		});	
 	},
 
-	follow: function(login, requester, cb){
 
+
+	follow: function(login, requester, cb){
+				
 		if(usermodel.isReserved(login))
-			return cb({success: false, message: "admin can't"});
+			return cb({success: false, msg: "Can't do that"});
 
 		AuthService.tokendecode(requester, function(data){
 			
 			if(!data.success){
-				return cb({message: 'invalid'});
+				return cb({success: false, message: 'invalid'});
 			} else {
 
 				requester = data.user.login.trim();
@@ -83,49 +85,29 @@ module.exports = {
 					if(err){
 						sails.log.debug("[FollowService.js][follow] Query error:\t" + login);
 						sails.log.debug(err);
-
 						return cb({success: false});
-					}
+					} else if(result.rowCount == 0){
+						
+						pgquery = "DELETE FROM follow "+
+						"where usender = '"+login+"' and ureceiver = '"+requester+"';";
 
-					return cb({success: true});
+						Follow.query(pgquery, function(err, result){
+							
+							sails.log.debug(result);
+
+							if(err){
+								sails.log.debug("[FollowService.js][follow] Query2 error:\t" + login);
+								sails.log.debug(err);
+								return cb({success: false});
+							} else {
+								return cb({success: true, status: false});
+							}
+						});
+					} else {
+						return cb({success: true, status: true});
+					}
 				});
 			}
-		});	
-	},
-
-	unfollow: function(login, requester, cb){
-
-		if(usermodel.isReserved(login))
-			return cb({success: false, message: "admin can't"});
-
-		AuthService.tokendecode(requester, function(data){
-			
-			if(!data.success){
-				return cb({message: 'invalid'});
-			} else {
-
-				requester = data.user.login.trim();
-
-				if(login == requester)
-					return cb({success: false});
-
-				if(!login)
-					login = requester;
-
-				var pgquery = "DELETE FROM follow WHERE "+
-				"usender = "+login+" AND ureceiver = '"+requester+"';"
-
-				Follow.query(pgquery, function(err, result){
-					if(err){
-						sails.log.debug("[FollowService.js][unfollow] Query error:\t" + login);
-						sails.log.debug(err);
-
-						return cb({success: false});
-					}
-
-					return cb({success: true});
-				});
-			}
-		});	
+		});
 	}
 }

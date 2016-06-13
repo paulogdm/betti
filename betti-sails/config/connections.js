@@ -13,7 +13,7 @@ module.exports.connections = {
     host: '198.199.79.4',
     port: '5432',
     user: 'pguser', // optional
-    password: 'EDIT', // optional
+    password: 'rudineiweb', // optional
     database: 'webdb' //optional
   }
 

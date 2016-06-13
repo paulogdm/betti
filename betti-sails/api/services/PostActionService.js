@@ -57,7 +57,11 @@ module.exports = {
 
 						pgquery = "INSERT INTO post (powner, title, text) "+
 						"VALUES ('"+requester+"', '"+result.title+"', '"+result.text+"') "+
-						"returning post_id, powner;";
+						"returning post_id, powner; "+
+						"UPDATE post_reaction SET "+
+						"shared = true WHERE "+
+						"post_id = "+id+" AND preader = '"+requester+"'; "
+
 						//UPDATE REACTION
 						
 						Post.query(pgquery, function(err, result){
