@@ -81,7 +81,7 @@ module.exports = {
 				if(!login_to_show)
 					login_to_show = requester;
 
-				var pgquery = "select * from post "+
+				var pgquery = "select *, post.post_id as post_id from post "+
 				"left outer join post_reaction on "+
 				"post.post_id = post_reaction.post_id and "+
 				"preader = '"+ requester +"' where "+
@@ -127,7 +127,8 @@ module.exports = {
 				if(!login_to_show)
 					login_to_show = requester;
 				
-				var pgquery = "select post.*, post_reaction.* from fav_post "+
+				var pgquery = "select post.*, post_reaction.*, post.post_id as post_id "+
+				"from fav_post "+
 				"inner join post on "+
 				"fav_post.post_id = post.post_id and "+
 				"webuser = '"+ login_to_show+"' "+

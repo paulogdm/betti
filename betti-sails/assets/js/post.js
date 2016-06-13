@@ -88,7 +88,7 @@ angular.module("betti-app")
 			};
 
 			PostService.like = function(post){
-				
+
 				PostCommService.like_post({post_id: post.id}).then(
 				function(response){
 					if(response.data.success){
@@ -104,8 +104,8 @@ angular.module("betti-app")
 							post.likes ++;
 
 						} else if(response.data.status == false){
-								post.liked = false;
-								post.likes --;
+							post.liked = false;
+							post.likes --;
 						}
 					} else {
 						showSnackbar("Sorry... Something went wrong");
@@ -151,14 +151,14 @@ angular.module("betti-app")
 				function(response){
 					if(response.data.success){
 						console.info("[Post][PostService.favorited] Sucess!");
-
+						
 						if(response.data.status == true){
-							post.favorited = false;
-							post.favorited++;
+							post.favorited = true;
+							post.favorites++;
 
 						} else if(response.data.status == false){
 							post.favorited = false;
-							post.favorited++;
+							post.favorites--;
 						}
 					} else {
 						showSnackbar("Sorry... Something went wrong");

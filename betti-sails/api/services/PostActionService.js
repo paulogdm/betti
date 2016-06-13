@@ -4,16 +4,21 @@ module.exports = {
 	
 	insertempty: function(requester, id, cb){
 
+
 		AuthService.tokendecode(requester, function(data){
 			
 			if(!data.success){
 				return cb({success: false});
 			} else {
+
+				requester = data.user.login.trim();
+
 				var pgquery = "INSERT INTO post_reaction VALUES "+
-				"("+id+", '"+requester+"', 0, FALSE, FALSE) ON CONFLICT DO NOTHING;"
+				"('"+id+"', '"+requester+"', 0, FALSE, FALSE) ON CONFLICT DO NOTHING;"
 
 				Post.query(pgquery, function(err, result){
 					if (err){
+						sails.log.debug(err);
 						return cb({success: false});
 					} else {
 						return cb({success: true});
@@ -31,10 +36,11 @@ module.exports = {
 				return cb(null, false, {message: 'invalid'});
 			} else {
 
+				requester = data.user.login.trim();
+
 				if(usermodel.isReserved(requester))
 					return cb(null, false, {message: 'admin, you can\'t'});
 
-				requester = data.user.login.trim();
 				
 				var pgquery = "SELECT * FROM POST WHERE post.post_id = "+id+";";
 				
@@ -78,6 +84,8 @@ module.exports = {
 			if(!data.success){
 				return cb({success: false});
 			} else {
+				requester = data.user.login.trim();
+
 				var pgquery = "SELECT * FROM post_reaction WHERE "+
 				"post_id = "+id+" and preader = '"+requester+"';"
 
@@ -128,6 +136,8 @@ module.exports = {
 			if(!data.success){
 				return cb({success: false});
 			} else {
+				requester = data.user.login.trim();
+
 				var pgquery = "SELECT * FROM post_reaction WHERE "+
 				"post_id = "+id+" and preader = '"+requester+"';"
 
@@ -209,6 +219,8 @@ module.exports = {
 			if(!data.success){
 				return cb({success: false});
 			} else {
+				requester = data.user.login.trim();
+
 				var pgquery = "SELECT * FROM post_reaction WHERE "+
 				"post_id = "+id+" and preader = '"+requester+"';"
 
@@ -218,7 +230,7 @@ module.exports = {
 					} else {
 						result = result.rows[0];
 
-						var response = {};
+						var response = {success: true};
 
 						if(result.favorited){
 
@@ -228,10 +240,9 @@ module.exports = {
 							"DELETE FROM fav_post WHERE post_id = "+id+" and "+
 							"webuser = '"+requester+"';";
 
-							response = {success: true, status: false};
+							response.status = false;
 
 						} else {
-							
 
 							pgquery = "UPDATE post_reaction SET "+
 							"favorited = true WHERE "+
@@ -241,7 +252,7 @@ module.exports = {
 							"ON CONFLICT (post_id, webuser) "+
 							"DO NOTHING;";
 
-							response = {success: true, status: true};
+							response.status = true;
 						}
 
 						Post.query(pgquery, function(err, result){

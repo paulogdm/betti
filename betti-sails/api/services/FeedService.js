@@ -12,7 +12,8 @@ module.exports = {
 			} else {
 				requester = data.user.login.trim();
 				
-				var pgquery = "select post.*, webuser.uphoto "+
+				var pgquery = "select post.*, webuser.uphoto, post_reaction.*, "+
+				"post.post_id as post_id "+
 				"from post "+
 				"inner join follow on "+
 				"(post.powner = follow.usender or "+
@@ -35,6 +36,7 @@ module.exports = {
 
 					if(result) {
 						result = result.rows;
+						sails.log.debug(result);
 
 						for(var i = result.length - 1; i >= 0; i--){
 							if(!result[i].uphoto){

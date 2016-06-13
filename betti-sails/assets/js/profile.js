@@ -199,6 +199,11 @@ angular.module("betti-app").
 
 	$scope.share = function(index){
 		PostService.share($scope.allPosts[index]);
+	}	
+
+	$scope.delete = function(index){
+		PostService.delete($scope.allPosts[index]);
+		$scope.allPosts.pop(index);
 	}
 
 }]);
@@ -238,6 +243,11 @@ angular.module("betti-app").
 
 	$scope.share = function(index){
 		PostService.share($scope.favPosts[index]);
+	}
+
+	$scope.delete = function(index){
+		PostService.delete($scope.favPosts[index]);
+		$scope.favPosts.pop(index)
 	}
 
 }]);
