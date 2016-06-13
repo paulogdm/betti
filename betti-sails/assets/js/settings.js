@@ -12,7 +12,7 @@ angular.module("betti-app").factory('SettingsComm', function($http){
 });
 
 function validDate(text) {
-
+	
 	var date = Date.parse(text);
 	var now = new Date();
 
@@ -96,8 +96,8 @@ angular.module("betti-app").controller('SettingsController',
 			}
 		};
 
-		if(!validDate($scope.birthday) ){
-			showSnackbar("'"+$scope.birthday+"' is not a valid date...");
+		if($scope.new_date && !validDate($scope.new_date) ){
+			showSnackbar("'"+$scope.new_date+"' is not a valid date...");
 		} else {			
 			showSnackbar("Sending...");
 
