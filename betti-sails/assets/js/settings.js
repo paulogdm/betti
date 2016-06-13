@@ -61,7 +61,12 @@ angular.module("betti-app").controller('SettingsController',
 				$scope.name = response.data.uname.trim();
 				$scope.user_photo = response.data.uphoto;
 				$scope.user_cover = response.data.ucover;
-				$scope.birthday = response.data.birthday;
+
+				var birthday = {};
+				var birth = new Date(response.data.birthday);
+				birthday.day = birth.getUTCDate();
+				birthday.month = birth.getUTCDate();
+				$scope.birthday = new Date(2000, birthday.month - 1, birthday.day);
 			}
 		},function(response) {
 			console.info("[Settings][get_profile] Error received!");
@@ -120,5 +125,21 @@ angular.module("betti-app").controller('SettingsController',
 				}
 			);
 		}
+	}
+
+	$scope.delete = function(){
+		SettingsComm.delete_profile(null).then(
+			function(response) {
+				if(response.data.success){
+					$scope.logout();
+					showSnackbar("Ok then, cya.");
+				} else {
+					showSnackbar("Failed to delete...");
+				}
+			},
+			function(response) {
+				showSnackbar("Error received from server. Invalid user?");
+			}
+		);
 	}
 }]);

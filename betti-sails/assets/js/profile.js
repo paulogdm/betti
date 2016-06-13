@@ -302,6 +302,7 @@ angular.module("betti-app").controller('AllFollowController', ['$scope', 'GetSer
 		
 		FollowCommService.follow(data).then(
 			function(response){
+				console.info(response);
 			if(response.status == 200){
 				showSnackbar("Unfollowing: "+data.login);
 			}

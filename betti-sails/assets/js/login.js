@@ -85,8 +85,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 	$scope.submitLogin = function (){
 
 		var msgSuc = "Welcome again!";
-		var msgErr = "Error received from server. Sorry!";
-		var msgFail = "Invalid credentials.";
+		var msgFail = "Wrong user or password.";
 		var flag = false;
 
 		
@@ -95,7 +94,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 			angular.isUndefinedOrNull($scope.user.login)			|| 
 			angular.isUndefinedOrNull($scope.user.password)
 			){
-			showSnackbar(msgErr+" Check your information please...");
+			showSnackbar("Missing field...");
 
 		} else {
 			var login = $scope.user.login;
@@ -118,8 +117,8 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 							document.cookie = "token="+response.data.token+
 							'; expires=' + now.toUTCString() + '; Path=/;';
 
-
 							console.info(response.data);
+							
 							showSnackbar(msgSuc);
 
 							if(data.login == 'admin') 
@@ -134,7 +133,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 
 				},
 				function(response) {
-					showSnackbar(msgErr);
+					showSnackbar("Server error. Contact the devs.");
 					console.info("[Login] Error received!");
 				}
 			);
@@ -145,9 +144,6 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 	$scope.submitNewLogin = function (){
 
 		var msgSuc = "Welcome! Now you can try your brand new login!"; 
-		var msgErr = "Sorry! Something is not right.";
-
-
 		if (
 			angular.isUndefinedOrNull($scope.user)					|| 
 			angular.isUndefinedOrNull($scope.user.new_login)		|| 
@@ -155,7 +151,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 			angular.isUndefinedOrNull($scope.user.new_name)			|| 
 			angular.isUndefinedOrNull($scope.user.new_date) 
 			){
-			showSnackbar(msgErr+" Check your information please...");
+			showSnackbar("Missing field...");
 
 		} else {
 			var newLogin = $scope.user.new_login;
@@ -182,7 +178,7 @@ angApp.controller('MainController', ['$scope', 'UserService', function($scope, U
 						hideDialog();
 					},
 					function(response) {
-						showSnackbar(msgErr);
+						showSnackbar("Login is taken! Otherwise, why we would receive an error?");
 						console.info("[Signup] Error received!");
 					}
 				);

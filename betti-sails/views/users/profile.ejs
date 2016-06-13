@@ -32,7 +32,7 @@
 						@<%= login %>
 					</div>
 					<div class="upper_bar_content mdl-color-text--white" style="float: right;">
-						<%= birthday.getDate()%>
+						<%= birthday.getUTCDate()%>
 						<%= birthday.toLocaleString("en-us", { month: "short" })%>
 						<i class="mdi mdi-cake-variant"></i>
 					</div>

@@ -98,15 +98,15 @@ module.exports = {
 			if(!decoded.success){
 				return cb({sucess: false});
 			} else {
-				
-				var pgquery = '';
+				requester = decoded.user.login.trim();
+
+				var pgquery = "DELETE FROM WEBUSER WHERE "+
+				" login = '"+requester+"';";
 
 				User.query(pgquery, function(err, result){
 					if (err) {
-						sails.log.debug("[SettingsService.js][save] Query error:\t");
-						sails.log.debug(JSON.stringify(result));
-						sails.log.debug(JSON.stringify(data));
-
+						sails.log.debug("[SettingsService.js][delete] Query error:\t");
+						sails.log.debug(err);
 						return cb({success: false});
 					}
 

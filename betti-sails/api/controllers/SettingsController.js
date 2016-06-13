@@ -48,6 +48,15 @@
 		SettingsService.save(requester, data, function(msg){
 			res.json(msg);
 		});
+	},
+
+	delete: function (req, res){
+
+ 		var requester = req.cookies.token;
+
+		SettingsService.deleteprofile(requester, function(msg){
+			res.json(msg);
+		});
 	}
- };
+};
 
