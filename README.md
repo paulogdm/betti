@@ -40,7 +40,9 @@ Everything else should work just fine.
 Use this to look for errors.
 
 `1- ./RUNME.sh is running properly?`
+
 `2- betti-sails/config/connections.js is set?`
+
 `3- Postgresql user is ok?`
 
 

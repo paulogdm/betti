@@ -153,7 +153,7 @@ angApp.controller('SideBarController', ['$scope', '$location', 'LayoutStyleServi
 	$scope.search = function(){
 		console.info($scope.search_input);
 		if($scope.search_input != null){
-			window.location.href = "../search/"+$scope.search_input; 
+			window.location.href = "/adminspace/search/"+$scope.search_input; 
 		} else {
 			showSnackbar("Sorry! Failed: "+$scope.search_input);
 		}
