@@ -108,7 +108,7 @@ angular.module("betti-app").controller('SettingsController',
 
 			SettingsComm.save(data).then(
 				function(response) {
-					if(response.data.success){
+					if(response.status == 200){
 						
 						showSnackbar("Success! Please refresh this page.");
 						
