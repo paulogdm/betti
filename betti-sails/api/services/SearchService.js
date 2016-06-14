@@ -13,8 +13,10 @@ module.exports = {
 			if(!data.success){
 				return cb(null, false, {message: 'invalid'});
 			} else {
-				requester = data.user.login.trim();
 				
+				requester = data.user.login.trim();
+				content = content.replace(/'/g, "\\'");
+
 				var pgquery = "SELECT webuser.uname as uname, webuser.login as login, "+
 				"webuser.uphoto as uphoto, ureceiver "+
 				"FROM webuser "+

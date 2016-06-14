@@ -34,7 +34,7 @@ module.exports = {
 				}
 
 				if(data.name){
-
+					data.name = data.name.replace(/'/g, "\\'");
 					values +=' name = \''
 					+data.name+'\',';
 					flag = true;
@@ -48,6 +48,7 @@ module.exports = {
 				}
 
 				if(data.description){
+					data.description = data.description.replace(/'/g, "\\'");
 
 					var query = "INSERT INTO webuserDescription(login, description) "+
 					"VALUES ('"+requester+"', '"+data.description+ "')"+ 
