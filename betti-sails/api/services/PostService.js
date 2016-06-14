@@ -13,8 +13,8 @@ module.exports = {
 					return cb(null, false, {message: 'admin, you can\'t'});
 
 				requester = data.user.login.trim();
-				post.title = post.title.replace(/'/g, "\\'");
-				post.text = post.text.replace(/'/g, "\\'");
+				post.title = post.title.replace(/'/g, "''");
+				post.text = post.text.replace(/'/g, "''");
 
 				var pgquery = 'INSERT INTO post (powner, title, text) '+
 				'VALUES (\''+requester+'\', \''+post.title+'\', \''+post.text+'\') '+
