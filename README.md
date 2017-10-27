@@ -1,6 +1,10 @@
 # BETTI (Better than Tidia)
 Small social website with AngularJS + Sails + JWT.
 
+## EDIT: 
+
+This was my first project with javascript and web apps! It was my first time with Sails, Angular, EJS etc. A lot of rookie mistakes here =)...
+
 ## Download + Installation
 
 `$ cd betti`
